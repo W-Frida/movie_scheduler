@@ -25,9 +25,7 @@ def main():
         res = requests.post(UPLOAD_URL, json=payload)
         res.raise_for_status()
 
-        if res.status_code >= 500:
-            print('🧨 FastAPI 伺服器內部錯誤，請檢查 /upload 路由是否有 Exception 被觸發')
-        elif res.status_code != 200:
+        if res.status_code != 200:
             print(f'❌ FastAPI 回傳錯誤：{res.status_code} → {res.text}')
         else:
             try:

@@ -1,6 +1,7 @@
 from dotenv import load_dotenv
 import datetime, re, os, subprocess, gspread
-from fastapi import FastAPI
+from fastapi import FastAPI, Header, HTTPException
+from auto_updater import main as run_updater
 from pydantic import BaseModel
 from typing import List
 from oauth2client.service_account import ServiceAccountCredentials
@@ -31,17 +32,24 @@ class MovieItem(BaseModel):
 
 
 @app.post("/upload")
-def upload_data(items: list[MovieItem]):
+def upload_data(items: List[MovieItem]):
     spreadsheet = get_spreadsheet()
     worksheet = rotate_movies_worksheet(spreadsheet)  # 每次重命名、刪除、建立分頁
     rows = prepare_rows(items)
     result = write_rows(rows, worksheet)
     return result
 
-@app.post("/run-updater")
-def run_updater():
-    subprocess.run(["python", "auto_updater.py"])
-    return {"status": "started"}
+@app.post("/trigger-update")
+def trigger_update(x_api_key: str = Header(default=None)):
+    if not x_api_key or x_api_key != os.getenv("UPDATER_API_KEY"):
+        raise HTTPException(status_code=403, detail="Invalid API key")
+
+    try:
+        run_updater() # 🚀 直接觸發 auto_updater 的 main()
+        return {"status": "success"}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
 
 @app.get("/")
 def home():
