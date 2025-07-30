@@ -1,0 +1,23 @@
+# IDE 設定
+.vscode/
+
+# Python 虛擬環境
+venv/
+
+# Python 暫存
+__pycache__/
+**/__pycache__/
+
+# Scrapy 暫存
+.crapy/
+
+# 敏感資訊
+credentials.json
+.env
+
+# 日誌檔案
+*.log
+
+# OS 系統檔案
+.DS_Store
+Thumbs.db

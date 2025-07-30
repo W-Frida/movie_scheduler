@@ -1,0 +1,9 @@
+Date: Fri, 06 Jun 2025 08:08:23 GMT
+Content-Type: text/html; charset=iso-8859-1
+Server: cloudflare
+Location: https://www.venice-cinemas.com.tw/movie.php
+Cf-Cache-Status: DYNAMIC
+Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=hVVwPR2D3lQSXuSyg%2FP4QDyvJKLLipJBQf9vB4NMM30%2F%2FitgtaPQcCGlmt5Yah2L13sUWVZldjthtZEPhYR3Ea7RLdFa4S%2FtO83Sf2pyDYLeL7c%3D"}]}
+Cf-Ray: 94b66be96f034a48-TPE
+Alt-Svc: h3=":443"; ma=86400

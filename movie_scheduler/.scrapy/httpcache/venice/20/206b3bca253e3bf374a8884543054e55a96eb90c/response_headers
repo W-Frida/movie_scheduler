@@ -1,0 +1,11 @@
+Date: Tue, 29 Jul 2025 08:19:06 GMT
+Content-Type: text/html; charset=iso-8859-1
+Server: cloudflare
+Location: https://www.venice-cinemas.com.tw/robots.txt
+Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+Cache-Control: max-age=1200
+Cf-Cache-Status: EXPIRED
+Vary: accept-encoding
+Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=%2F0Ip5RZZAxxLgk5jUvBcKu0Q0Phg1jSyq9YKm8b9xlEGmWC%2FhOWcp%2Bq3GDy4lWsvUded2ozYkFYTOZeYZZwaFRhcG3IzbVNf4O1p4OnAuR9Gz%2Fg%3D"}]}
+Cf-Ray: 966b307bef09a9bc-TPE
+Alt-Svc: h3=":443"; ma=86400

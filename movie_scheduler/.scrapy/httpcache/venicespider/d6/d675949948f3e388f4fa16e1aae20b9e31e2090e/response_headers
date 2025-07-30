@@ -1,0 +1,8 @@
+Content-Length: 133
+Content-Type: text/html; charset=utf-8
+Location: /film/index.aspx
+Access-Control-Allow-Origin: http://www.vscinemas.com.tw/, https://www.vscinemas.com.tw/
+Access-Control-Allow-Methods: GET, OPTIONS
+Access-Control-Allow-Headers: *
+Date: Fri, 06 Jun 2025 06:35:56 GMT
+Set-Cookie: TS01e2d048=01d6b202a533e37f4a02c64568807875e68b7c62b0a90f8d9559aa6f005fbd21ebaa1b0d232aac1bd63f4872cde1c4f52babbd902c063cff31a96f4a3c3559b9eb92cca867; Path=/;

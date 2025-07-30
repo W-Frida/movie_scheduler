@@ -1,0 +1,7 @@
+Content-Length: 157
+Content-Type: text/html; charset=UTF-8
+Location: https://www.vscinemas.com.tw/film/
+Access-Control-Allow-Origin: http://www.vscinemas.com.tw/, https://www.vscinemas.com.tw/
+Access-Control-Allow-Methods: GET, OPTIONS
+Access-Control-Allow-Headers: *
+Date: Tue, 29 Jul 2025 08:19:05 GMT

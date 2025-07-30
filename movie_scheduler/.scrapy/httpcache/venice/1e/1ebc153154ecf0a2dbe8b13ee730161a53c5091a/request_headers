@@ -1,0 +1,6 @@
+Referer: https://www.venice-cinemas.com.tw/movie-view.php?sn=1874&state=
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en
+User-Agent: Scrapy/2.13.1 (+https://scrapy.org)
+Accept-Encoding: gzip, deflate
+Cookie: PHPSESSID=sja3mctp8qhgi6f1d4qcd79tl5; viewList[]=1890

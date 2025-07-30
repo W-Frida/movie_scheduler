@@ -1,0 +1,5 @@
+Referer: https://api.showtimes.com.tw/1/events/listForProgram/11942
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en
+User-Agent: Scrapy/2.13.1 (+https://scrapy.org)
+Accept-Encoding: gzip, deflate

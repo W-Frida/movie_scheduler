@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>國賓電影網站入口 - 國賓影城 - 國賓大戲院 - 電影 - 現正熱映 - 聖夜：惡魔都市</title>
+
+
+    <meta name="description" content="國賓影城、國賓大戲院、提供電影介紹、場次時刻表、購票資訊、會員網路訂票服務及最新電影活動訊息">
+    <meta name="keywords" content="國賓、電影、國賓影城、國賓大戲院、國賓鉅院、國賓影城台北長春廣場、國賓影城環球購物中心、國賓影城台南國賓廣場、國賓影城高雄義大世界、國賓影城屏東環球購物中心、新莊晶冠國賓影城、林口昕境國賓影城、淡水禮萊國賓影城、八德廣豐國賓影城、高雄SKM Park國賓影城、金門昇恆昌國賓影城" />
+    <meta name="robots" content="Index,follow">
+    <meta property="og:title" content="國賓影城" />
+    <meta property="og:image" content="../images/ogp.jpg" />
+    <meta property="og:site_name" content="國賓電影網站" />
+    <meta property="og:url" content="https://www.ambassador.com.tw" />
+    <meta property="og:description" content="國賓影城、國賓大戲院、國賓鉅院、提供電影介紹、場次時刻、購票資訊、會員網路訂票服務及最新電影活動訊息" />
+
+    <link rel="icon" type="image/ico" href="../images/favicon.png" />
+    <link rel="apple-touch-icon" href="../images/touch_icon.png">
+    <style>
+        .loader {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background: #151728 url('../images/loader.gif') center 45% no-repeat;
+            background-size: 200px auto;
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 1000;
+            transform: translateZ(110px);
+        }
+    </style>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-7857560-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-7857560-1');
+    </script>
+
+</head>
+<body>
+
+    <div class="loader"><span class="hide">loading...</span></div>
+    <header class="header">
+        <div class="grid-container">
+            <div class="title-bar hide-for-medium">
+                <h1 title="國賓影城"><a href="home"><img src="../images/logo@2x.png" height="23" alt=""></a></h1>
+                <button class="menu-icon" type="button" data-toggle="menu-for-mobile"></button>
+
+            </div>
+
+            <div class="top-bar show-for-medium">
+
+                <div class="top-bar-left logo-box">
+                    <ul class="menu">
+                        <li><a href="home"><h1 title="國賓影城"><img src="../images/logo@2x.png" width="233" alt=""></h1></a></li>
+                    </ul>
+                </div>
+                <div class="top-bar-left main-menu">
+                    <ul class="menu">
+                        <li><a href="/home/MovieList?Type=1">電影</a></li>
+                        <li><a href="/home/TheaterList">影城</a></li>
+                        <li><a href="/home/EventList">好康</a></li>
+						<li><a href="/home/NewsList">消息</a></li>
+						<li><a href="/home/GroupTicket">團體</a></li>
+                    </ul>
+                </div>
+                <div class="top-bar-right">
+                    <ul class="dropdown menu" data-dropdown-menu>
+                        <li><a href="/home/MemberApply">加入會員</a></li>
+                        <li class="has-submenu">
+                            <a href="#!">線上訂票</a>
+                            <ul class="submenu menu vertical" data-submenu>
+                                <li><a href="https://booking.ambassador.com.tw/">電影訂票</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    
+    <div class="mobile-menu text-center" id="menu-for-mobile" data-animation-in="fade-in fast" data-animation-out="fade-out fast" data-reveal>
+        <div class="text-link">
+            <h2><a href="/home">首頁</a></h2>
+            <h2><a href="/home/MovieList?Type=1">電影</a></h2>
+            <h2><a href="/home/TheaterList">影城</a></h2>
+            <h2><a href="/home/EventList">好康</a></h2>
+			<h2><a href="/home/NewsList">消息</a></h2>
+			<h2><a href="/home/GroupTicket">團體</a></h2>
+            <h2><a href="/home/MemberApply">加入會員</a></h2>
+        </div>
+        <p class="text-left">線上訂票<br>下載國賓看電影APP</p><br>
+        <a href="https://itunes.apple.com/tw/app/%E5%9C%8B%E8%B3%93%E7%9C%8B%E9%9B%BB%E5%BD%B1/id435465064?mt=8"><img src="../images/web/app_apple@2x.png" width="150" alt=""></a>
+        <a href="https://play.google.com/store/apps/details?id=tw.com.langshin.moviefirst.droid&hl=zh_TW"><img src="../images/web/app_google@2x.png" width="150" alt=""></a>
+        <br><br>
+        <button class="close-button" data-close aria-label="Close reveal" type="button">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0XNCKP2G1J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0XNCKP2G1J');
+</script>
+
+<div class="page-content">
+
+    <ul class="breadcrumbs">
+        <li><a href="/home">首頁</a></li>
+        <li><a href="/home/MovieList?Type=1">電影</a></li>
+        
+        <li class="disabled">聖夜：惡魔都市</li>
+    </ul>
+
+    <section id="movie-info" class="movie-info">
+        <div class="grid-container">
+            <div class="grid-x">
+
+                
+                <div class='cell small-12 large-10 movie-play'><div class='movie-img' style='background-image: url(https://www.ambassador.com.tw/assets/img/movies/HOLYNIGHTDEMONHUNTERS_FullPageBackground.jpg)'><a data-toggle='clip-play-1' class='play-button'><span class='hide'>play</span><img src='../images/icon/video_lg@2x.png' width='70' alt=''></a></div><div class='small reveal' id='clip-play-1' data-reveal data-close-on-click='true' data-animation-in='fade-in' data-animation-out='fade-out' data-reset-on-close='true'><div class='responsive-embed widescreen'><iframe width='560' height='315' src='https://www.youtube.com/embed/H8SPJ0ye5m4?rel=0&amp;showinfo=0?autoplay=1' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe></div><button class='close-button' data-close aria-label='Close reveal' type='button'><span aria-hidden='true'>&times;</span></button></div></div><div class='cell small-3 medium-2 large-2 movie-pic-box'><img src='https://www.ambassador.com.tw/assets/img/movies/HOLYNIGHTDEMONHUNTERS_180x270_Poster.jpg' alt='' width='100%'><a class='button alert expanded mt20 show-for-large' href='https://booking.ambassador.com.tw/'>立即訂票</a></div><div class='cell small-12 medium-12 large-12 movie-info-box'><h2>聖夜：惡魔都市</h2><h6>HOLY NIGHT: DEMON HUNTERS</h6><hr><div class='rating-box'><span class='tag-rating-p'>輔15級(PG15)</span><span>1時31分</span></div><p>因為崇拜邪惡的集團，使都市陷入混亂。擁有特殊能力的惡魔獵人「聖夜」團隊成員巴宇（馬東石 飾）、莎倫（徐玄 飾）、金君（李大衛 飾），他們是否戰勝邪惡力量，恢復都市的秩序呢？​</p><p class='note'>主要演員：徐玄,李大衛,馬東石</p><p class='note'>影片類型：動作</p><p class='note'>上映日期：2025/04/30</p></div>
+                
+
+            </div>
+        </div>
+    </section>
+
+    
+    <div class='search-bar page' data-sticky data-stick-to='bottom' data-top-anchor='movie-info:bottom' data-btm-anchor='footer:bottom' data-options='marginBottom:0;' data-sticky-on='small'><div class='grid-container'><div class='grid-x grid-margin-x'><div class='cell small-6 medium-9 large-9'><h6 class='movie-title'>聖夜：惡魔都市<span class='show-for-medium'>輔15級(PG15) | 1時31分</span></h6></div><div class='cell small-6 medium-3 large-3 text-right'><a class='button alert' href='https://booking.ambassador.com.tw/'>立即訂票</a></div></div></div></div>
+
+    
+
+                
+                
+
+            
+
+    
+    <section id='search-bar-page' class='search-bar-page'><div class='grid-container'><div class='grid-x'><div class='cell small-12 large-6'><ul class='dropdown menu' data-dropdown-menu><li class='has-submenu'><a href='/home/MovieContent?MID=2a5a2734-4b14-4d9a-8e16-02b5e57b5eab&DT=2025/06/10'>週二, 2025/06/10</a><ul class='menu scrollbar'><li><a href='/home/MovieContent?MID=2a5a2734-4b14-4d9a-8e16-02b5e57b5eab&DT=2025/06/07'>當日, 2025/06/07</a></li><li><a href='/home/MovieContent?MID=2a5a2734-4b14-4d9a-8e16-02b5e57b5eab&DT=2025/06/08'>週日, 2025/06/08</a></li><li><a href='/home/MovieContent?MID=2a5a2734-4b14-4d9a-8e16-02b5e57b5eab&DT=2025/06/09'>週一, 2025/06/09</a></li><li><a href='/home/MovieContent?MID=2a5a2734-4b14-4d9a-8e16-02b5e57b5eab&DT=2025/06/10'>週二, 2025/06/10</a></li><li><a href='/home/MovieContent?MID=2a5a2734-4b14-4d9a-8e16-02b5e57b5eab&DT=2025/06/11'>週三, 2025/06/11</a></li><li><a href='/home/MovieContent?MID=2a5a2734-4b14-4d9a-8e16-02b5e57b5eab&DT=2025/06/12'>週四, 2025/06/12</a></li></ul></li></ul></div><div class='cell small-12 medium-8 medium-offset-2 large-6 large-offset-0'><div class='seat-info'><div data-tooltip class='has-tip' data-disable-hover='false' tabindex='1' data-position='bottom' data-allow-html='true' title='<h6>尊爵席座椅</h6>尊爵席座椅為進口FIGUERAS豪華式電動沙發座椅，可輕鬆調整最舒適的觀影角度，每個座位皆附小餐檯讓您更無負擔的享受餐飲美食。<br>*標示場次的影廳有部分席次為尊爵席座椅<br>*訂票時您可選擇加價升級為尊爵席座椅'><img src='../images/web/seat_prime@2x.png' alt=''><span><img src='../images/icon/seat_prime@2x.png' alt='' width='25'><b>此影廳部分席次為尊爵席座椅</b></span></div><div data-tooltip class='has-tip' data-disable-hover='false' tabindex='1' data-position='bottom' data-allow-html='true' title='<h6>D-BOX座椅</h6>D-BOX是加拿大最新研發出的搖動座椅，可配合電影劇情及畫面作出垂直、左右、前後不同的搖動，並可依觀眾需求調整震動強度，享受置身現場的觀影娛樂。<br>*標示場次的影廳有部分席次為D-BOX座椅<br>*訂票時您可選擇加價升級為D-BOX座椅'><img src='../images/web/seat_dbox@2x.png' alt=''><span><img src='../images/icon/seat_dbox@2x.png' alt='' width='25'><b>此影廳部分席次為D-BOX座椅</b></span></div></div></div></div></div></section>
+    
+
+                        
+                    
+
+    <section class="theater-list">
+        <div class="grid-container">
+
+            <div class='theater-box'><h3><a href='/home/Showtime?ID=453b2966-f7c2-44a9-b2eb-687493855d0e&DT=2025/06/07'>台北長春國賓影城</a><span class='show-for-medium'>台北市中山區長春路176號</span><span class='show-for-medium'>|</span><span class='show-for-medium'>(02)2515-5757</span></h3><p class='tag-seat'>(數位‧韓語版)聖夜：惡魔都市</p><ul class='no-bullet seat-list'><li data-open='go-ticket'><h6>10:50</h6><p><span class='float-left info'>B廳 114席</span></ul></div>
+            
+
+        </div>
+    </section>
+
+    
+    <section class="more-pics">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+
+                <div class='swiper-slide'><img src='https://www.ambassador.com.tw/assets/img/movies/HOLYNIGHTDEMONHUNTERS03.jpg' alt=''></div><div class='swiper-slide'><img src='https://www.ambassador.com.tw/assets/img/movies/HOLYNIGHTDEMONHUNTERS04.jpg' alt=''></div><div class='swiper-slide'><img src='https://www.ambassador.com.tw/assets/img/movies/HOLYNIGHTDEMONHUNTERS05.jpg' alt=''></div>
+                
+
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination "></div>
+            <!-- Add Arrows -->
+            <div class="swiper-button-next"><img src="../images/icon/next_arrow_lg@2x.png" alt=""></div>
+            <div class="swiper-button-prev"><img src="../images/icon/prev_arrow_lg@2x.png" alt=""></div>
+        </div>
+    </section>
+
+    
+    <section class="recommend-list">
+        <h3 class="text-center">推薦電影</h3>
+        <div class="tabs-content" data-tabs-content="recommend-movie">
+
+            <div class="tabs-panel is-active">
+
+                <div class="swiper-button-next swiper-button-white">&#62;</div>
+                <div class="swiper-button-prev swiper-button-white">&#60;</div>
+
+                <div class="swiper-container poster-list">
+                    <div class="swiper-wrapper">
+
+                        <div class='swiper-slide'><a href='/home/MovieContent?MID=99a8fd6c-f785-440c-938e-ac78abbfa010&DT=2025/06/07' class='poster'><img src='https://www.ambassador.com.tw/assets/img/movies/BALLERINA_180x270_Poster.jpg' alt='' width='100%'></a><div class='poster-info'><div class='title'><h6><a href='/home/MovieContent?MID=99a8fd6c-f785-440c-938e-ac78abbfa010&DT=2025/06/07'>捍衛任務：復仇芭蕾</a></h6><p class='show-for-large'>BALLERINA</p><span class='tag-pre close'>預售中</span></div><div class='link-box show-for-large'><a href='/home/MovieContent?MID=99a8fd6c-f785-440c-938e-ac78abbfa010&DT=2025/06/07'><img src='../images/icon/time@2x.png' width='17' alt=''>場次</a><a href='#!' class='poster-hot-btn' data-open='poster-hot' data-src='https://www.youtube.com/embed/GcnbU1Ahywo?rel=0&amp;showinfo=0?autoplay=1'><img src='images/icon/video@2x.png' width='17' alt=''>預告</a></div></div></div><div class='swiper-slide'><a href='/home/MovieContent?MID=f186b3fd-ff58-4431-a538-3f42de8cca0f&DT=2025/06/07' class='poster'><img src='https://www.ambassador.com.tw/assets/img/movies/FINALDESTINATIONBLOODLINES_180x270_Poster.jpg' alt='' width='100%'></a><div class='poster-info'><div class='title'><h6><a href='/home/MovieContent?MID=f186b3fd-ff58-4431-a538-3f42de8cca0f&DT=2025/06/07'>絕命終結站 血脈</a></h6><p class='show-for-large'>FINAL DESTINATION: BLOODLINES</p><span class='tag-pre close'>預售中</span></div><div class='link-box show-for-large'><a href='/home/MovieContent?MID=f186b3fd-ff58-4431-a538-3f42de8cca0f&DT=2025/06/07'><img src='../images/icon/time@2x.png' width='17' alt=''>場次</a><a href='#!' class='poster-hot-btn' data-open='poster-hot' data-src='https://www.youtube.com/embed/bU8-vu6b008?rel=0&amp;showinfo=0?autoplay=1'><img src='images/icon/video@2x.png' width='17' alt=''>預告</a></div></div></div><div class='swiper-slide'><a href='/home/MovieContent?MID=de6bf79d-9b38-4b23-b3f0-2b6975517618&DT=2025/06/07' class='poster'><img src='https://www.ambassador.com.tw/assets/img/movies/WillYouMarryMonk_180x270_Poster.jpg' alt='' width='100%'></a><div class='poster-info'><div class='title'><h6><a href='/home/MovieContent?MID=de6bf79d-9b38-4b23-b3f0-2b6975517618&DT=2025/06/07'>我家妹妹不准嫁</a></h6><p class='show-for-large'>Will You Marry Monk?</p><span class='tag-pre close'>預售中</span></div><div class='link-box show-for-large'><a href='/home/MovieContent?MID=de6bf79d-9b38-4b23-b3f0-2b6975517618&DT=2025/06/07'><img src='../images/icon/time@2x.png' width='17' alt=''>場次</a><a href='#!' class='poster-hot-btn' data-open='poster-hot' data-src='https://www.youtube.com/embed/Nn0xzn_imPc?rel=0&amp;showinfo=0?autoplay=1'><img src='images/icon/video@2x.png' width='17' alt=''>預告</a></div></div></div><div class='swiper-slide'><a href='/home/MovieContent?MID=0b2d407d-7f59-47ee-997f-e193b2e436bf&DT=2025/06/07' class='poster'><img src='https://www.ambassador.com.tw/assets/img/movies/ANALOG_180x270_Poster.jpg' alt='' width='100%'></a><div class='poster-info'><div class='title'><h6><a href='/home/MovieContent?MID=0b2d407d-7f59-47ee-997f-e193b2e436bf&DT=2025/06/07'>老派</a></h6><p class='show-for-large'>ANALOG</p><span class='tag-pre close'>預售中</span></div><div class='link-box show-for-large'><a href='/home/MovieContent?MID=0b2d407d-7f59-47ee-997f-e193b2e436bf&DT=2025/06/07'><img src='../images/icon/time@2x.png' width='17' alt=''>場次</a><a href='#!' class='poster-hot-btn' data-open='poster-hot' data-src='https://www.youtube.com/embed/CuAnYU_KogY?rel=0&amp;showinfo=0?autoplay=1'><img src='images/icon/video@2x.png' width='17' alt=''>預告</a></div></div></div><div class='swiper-slide'><a href='/home/MovieContent?MID=145c8537-cc1c-4783-9411-83014255e131&DT=2025/06/07' class='poster'><img src='https://www.ambassador.com.tw/assets/img/movies/WeLiveInTime_180x270_Poster.jpg' alt='' width='100%'></a><div class='poster-info'><div class='title'><h6><a href='/home/MovieContent?MID=145c8537-cc1c-4783-9411-83014255e131&DT=2025/06/07'>此刻的我們</a></h6><p class='show-for-large'>We Live In Time</p><span class='tag-pre close'>預售中</span></div><div class='link-box show-for-large'><a href='/home/MovieContent?MID=145c8537-cc1c-4783-9411-83014255e131&DT=2025/06/07'><img src='../images/icon/time@2x.png' width='17' alt=''>場次</a><a href='#!' class='poster-hot-btn' data-open='poster-hot' data-src='https://www.youtube.com/embed/t3nhBwb88eM?rel=0&amp;showinfo=0?autoplay=1'><img src='images/icon/video@2x.png' width='17' alt=''>預告</a></div></div></div><div class='swiper-slide'><a href='/home/MovieContent?MID=d1da662d-4424-4373-8727-5856565bb3ac&DT=2025/06/07' class='poster'><img src='https://www.ambassador.com.tw/assets/img/movies/ARMORED_180x270_Poster.jpg' alt='' width='100%'></a><div class='poster-info'><div class='title'><h6><a href='/home/MovieContent?MID=d1da662d-4424-4373-8727-5856565bb3ac&DT=2025/06/07'>浴血劫案</a></h6><p class='show-for-large'>ARMORED</p><span class='tag-pre close'>預售中</span></div><div class='link-box show-for-large'><a href='/home/MovieContent?MID=d1da662d-4424-4373-8727-5856565bb3ac&DT=2025/06/07'><img src='../images/icon/time@2x.png' width='17' alt=''>場次</a><a href='#!' class='poster-hot-btn' data-open='poster-hot' data-src='https://www.youtube.com/embed/j2vJCcsqDLQ?rel=0&amp;showinfo=0?autoplay=1'><img src='images/icon/video@2x.png' width='17' alt=''>預告</a></div></div></div><div class='swiper-slide'><a href='/home/MovieContent?MID=8349a73c-e0cd-457b-8ded-d6e9d15c4bfa&DT=2025/06/07' class='poster'><img src='https://www.ambassador.com.tw/assets/img/movies/THEPHOENICIANSCHEME_180x270_Poster.jpg' alt='' width='100%'></a><div class='poster-info'><div class='title'><h6><a href='/home/MovieContent?MID=8349a73c-e0cd-457b-8ded-d6e9d15c4bfa&DT=2025/06/07'>腓尼基計劃</a></h6><p class='show-for-large'>THE PHOENICIAN SCHEME</p><span class='tag-pre close'>預售中</span></div><div class='link-box show-for-large'><a href='/home/MovieContent?MID=8349a73c-e0cd-457b-8ded-d6e9d15c4bfa&DT=2025/06/07'><img src='../images/icon/time@2x.png' width='17' alt=''>場次</a><a href='#!' class='poster-hot-btn' data-open='poster-hot' data-src='https://www.youtube.com/embed/GL7_9piv2UU?rel=0&amp;showinfo=0?autoplay=1'><img src='images/icon/video@2x.png' width='17' alt=''>預告</a></div></div></div><div class='swiper-slide'><a href='/home/MovieContent?MID=f5e4423d-ea86-41b0-a642-7108c7f457f8&DT=2025/06/07' class='poster'><img src='https://www.ambassador.com.tw/assets/img/movies/TaiwanUnsungHero_180x270_Poster.jpg' alt='' width='100%'></a><div class='poster-info'><div class='title'><h6><a href='/home/MovieContent?MID=f5e4423d-ea86-41b0-a642-7108c7f457f8&DT=2025/06/07'>台灣超人</a></h6><p class='show-for-large'>Taiwan Unsung Hero</p><span class='tag-pre close'>預售中</span></div><div class='link-box show-for-large'><a href='/home/MovieContent?MID=f5e4423d-ea86-41b0-a642-7108c7f457f8&DT=2025/06/07'><img src='../images/icon/time@2x.png' width='17' alt=''>場次</a><a href='#!' class='poster-hot-btn' data-open='poster-hot' data-src='https://www.youtube.com/embed/31JrA7CmKHs?rel=0&amp;showinfo=0?autoplay=1'><img src='images/icon/video@2x.png' width='17' alt=''>預告</a></div></div></div><div class='swiper-slide'><a href='/home/MovieContent?MID=2a5a2734-4b14-4d9a-8e16-02b5e57b5eab&DT=2025/06/07' class='poster'><img src='https://www.ambassador.com.tw/assets/img/movies/HOLYNIGHTDEMONHUNTERS_180x270_Poster.jpg' alt='' width='100%'></a><div class='poster-info'><div class='title'><h6><a href='/home/MovieContent?MID=2a5a2734-4b14-4d9a-8e16-02b5e57b5eab&DT=2025/06/07'>聖夜：惡魔都市</a></h6><p class='show-for-large'>HOLY NIGHT: DEMON HUNTERS</p><span class='tag-pre close'>預售中</span></div><div class='link-box show-for-large'><a href='/home/MovieContent?MID=2a5a2734-4b14-4d9a-8e16-02b5e57b5eab&DT=2025/06/07'><img src='../images/icon/time@2x.png' width='17' alt=''>場次</a><a href='#!' class='poster-hot-btn' data-open='poster-hot' data-src='https://www.youtube.com/embed/H8SPJ0ye5m4?rel=0&amp;showinfo=0?autoplay=1'><img src='images/icon/video@2x.png' width='17' alt=''>預告</a></div></div></div><div class='swiper-slide'><a href='/home/MovieContent?MID=369d1836-ae8a-49e6-b857-b45a6ab5bfa8&DT=2025/06/07' class='poster'><img src='https://www.ambassador.com.tw/assets/img/movies/JaneAustenWreckedMyLife_180x270_Poster.jpg' alt='' width='100%'></a><div class='poster-info'><div class='title'><h6><a href='/home/MovieContent?MID=369d1836-ae8a-49e6-b857-b45a6ab5bfa8&DT=2025/06/07'>珍奧斯汀誤了我一生</a></h6><p class='show-for-large'>Jane Austen Wrecked My Life</p><span class='tag-pre close'>預售中</span></div><div class='link-box show-for-large'><a href='/home/MovieContent?MID=369d1836-ae8a-49e6-b857-b45a6ab5bfa8&DT=2025/06/07'><img src='../images/icon/time@2x.png' width='17' alt=''>場次</a><a href='#!' class='poster-hot-btn' data-open='poster-hot' data-src='https://www.youtube.com/embed/IJrijm_Y8LI?rel=0&amp;showinfo=0?autoplay=1'><img src='images/icon/video@2x.png' width='17' alt=''>預告</a></div></div></div><div class='swiper-slide'><a href='/home/MovieContent?MID=c5705dd3-629b-42db-b7f6-456e361dc0cb&DT=2025/06/07' class='poster'><img src='https://www.ambassador.com.tw/assets/img/movies/DOGTOOTH_180x270_Poster.jpg' alt='' width='100%'></a><div class='poster-info'><div class='title'><h6><a href='/home/MovieContent?MID=c5705dd3-629b-42db-b7f6-456e361dc0cb&DT=2025/06/07'>非普通教慾：4K數位修復版</a></h6><p class='show-for-large'>DOGTOOTH</p><span class='tag-pre close'>預售中</span></div><div class='link-box show-for-large'><a href='/home/MovieContent?MID=c5705dd3-629b-42db-b7f6-456e361dc0cb&DT=2025/06/07'><img src='../images/icon/time@2x.png' width='17' alt=''>場次</a><a href='#!' class='poster-hot-btn' data-open='poster-hot' data-src='https://www.youtube.com/embed/TbX1b22gEis?rel=0&amp;showinfo=0?autoplay=1'><img src='images/icon/video@2x.png' width='17' alt=''>預告</a></div></div></div><div class='swiper-slide'><a href='/home/MovieContent?MID=b563c5b8-de14-406c-95be-4dc23f5e62ea&DT=2025/06/07' class='poster'><img src='https://www.ambassador.com.tw/assets/img/movies/TREASUREHUNTERS_180x270_Poster.jpg' alt='' width='100%'></a><div class='poster-info'><div class='title'><h6><a href='/home/MovieContent?MID=b563c5b8-de14-406c-95be-4dc23f5e62ea&DT=2025/06/07'>寶藏獵人</a></h6><p class='show-for-large'>TREASURE HUNTERS</p><span class='tag-pre close'>預售中</span></div><div class='link-box show-for-large'><a href='/home/MovieContent?MID=b563c5b8-de14-406c-95be-4dc23f5e62ea&DT=2025/06/07'><img src='../images/icon/time@2x.png' width='17' alt=''>場次</a><a href='#!' class='poster-hot-btn' data-open='poster-hot' data-src='https://www.youtube.com/embed/D3uZ1E5XIzs?rel=0&amp;showinfo=0?autoplay=1'><img src='images/icon/video@2x.png' width='17' alt=''>預告</a></div></div></div><div class='swiper-slide'><a href='/home/MovieContent?MID=a028f6c6-f68a-460f-9ee9-03b575a2091b&DT=2025/06/07' class='poster'><img src='https://www.ambassador.com.tw/assets/img/movies/WheretheRiverFlows_180x270_Poster.jpg' alt='' width='100%'></a><div class='poster-info'><div class='title'><h6><a href='/home/MovieContent?MID=a028f6c6-f68a-460f-9ee9-03b575a2091b&DT=2025/06/07'>搜查瑠公圳</a></h6><p class='show-for-large'>Where the River Flows</p><span class='tag-pre close'>預售中</span></div><div class='link-box show-for-large'><a href='/home/MovieContent?MID=a028f6c6-f68a-460f-9ee9-03b575a2091b&DT=2025/06/07'><img src='../images/icon/time@2x.png' width='17' alt=''>場次</a><a href='#!' class='poster-hot-btn' data-open='poster-hot' data-src='https://www.youtube.com/embed/pwAp7Qw3cd8?rel=0&amp;showinfo=0?autoplay=1'><img src='images/icon/video@2x.png' width='17' alt=''>預告</a></div></div></div><div class='swiper-slide'><a href='/home/MovieContent?MID=6d596566-a135-4e89-8c09-e5e00b80dc33&DT=2025/06/07' class='poster'><img src='https://www.ambassador.com.tw/assets/img/movies/BRINGHERBACK_180x270_Poster.jpg' alt='' width='100%'></a><div class='poster-info'><div class='title'><h6><a href='/home/MovieContent?MID=6d596566-a135-4e89-8c09-e5e00b80dc33&DT=2025/06/07'>滿血復活</a></h6><p class='show-for-large'>BRING HER BACK</p><span class='tag-pre close'>預售中</span></div><div class='link-box show-for-large'><a href='/home/MovieContent?MID=6d596566-a135-4e89-8c09-e5e00b80dc33&DT=2025/06/07'><img src='../images/icon/time@2x.png' width='17' alt=''>場次</a><a href='#!' class='poster-hot-btn' data-open='poster-hot' data-src='https://www.youtube.com/embed/bBp7M8mdmmw?rel=0&amp;showinfo=0?autoplay=1'><img src='images/icon/video@2x.png' width='17' alt=''>預告</a></div></div></div><div class='swiper-slide'><a href='/home/MovieContent?MID=f99f4a79-4dd4-4394-8dc2-7135541b0fec&DT=2025/06/07' class='poster'><img src='https://www.ambassador.com.tw/assets/img/movies/WhisperoftheHeart_180x270_Poster.jpg' alt='' width='100%'></a><div class='poster-info'><div class='title'><h6><a href='/home/MovieContent?MID=f99f4a79-4dd4-4394-8dc2-7135541b0fec&DT=2025/06/07'>心之谷.</a></h6><p class='show-for-large'>Whisper of the Heart</p><span class='tag-pre close'>預售中</span></div><div class='link-box show-for-large'><a href='/home/MovieContent?MID=f99f4a79-4dd4-4394-8dc2-7135541b0fec&DT=2025/06/07'><img src='../images/icon/time@2x.png' width='17' alt=''>場次</a><a href='#!' class='poster-hot-btn' data-open='poster-hot' data-src='https://www.youtube.com/embed/9KMRkfO5KK8?rel=0&amp;showinfo=0?autoplay=1'><img src='images/icon/video@2x.png' width='17' alt=''>預告</a></div></div></div><div class='swiper-slide'><a href='/home/MovieContent?MID=1d591f0c-6c99-421b-9c11-7335a11b7e9d&DT=2025/06/07' class='poster'><img src='https://www.ambassador.com.tw/assets/img/movies/VIPDEATHSEAT_180x270_Poster.jpg' alt='' width='100%'></a><div class='poster-info'><div class='title'><h6><a href='/home/MovieContent?MID=1d591f0c-6c99-421b-9c11-7335a11b7e9d&DT=2025/06/07'>屍速客運</a></h6><p class='show-for-large'>VIP DEATH SEAT</p><span class='tag-pre close'>預售中</span></div><div class='link-box show-for-large'><a href='/home/MovieContent?MID=1d591f0c-6c99-421b-9c11-7335a11b7e9d&DT=2025/06/07'><img src='../images/icon/time@2x.png' width='17' alt=''>場次</a><a href='#!' class='poster-hot-btn' data-open='poster-hot' data-src='https://www.youtube.com/embed/XE0zbKXQfPw?rel=0&amp;showinfo=0?autoplay=1'><img src='images/icon/video@2x.png' width='17' alt=''>預告</a></div></div></div><div class='swiper-slide'><a href='/home/MovieContent?MID=37d79418-067d-49b4-b075-c41bef0355aa&DT=2025/06/07' class='poster'><img src='https://www.ambassador.com.tw/assets/img/movies/SINNERS_180x270_Poster.jpg' alt='' width='100%'></a><div class='poster-info'><div class='title'><h6><a href='/home/MovieContent?MID=37d79418-067d-49b4-b075-c41bef0355aa&DT=2025/06/07'>罪人</a></h6><p class='show-for-large'>SINNERS</p><span class='tag-pre close'>預售中</span></div><div class='link-box show-for-large'><a href='/home/MovieContent?MID=37d79418-067d-49b4-b075-c41bef0355aa&DT=2025/06/07'><img src='../images/icon/time@2x.png' width='17' alt=''>場次</a><a href='#!' class='poster-hot-btn' data-open='poster-hot' data-src='https://www.youtube.com/embed/NqEwdIG9swc?rel=0&amp;showinfo=0?autoplay=1'><img src='images/icon/video@2x.png' width='17' alt=''>預告</a></div></div></div><div class='swiper-slide'><a href='/home/MovieContent?MID=141483a1-fe65-40b6-be94-cafc6f77d704&DT=2025/06/07' class='poster'><img src='https://www.ambassador.com.tw/assets/img/movies/LiloStitch_180x270_Poster.jpg' alt='' width='100%'></a><div class='poster-info'><div class='title'><h6><a href='/home/MovieContent?MID=141483a1-fe65-40b6-be94-cafc6f77d704&DT=2025/06/07'>星際寶貝：史迪奇</a></h6><p class='show-for-large'>Lilo & Stitch</p><span class='tag-pre close'>預售中</span></div><div class='link-box show-for-large'><a href='/home/MovieContent?MID=141483a1-fe65-40b6-be94-cafc6f77d704&DT=2025/06/07'><img src='../images/icon/time@2x.png' width='17' alt=''>場次</a><a href='#!' class='poster-hot-btn' data-open='poster-hot' data-src='https://www.youtube.com/embed/YIcC_g0LQPI?rel=0&amp;showinfo=0?autoplay=1'><img src='images/icon/video@2x.png' width='17' alt=''>預告</a></div></div></div><div class='swiper-slide'><a href='/home/MovieContent?MID=f879ab15-cca4-4c85-9abc-c9e04f903037&DT=2025/06/07' class='poster'><img src='https://www.ambassador.com.tw/assets/img/movies/ASamuraiinTime_180x270_Poster.jpg' alt='' width='100%'></a><div class='poster-info'><div class='title'><h6><a href='/home/MovieContent?MID=f879ab15-cca4-4c85-9abc-c9e04f903037&DT=2025/06/07'>超時空武士</a></h6><p class='show-for-large'>A Samurai in Time</p><span class='tag-pre close'>預售中</span></div><div class='link-box show-for-large'><a href='/home/MovieContent?MID=f879ab15-cca4-4c85-9abc-c9e04f903037&DT=2025/06/07'><img src='../images/icon/time@2x.png' width='17' alt=''>場次</a><a href='#!' class='poster-hot-btn' data-open='poster-hot' data-src='https://www.youtube.com/embed/5gYsv_bODtk?rel=0&amp;showinfo=0?autoplay=1'><img src='images/icon/video@2x.png' width='17' alt=''>預告</a></div></div></div><div class='swiper-slide'><a href='/home/MovieContent?MID=a4a089e2-b7d9-4ea3-8186-315a99a2e2a0&DT=2025/06/07' class='poster'><img src='https://www.ambassador.com.tw/assets/img/movies/AChipOdyssey_180x270_Poster.jpg' alt='' width='100%'></a><div class='poster-info'><div class='title'><h6><a href='/home/MovieContent?MID=a4a089e2-b7d9-4ea3-8186-315a99a2e2a0&DT=2025/06/07'>（提前包場）造山者－世紀的賭注</a></h6><p class='show-for-large'>A Chip Odyssey</p><span class='tag-pre close'>預售中</span></div><div class='link-box show-for-large'><a href='/home/MovieContent?MID=a4a089e2-b7d9-4ea3-8186-315a99a2e2a0&DT=2025/06/07'><img src='../images/icon/time@2x.png' width='17' alt=''>場次</a><a href='#!' class='poster-hot-btn' data-open='poster-hot' data-src='https://www.youtube.com/embed/TzI-kTINIB8?rel=0&amp;showinfo=0?autoplay=1'><img src='images/icon/video@2x.png' width='17' alt=''>預告</a></div></div></div><div class='swiper-slide'><a href='/home/MovieContent?MID=3e087d53-0813-4f74-83ab-b66d8e1d2ee3&DT=2025/06/07' class='poster'><img src='https://www.ambassador.com.tw/assets/img/movies/InvisibleNation_180x270_Poster.jpg' alt='' width='100%'></a><div class='poster-info'><div class='title'><h6><a href='/home/MovieContent?MID=3e087d53-0813-4f74-83ab-b66d8e1d2ee3&DT=2025/06/07'>（提前包場）看不見的國家</a></h6><p class='show-for-large'>Invisible Nation</p><span class='tag-pre close'>預售中</span></div><div class='link-box show-for-large'><a href='/home/MovieContent?MID=3e087d53-0813-4f74-83ab-b66d8e1d2ee3&DT=2025/06/07'><img src='../images/icon/time@2x.png' width='17' alt=''>場次</a><a href='#!' class='poster-hot-btn' data-open='poster-hot' data-src='https://www.youtube.com/embed/RNUHWnt0bb0?rel=0&amp;showinfo=0?autoplay=1'><img src='images/icon/video@2x.png' width='17' alt=''>預告</a></div></div></div><div class='swiper-slide'><a href='/home/MovieContent?MID=60c2d123-ce02-45e3-8404-2b5be99de162&DT=2025/06/07' class='poster'><img src='https://www.ambassador.com.tw/assets/img/movies/THEKINGOFKINGS_180x270_Poster.jpg' alt='' width='100%'></a><div class='poster-info'><div class='title'><h6><a href='/home/MovieContent?MID=60c2d123-ce02-45e3-8404-2b5be99de162&DT=2025/06/07'>萬王之王</a></h6><p class='show-for-large'>THE KING OF KINGS</p><span class='tag-pre close'>預售中</span></div><div class='link-box show-for-large'><a href='/home/MovieContent?MID=60c2d123-ce02-45e3-8404-2b5be99de162&DT=2025/06/07'><img src='../images/icon/time@2x.png' width='17' alt=''>場次</a><a href='#!' class='poster-hot-btn' data-open='poster-hot' data-src='https://www.youtube.com/embed/q-3aUad55rM?rel=0&amp;showinfo=0?autoplay=1'><img src='images/icon/video@2x.png' width='17' alt=''>預告</a></div></div></div><div class='swiper-slide'><a href='/home/MovieContent?MID=e03efa27-76b8-4e17-8be3-a479d5675046&DT=2025/06/07' class='poster'><img src='https://www.ambassador.com.tw/assets/img/movies/KARATEKIDLEGENDS_180x270_Poster.jpg' alt='' width='100%'></a><div class='poster-info'><div class='title'><h6><a href='/home/MovieContent?MID=e03efa27-76b8-4e17-8be3-a479d5675046&DT=2025/06/07'>小子難纏：空手道傳奇</a></h6><p class='show-for-large'>KARATE KID: LEGENDS</p><span class='tag-pre close'>預售中</span></div><div class='link-box show-for-large'><a href='/home/MovieContent?MID=e03efa27-76b8-4e17-8be3-a479d5675046&DT=2025/06/07'><img src='../images/icon/time@2x.png' width='17' alt=''>場次</a><a href='#!' class='poster-hot-btn' data-open='poster-hot' data-src='https://www.youtube.com/embed/d9f_TMiy1RI?rel=0&amp;showinfo=0?autoplay=1'><img src='images/icon/video@2x.png' width='17' alt=''>預告</a></div></div></div><div class='swiper-slide'><a href='/home/MovieContent?MID=c5ee711b-679e-4114-a0c5-5d4f087103f8&DT=2025/06/07' class='poster'><img src='https://www.ambassador.com.tw/assets/img/movies/Guardiansofourplanet_180x270_Poster.jpg' alt='' width='100%'></a><div class='poster-info'><div class='title'><h6><a href='/home/MovieContent?MID=c5ee711b-679e-4114-a0c5-5d4f087103f8&DT=2025/06/07'>守護我們的星球</a></h6><p class='show-for-large'>Guardians of our planet</p><span class='tag-pre close'>預售中</span></div><div class='link-box show-for-large'><a href='/home/MovieContent?MID=c5ee711b-679e-4114-a0c5-5d4f087103f8&DT=2025/06/07'><img src='../images/icon/time@2x.png' width='17' alt=''>場次</a><a href='#!' class='poster-hot-btn' data-open='poster-hot' data-src='https://www.youtube.com/embed/EOiTZMBooz8?rel=0&amp;showinfo=0?autoplay=1'><img src='images/icon/video@2x.png' width='17' alt=''>預告</a></div></div></div><div class='swiper-slide'><a href='/home/MovieContent?MID=d60f6d9c-3811-4868-9fce-6b781e07f151&DT=2025/06/07' class='poster'><img src='https://www.ambassador.com.tw/assets/img/movies/LOVESICK_180x270_Poster.jpg' alt='' width='100%'></a><div class='poster-info'><div class='title'><h6><a href='/home/MovieContent?MID=d60f6d9c-3811-4868-9fce-6b781e07f151&DT=2025/06/07'>（畢業場）有病才會喜歡你</a></h6><p class='show-for-large'>LOVESICK</p><span class='tag-pre close'>預售中</span></div><div class='link-box show-for-large'><a href='/home/MovieContent?MID=d60f6d9c-3811-4868-9fce-6b781e07f151&DT=2025/06/07'><img src='../images/icon/time@2x.png' width='17' alt=''>場次</a><a href='#!' class='poster-hot-btn' data-open='poster-hot' data-src='https://www.youtube.com/embed/jq8J5Z5bWtA?rel=0&amp;showinfo=0?autoplay=1'><img src='images/icon/video@2x.png' width='17' alt=''>預告</a></div></div></div><div class='swiper-slide'><a href='/home/MovieContent?MID=2f48f651-a47d-434c-b04c-848b952f22cb&DT=2025/06/07' class='poster'><img src='https://www.ambassador.com.tw/assets/img/movies/WEMADEABEAUTIFULBOUQUET_180x270_Poster.jpg' alt='' width='100%'></a><div class='poster-info'><div class='title'><h6><a href='/home/MovieContent?MID=2f48f651-a47d-434c-b04c-848b952f22cb&DT=2025/06/07'>花束般的戀愛.</a></h6><p class='show-for-large'>WE MADE A BEAUTIFUL BOUQUET</p><span class='tag-pre close'>預售中</span></div><div class='link-box show-for-large'><a href='/home/MovieContent?MID=2f48f651-a47d-434c-b04c-848b952f22cb&DT=2025/06/07'><img src='../images/icon/time@2x.png' width='17' alt=''>場次</a><a href='#!' class='poster-hot-btn' data-open='poster-hot' data-src='https://www.youtube.com/embed/NsiHr3vJVQ0?rel=0&amp;showinfo=0?autoplay=1'><img src='images/icon/video@2x.png' width='17' alt=''>預告</a></div></div></div><div class='swiper-slide'><a href='/home/MovieContent?MID=b3578dca-eac4-4620-b4d1-3a4f2e5365d9&DT=2025/06/07' class='poster'><img src='https://www.ambassador.com.tw/assets/img/movies/THUNDERBOLTS_180x270_Poster.jpg' alt='' width='100%'></a><div class='poster-info'><div class='title'><h6><a href='/home/MovieContent?MID=b3578dca-eac4-4620-b4d1-3a4f2e5365d9&DT=2025/06/07'>雷霆特攻隊＊</a></h6><p class='show-for-large'>THUNDERBOLTS</p><span class='tag-pre close'>預售中</span></div><div class='link-box show-for-large'><a href='/home/MovieContent?MID=b3578dca-eac4-4620-b4d1-3a4f2e5365d9&DT=2025/06/07'><img src='../images/icon/time@2x.png' width='17' alt=''>場次</a><a href='#!' class='poster-hot-btn' data-open='poster-hot' data-src='https://www.youtube.com/embed/TuVFMyhOLBE?rel=0&amp;showinfo=0?autoplay=1'><img src='images/icon/video@2x.png' width='17' alt=''>預告</a></div></div></div><div class='swiper-slide'><a href='/home/MovieContent?MID=44e9b88f-8ab6-49d4-b654-419050468ffd&DT=2025/06/07' class='poster'><img src='https://www.ambassador.com.tw/assets/img/movies/THEACCOUNTANT2_180x270_Poster.jpg' alt='' width='100%'></a><div class='poster-info'><div class='title'><h6><a href='/home/MovieContent?MID=44e9b88f-8ab6-49d4-b654-419050468ffd&DT=2025/06/07'>會計師2</a></h6><p class='show-for-large'>THE ACCOUNTANT 2</p><span class='tag-pre close'>預售中</span></div><div class='link-box show-for-large'><a href='/home/MovieContent?MID=44e9b88f-8ab6-49d4-b654-419050468ffd&DT=2025/06/07'><img src='../images/icon/time@2x.png' width='17' alt=''>場次</a><a href='#!' class='poster-hot-btn' data-open='poster-hot' data-src='https://www.youtube.com/embed/DISd7XLf8ks?rel=0&amp;showinfo=0?autoplay=1'><img src='images/icon/video@2x.png' width='17' alt=''>預告</a></div></div></div><div class='swiper-slide'><a href='/home/MovieContent?MID=14719ca8-e721-4af6-af14-f50a4adcc0d0&DT=2025/06/07' class='poster'><img src='https://www.ambassador.com.tw/assets/img/movies/Loveable_180x270_Poster.jpg' alt='' width='100%'></a><div class='poster-info'><div class='title'><h6><a href='/home/MovieContent?MID=14719ca8-e721-4af6-af14-f50a4adcc0d0&DT=2025/06/07'>關於愛的練習</a></h6><p class='show-for-large'>Loveable</p><span class='tag-pre close'>預售中</span></div><div class='link-box show-for-large'><a href='/home/MovieContent?MID=14719ca8-e721-4af6-af14-f50a4adcc0d0&DT=2025/06/07'><img src='../images/icon/time@2x.png' width='17' alt=''>場次</a><a href='#!' class='poster-hot-btn' data-open='poster-hot' data-src='https://www.youtube.com/embed/ZusoiT3_u6g?rel=0&amp;showinfo=0?autoplay=1'><img src='images/icon/video@2x.png' width='17' alt=''>預告</a></div></div></div><div class='swiper-slide'><a href='/home/MovieContent?MID=b21da099-2f7f-4ce5-a48d-b767745ae72c&DT=2025/06/07' class='poster'><img src='https://www.ambassador.com.tw/assets/img/movies/LEE_180x270_Poster.jpg' alt='' width='100%'></a><div class='poster-info'><div class='title'><h6><a href='/home/MovieContent?MID=b21da099-2f7f-4ce5-a48d-b767745ae72c&DT=2025/06/07'>她眼中的世界</a></h6><p class='show-for-large'>LEE</p><span class='tag-pre close'>預售中</span></div><div class='link-box show-for-large'><a href='/home/MovieContent?MID=b21da099-2f7f-4ce5-a48d-b767745ae72c&DT=2025/06/07'><img src='../images/icon/time@2x.png' width='17' alt=''>場次</a><a href='#!' class='poster-hot-btn' data-open='poster-hot' data-src='https://www.youtube.com/embed/LB37c885_BQ?rel=0&amp;showinfo=0?autoplay=1'><img src='images/icon/video@2x.png' width='17' alt=''>預告</a></div></div></div><div class='swiper-slide'><a href='/home/MovieContent?MID=fd8ceead-d848-47e8-9f76-93e5053859f2&DT=2025/06/07' class='poster'><img src='https://www.ambassador.com.tw/assets/img/movies/MISSIONIMPOSSIBLETHEFINALRECKONING_180x270_Poster.jpg' alt='' width='100%'></a><div class='poster-info'><div class='title'><h6><a href='/home/MovieContent?MID=fd8ceead-d848-47e8-9f76-93e5053859f2&DT=2025/06/07'>不可能的任務：最終清算</a></h6><p class='show-for-large'>MISSION: IMPOSSIBLE - THE FINAL RECKONING</p><span class='tag-pre close'>預售中</span></div><div class='link-box show-for-large'><a href='/home/MovieContent?MID=fd8ceead-d848-47e8-9f76-93e5053859f2&DT=2025/06/07'><img src='../images/icon/time@2x.png' width='17' alt=''>場次</a><a href='#!' class='poster-hot-btn' data-open='poster-hot' data-src='https://www.youtube.com/embed/f1RNAslZPlY?rel=0&amp;showinfo=0?autoplay=1'><img src='images/icon/video@2x.png' width='17' alt=''>預告</a></div></div></div><div class='swiper-slide'><a href='/home/MovieContent?MID=5d8c776a-4275-4043-a68d-f0dabd2ada8e&DT=2025/06/07' class='poster'><img src='https://www.ambassador.com.tw/assets/img/movies/LaHaine_180x270_Poster.jpg' alt='' width='100%'></a><div class='poster-info'><div class='title'><h6><a href='/home/MovieContent?MID=5d8c776a-4275-4043-a68d-f0dabd2ada8e&DT=2025/06/07'>恨（30週年4K修復版）</a></h6><p class='show-for-large'>La Haine</p><span class='tag-pre close'>預售中</span></div><div class='link-box show-for-large'><a href='/home/MovieContent?MID=5d8c776a-4275-4043-a68d-f0dabd2ada8e&DT=2025/06/07'><img src='../images/icon/time@2x.png' width='17' alt=''>場次</a><a href='#!' class='poster-hot-btn' data-open='poster-hot' data-src='https://www.youtube.com/embed/MoCby6rzhso?rel=0&amp;showinfo=0?autoplay=1'><img src='images/icon/video@2x.png' width='17' alt=''>預告</a></div></div></div><div class='swiper-slide'><a href='/home/MovieContent?MID=95d9e43f-9430-4c89-bcc8-e406b6d3a3f7&DT=2025/06/07' class='poster'><img src='https://www.ambassador.com.tw/assets/img/movies/SOULLANTERN_180x270_Poster.jpg' alt='' width='100%'></a><div class='poster-info'><div class='title'><h6><a href='/home/MovieContent?MID=95d9e43f-9430-4c89-bcc8-e406b6d3a3f7&DT=2025/06/07'>冥燈</a></h6><p class='show-for-large'>SOUL LANTERN</p><span class='tag-pre close'>預售中</span></div><div class='link-box show-for-large'><a href='/home/MovieContent?MID=95d9e43f-9430-4c89-bcc8-e406b6d3a3f7&DT=2025/06/07'><img src='../images/icon/time@2x.png' width='17' alt=''>場次</a><a href='#!' class='poster-hot-btn' data-open='poster-hot' data-src='https://www.youtube.com/embed/pFdBWRHiBlk?rel=0&amp;showinfo=0?autoplay=1'><img src='images/icon/video@2x.png' width='17' alt=''>預告</a></div></div></div><div class='swiper-slide'><a href='/home/MovieContent?MID=27707b92-a1a9-41ef-af7e-5669f29ee45c&DT=2025/06/07' class='poster'><img src='https://www.ambassador.com.tw/assets/img/movies/HauntedMountainsTheYellowTaboo_180x270_Poster.jpg' alt='' width='100%'></a><div class='poster-info'><div class='title'><h6><a href='/home/MovieContent?MID=27707b92-a1a9-41ef-af7e-5669f29ee45c&DT=2025/06/07'>山忌 黃衣小飛俠</a></h6><p class='show-for-large'>Haunted Mountains：The Yellow Taboo</p><span class='tag-pre close'>預售中</span></div><div class='link-box show-for-large'><a href='/home/MovieContent?MID=27707b92-a1a9-41ef-af7e-5669f29ee45c&DT=2025/06/07'><img src='../images/icon/time@2x.png' width='17' alt=''>場次</a><a href='#!' class='poster-hot-btn' data-open='poster-hot' data-src='https://www.youtube.com/embed/yHwteZ-tnt0?rel=0&amp;showinfo=0?autoplay=1'><img src='images/icon/video@2x.png' width='17' alt=''>預告</a></div></div></div><div class='swiper-slide'><a href='/home/MovieContent?MID=feb2e6bc-46be-4f8c-9894-9f7fd890ee89&DT=2025/06/07' class='poster'><img src='https://www.ambassador.com.tw/assets/img/movies/LOVESICK_180x270_Poster.jpg' alt='' width='100%'></a><div class='poster-info'><div class='title'><h6><a href='/home/MovieContent?MID=feb2e6bc-46be-4f8c-9894-9f7fd890ee89&DT=2025/06/07'>有病才會喜歡你</a></h6><p class='show-for-large'>LOVESICK</p><span class='tag-pre close'>預售中</span></div><div class='link-box show-for-large'><a href='/home/MovieContent?MID=feb2e6bc-46be-4f8c-9894-9f7fd890ee89&DT=2025/06/07'><img src='../images/icon/time@2x.png' width='17' alt=''>場次</a><a href='#!' class='poster-hot-btn' data-open='poster-hot' data-src='https://www.youtube.com/embed/jq8J5Z5bWtA?rel=0&amp;showinfo=0?autoplay=1'><img src='images/icon/video@2x.png' width='17' alt=''>預告</a></div></div></div>
+                        
+
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <a class="hollow button" href="/home/MovieList?Type=1">更多電影</a>
+                </div>
+
+                            <!--現正熱映預告片彈跳視窗-->
+                            <div class="small reveal" id="poster-hot" data-reveal
+                                 data-close-on-click="true"
+                                 data-animation-in="fade-in"
+                                 data-reset-on-close="true">
+                                <div class="responsive-embed widescreen">
+                                    <iframe width="560" height="315" src="" frameborder="0"
+                                            allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                </div>
+                                <button class="close-button" data-close aria-label="Close reveal" type="button">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+            </div>
+
+        </div>
+    </section>
+
+</div>
+
+
+<div class="reveal" id="go-ticket" data-reveal>
+    <div class="reveal-content">
+        <div class="text-box">
+            <h2>是否確認前往訂票？</h2>
+
+            <a id="app-link" href="https://booking.ambassador.com.tw/" target="_blank" class="secondary button expanded">是</a>
+            <a data-close class="secondary button expanded">否（返回頁面）</a>
+
+        </div>
+        <button class="close-button" data-close aria-label="Close modal" type="button">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+</div>
+
+
+
+
+
+    <footer id="footer">
+        <div class="grid-container">
+            <div class="grid-x">
+                <div class="cell small-12 text-center more-info hide-for-medium">
+                    <a href="https://www.facebook.com/AmbassadorFans"><img src="../images/web/logo_fb@2x.png" width="40" height="40" alt=""></a>
+                    <a href="https://www.instagram.com/ambassador_theatres/"><img src="../images/web/logo_ig@2x.png" width="40" height="40" alt=""></a>
+                </div>
+                <div class="cell small-12 large-8">
+                    <ul class="vertical menu accordion-menu" data-accordion-menu>
+                        <li>
+                            <a href="#!">關於國賓</a>
+                            <ul class="menu vertical nested">
+                                <li><a href="/home/MovieList?Type=1">電影</a></li>
+                                <li><a href="/home/TheaterList">影城</a></li>
+                                <li><a href="/home/EventList">好康</a></li>
+                                <li><a href="/home/NewsList">消息公告</a></li>
+                                <li><a href="/home/ContactUs">顧客意見信箱</a></li>
+                                <li><a href="/home/CreditCardNews">信用卡優惠</a></li>
+                                <li><a href="/home/GroupTicket">購買電影優待券及包廳</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">國賓會員</a>
+                            <ul class="menu vertical nested">
+                                <li><a href="/home/MemberApply">加入會員</a></li>
+                                <li><a href="/home/MemberContract">會員規章</a></li>
+                                <li><a href="https://booking.ambassador.com.tw/">會員資料修改</a></li>
+                                <li><a href="https://booking.ambassador.com.tw/frontend/service-forgotpassword.html">會員密碼查詢</a></li>
+                                <li><a href="https://booking.ambassador.com.tw/frontend/service-instruction.html">常見問題</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">線上訂票</a>
+                            <ul class="menu vertical nested">
+                                <li><a href="https://booking.ambassador.com.tw/">電影訂票</a></li>
+                                <li><a href="https://www.ambassador.com.tw/external/events/app_new/index.html">國賓看電影ＡＰＰ</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">特殊影廳</a>
+                            <ul class="menu vertical nested">
+                                <li><a href="https://www.ambassador.com.tw/external/events/dbox/DBOX_MFX.html">Ｄ-BOX動感座椅</a></li>
+                                <li><a href="https://www.ambassador.com.tw/external/events/atx/index.html">DOLBY ATMOS</a></li>
+                                <li><a href="https://www.ambassador.com.tw/external/events/DiamondClass/index.html">金鑽貴賓廳</a></li>
+                                <li><a href="https://www.ambassador.com.tw/external/events/PrimeSeat/index.html">尊爵席</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="dl-box cell small-12 large-4 show-for-medium">
+                    <h4>下載國賓看電影APP</h4>
+                    <div class="info-box grid-x grid-margin-x">
+                        <div class="cell small-5">
+                            <img src="../images/web/qrcode@2x.png" width="100" alt="">
+                        </div>
+                        <div class="cell small-7">
+                            <a href="https://itunes.apple.com/tw/app/%E5%9C%8B%E8%B3%93%E7%9C%8B%E9%9B%BB%E5%BD%B1/id435465064?mt=8" class="button-store"><img src="../images/web/app_apple@2x.png" width="150" alt=""><img src="../images/web/app_apple_o@2x.png" width="150" alt=""></a>
+                            <a href="https://play.google.com/store/apps/details?id=tw.com.langshin.moviefirst.droid&hl=zh_TW" class="button-store"><img src="../images/web/app_google@2x.png" width="150" alt=""><img src="../images/web/app_google_o@2x.png" width="150" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="cell small-12 text-center logo-box hide-for-medium">
+                    <img src="../images/web/logo_foo_01@2x.png" width="140" alt="">
+                    <img src="../images/web/logo_foo_02@2x.png" width="140" alt="">
+                </div>
+            </div>
+        </div>
+
+
+
+    </footer>
+
+    <small id="copyright" class="copyright">
+        <div class="grid-container">
+
+            <div class="grid-x">
+                <div class="cell small-12 medium-12 large-6"><p>Copyright © 2024 Ambassador Theatres. All Rights Reserved. </p></div>
+                <div class="cell small-12 medium-12 large-6 show-for-medium text-right more-info">
+                    <img class="f-logo" src="../images/web/logo_foo_01@2x.png" width="150" height="40" alt="">
+                    <img class="f-logo" src="../images/web/logo_foo_02@2x.png" width="150" height="40" alt="">
+                    <a href="https://www.facebook.com/AmbassadorFans"><img src="../images/web/logo_fb@2x.png" width="40" height="40" alt=""></a>
+                    <a href="https://www.instagram.com/ambassador_theatres/"><img src="../images/web/logo_ig@2x.png" width="40" height="40" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </small>
+
+    <link rel="stylesheet" href="../css/foundation.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/motion-ui@1.2.3/dist/motion-ui.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.4.0/css/perfect-scrollbar.min.css">
+    <link rel="stylesheet" href="../css/all.css">
+
+    <link rel="stylesheet" href="../css/vendor/swiper.css">
+
+    <script type='text/javascript' src='../js/vendor/all.js'></script>
+
+    
+
+    <script type='text/javascript' src='../js/vendor/jquery.ellipsis.interactive.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.4.0/perfect-scrollbar.min.js"></script>
+    <script type='text/javascript' src='../js/app.js'></script>
+
+    <script type='text/javascript' src='../js/vendor/circle-progress.min.js'></script>
+    <script type='text/javascript' src='../js/vendor/swiper.min.js'></script>
+
+    
+    <script type='text/javascript' src='../js/movie.js'></script>
+    <script type='text/javascript' src='../js/index.js'></script>
+
+    <script>
+        $(function () {
+            $('.main-menu .menu li').eq(0).find('a').addClass('active')
+        })
+    </script>
+
+    
+
+    <script>
+        $(function () {
+            $('footer').addClass('line');
+            $('.where-select a').on('click', function (e) {
+                e.preventDefault();
+
+                $('html, body').animate({
+                    scrollTop: $($(this).attr('data-href')).offset().top
+                }, 400, 'linear');
+            });
+        })
+    </script>
+
+    <script>
+
+        var $win = $(window);
+        $win.on("load", function (e) {
+            var $loader = $('.loader');
+            $loader.fadeOut();
+        })
+    </script>
+
+</body>
+</html>

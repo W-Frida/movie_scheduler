@@ -1,0 +1,1461 @@
+
+<!DOCTYPE html>
+<html>
+  <head><!--[if lt IE 9]>
+    <script src="../js/html5.js"></script><![endif]-->
+    <!-- mata資訊-->
+        <!-- meta [start]-->
+        <title>威秀影城 - 鬼妻棺</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, user-scalable=yes">
+        <meta name="description" content="威秀影城（VIESHOW CINEMAS），自1998年營業至今，為台灣最大的連鎖影城，全台共計13座據點。威秀影城擁有最出色的播映設備，包括數位IMAX和3D設備，也是全台首座結合商場而成的複合式影城，也因影城多角化經營而讓威秀影城成為台灣影城界的領導品牌。">
+        <meta name="keywords" content="威秀,電影訂票,電影,影城,戲院">
+        <meta name="author" content="威秀影城 - VIESHOW CINEMAS">
+        <meta name="copyright" content="威秀影城 - VIESHOW CINEMAS">
+        <meta name="Robots" content="all">
+        <meta http-equiv="content-language" content="zh-TW">
+        <meta name="revisit-after" content="7 days">
+        <meta name="distribution" content="GLOBAL">
+        <meta name="GOOGLEBOT" content="index, follow">
+        <meta property="og:title" content="威秀影城 - VIESHOW CINEMAS">
+        <meta property="og:description" content="威秀影城（VIESHOW CINEMAS），自1998年營業至今，為台灣最大的連鎖影城，全台共計13座據點。威秀影城擁有最出色的播映設備，包括數位IMAX和3D設備，也是全台首座結合商場而成的複合式影城，也因影城多角化經營而讓威秀影城成為台灣影城界的領導品牌。">
+        <meta property="og:site_name" content="威秀影城 - VIESHOW CINEMAS">
+        <meta property="og:type" content="company">
+        <meta property="og:image" content="/images/thumbnail.jpg">
+        <link rel="image_src" href="../images/thumbnail.jpg">
+        <link rel="shortcut icon" href="/favicon.ico">
+        <!-- meta [end]-->
+    <!-- Source [jquery] (lib)-->
+    <script type="text/javascript" src="../js/jquery-2.1.0.min.js"></script>
+    <!-- form check-->
+    <link rel="stylesheet" href="../js/validation/validationEngine.jquery.css">
+    <script type="text/javascript" charset="utf-8" src="../js/validation/jquery-migrate-1.1.0.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/validation/languages/jquery.validationEngine-zh_TW.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/validation/jquery.validationEngine.js"></script>
+    <!--scrolltop [toTop]-->
+    <script type="text/javascript" src="../js/scrolltopcontrol.js"></script>
+    <!-- Photo Swipe [photo display ]-->
+    <link rel="stylesheet" href="../js/photoSwipe/photoswipe.css">
+    <link rel="stylesheet" href="../js/photoSwipe/default-skin/default-skin.css">
+    <script type="text/javascript" src="../js/photoSwipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="../js/photoSwipe/photoswipe-ui-default.min.js"></script>
+    <!-- Photo Swipe [photo display ]-->
+    <link rel="stylesheet" href="../js/photoSwipe/photoswipe.css">
+    <link rel="stylesheet" href="../js/photoSwipe/default-skin/default-skin.css">
+    <script type="text/javascript" src="../js/photoSwipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="../js/photoSwipe/photoswipe-ui-default.min.js"></script>
+    <!-- Jssor Slider-->
+    <script type="text/javascript" src="../js/jssor.slider/jssor.slider.min.js"></script>
+    <!-- Sticky-->
+    <script type="text/javascript" src="../js/jquery.sticky.js"></script>
+    <!-- For Movie Detail Act-->
+    <script type="text/javascript" src="../js/movieDetail.js?638894029423751805"></script>
+    <!-- Code-->
+    <script type="text/javascript" src="../js/share.js"></script>
+    <script type="text/javascript" src="../js/inside.js?202506062"></script>
+    <!-- Style-->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/share.css">
+    <link rel="stylesheet" href="../css/inside.css?638894029423751805">
+  </head>
+  <body>
+    <div id="top"></div>
+
+    
+    <!--公告圖片的燈箱--><!-- Popup區塊 [start] -->
+    <div class="liveAD">
+    <!-- 燈箱開啟區塊 [start] -->
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+    <div id="gallery" class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="pswp__bg"></div>
+
+        <div class="pswp__scroll-wrap">
+
+            <div class="pswp__container">
+                <div class="pswp__item">
+                    <div class="pswp__zoom-wrap">
+                    </div>
+                </div>
+                <div class="pswp__item">
+                    <div class="pswp__zoom-wrap"></div>
+                </div>
+                <div class="pswp__item">
+                    <div class="pswp__zoom-wrap"></div>
+                </div>
+            </div>
+
+            <div class="pswp__ui pswp__ui--fit pswp__ui--hidden">
+
+                <div class="pswp__top-bar">
+
+                    <div class="pswp__counter"></div>
+
+                    <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                    <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                    <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                    <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                            <div class="pswp__preloader__cut">
+                                <div class="pswp__preloader__donut"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div>
+                </div>
+
+                <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+                <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- 燈箱開啟區塊 [End] -->
+</div>
+<!-- Popup區塊 [end] -->
+<style>
+
+figure {    
+    text-align:center;
+}
+
+.publicGallery, .publicInfo, .publicNote {
+    display: none;
+}
+.publicGallery.show, .publicInfo.show, .publicNote.show {
+    display: block;
+}
+
+</style>
+
+<!--售票公告圖檔，#popup1為點擊時要開啟的圖，預設為第一張。-->
+<div itemscope="" data-pswp-uid="1" class="publicNote">
+
+        <div class="modal-backdrop"></div>
+        <div class="modal fade modal-lg" id="popup1">
+            <div class="modal-body">
+                <figure itemscope>
+                    <img class="img-fluid" u="image" src="../upload/help/help_20200929001.jpg" itemprop="thumbnail" />
+                    <figcaption itemprop="caption description">售票時間</figcaption>
+                </figure>                
+            </div>
+        </div>
+        
+
+</div>
+
+<!--入場須知圖檔，#popup2為點擊時要開啟的圖，預設為第一張。-->
+<div itemscope="" data-pswp-uid="1" class="publicInfo">
+
+        <div class="modal-backdrop"></div>
+        <div class="modal fade modal-lg" id="popup2">            
+            <div class="modal-body">
+                <img class="img-fluid" u="image" src="../upload/help/help_20161230001.jpg" itemprop="thumbnail" />
+                <p style="text-align:center">電影分級</p>
+            </div>            
+        </div>
+
+        <div class="modal-backdrop"></div>
+        <div class="modal fade modal-lg" id="popup2">            
+            <div class="modal-body">
+                <img class="img-fluid" u="image" src="../upload/help/help_20191003001.jpg" itemprop="thumbnail" />
+                <p style="text-align:center">入場須知</p>
+            </div>            
+        </div>
+
+    </div>
+    
+    
+    
+    <!--3-->
+    <div itemscope="" data-pswp-uid="1" class="publicInfo">
+      
+        <div class="modal-backdrop"></div>
+        <div class="modal fade modal-lg" id="popup3">
+            <div class="modal-body">
+                <img class="img-fluid" u="image" src="../upload/images/b01.png" itemprop="thumbnail" />
+                <p>獨享票價優惠及餐飲折扣</p>                
+            </div>
+        </div>
+
+    </div>
+		
+		<!--4-->
+    <div itemscope="" data-pswp-uid="1" class="publicInfo">
+
+        <div class="modal-backdrop"></div>
+        <div class="modal fade modal-lg" id="popup4">
+            <div class="modal-body">
+                <img class="img-fluid" u="image" src="../upload/images/b02.png" itemprop="thumbnail" />                
+            </div>
+        </div>
+
+    </div>
+		
+		<!--5-->
+    <div itemscope="" data-pswp-uid="1" class="publicInfo">
+
+        <div class="modal-backdrop"></div>
+        <div class="modal fade modal-lg" id="popup5">
+            <div class="modal-body">
+                <img class="img-fluid" u="image" src="../upload/images/b03.png" itemprop="thumbnail" />
+            </div>
+        </div>
+
+    </div>
+		
+		<!--6-->
+    <div itemscope="" data-pswp-uid="1" class="publicInfo">
+
+        <div class="modal-backdrop"></div>
+        <div class="modal fade modal-lg" id="popup6">
+            <div class="modal-body">
+                <img class="img-fluid" u="image" src="../upload/images/b04.png" itemprop="thumbnail" />                
+            </div>
+        </div>
+
+    </div>
+
+
+    
+<script type="text/javascript" src="../js/time-range.js?638894029423751805"></script>
+<script type="text/javascript" src="../js/modal.js?202506063"></script>
+<link rel="stylesheet" href="../css/modal.css?2025060613">    
+<header class="header">
+     <!--票站資訊-->
+    <input type="hidden" id="vsTicket" value="https://www.vscinemas.com.tw/vsTicketing/" />
+    <input type="hidden" id="VieShowTicket" value="https://sales.vscinemas.com.tw/VieShowTicketT/" />
+    <!--票站資訊-->
+    <div class="topArea">
+        <a href="/index.aspx" class="logo">
+            <img src="/images/vscinemas_logo.png" alt="威秀影城 - VIESHOW CINEMAS" title="威秀影城 - VIESHOW CINEMAS"></a><a class="icon-menu"></a>
+        <section class="menuAll">
+            <!--上方連結-->
+            <ul class="topLink">
+                
+                <li class="firstLink"><a href="#" class="first">連絡威秀</a>
+                    <ul>
+                        <li><a href="#" class="openTel">服務專線</a></li>
+                        <li><a href="/contact/contact.aspx">企業合作</a></li>
+                        
+                        
+                        <!--
+                            <li><a href="https://www.vscinemas.com.tw/about/responselogin.aspx" target="_blank">顧客意見</a></li>
+                        -->
+                        <li><a href="/about/responselogin.aspx" target="_blank">顧客意見</a></li>
+                        
+                        <li><a href="/contact/theater_booking.aspx">包廳租借</a></li>
+                        <li><a href="/about/recruit.aspx">人才招募</a></li>
+                        <li><a href="/contact/advertisingagency.aspx">廣告託播</a></li>
+                    </ul>
+                </li>
+                <li class="firstLink"><a href="/qa/qalist.aspx" class="first">常見問題</a>
+                    <ul>
+                        
+                        <li><a href="/qa/qalist.aspx?A=1">會員問題</a></li>
+                        
+                        <li><a href="/qa/qalist.aspx?A=2">訂購票問題</a></li>
+                        
+                        <li><a href="/qa/qalist.aspx?A=3">優待券使用問題</a></li>
+                        
+                        <li><a href="/qa/qalist.aspx?A=5">電子發票</a></li>
+                        
+                        <li><a href="/qa/qalist.aspx?A=4">其他問題</a></li>
+                        
+                        
+                        <li><a href="/qa/LostAndFound.aspx">遺失物服務</a></li>
+                    </ul>
+                </li>
+                
+                
+                <!--<li><a href="https://sales.vscinemas.com.tw/VieShowTicket/Member/Deposit">會員登入</a></li>-->
+                <li><a href="https://sales.vscinemas.com.tw/VieShowTicketT/Member/Deposit">會員登入</a></li>
+                <!--<li><a href="https://www.vscinemas.com.tw/Service/" target="_blank">會員服務</a></li>-->
+                <li><a href="/Service/" target="_blank">會員服務</a></li>
+            </ul>
+            <ul class="iconLink">
+                <!--<li><a href="https://www.vscinemas.com.tw/mk/line/index.html" target="_blank" class="icon-line"></a></li>-->
+                <li><a href="/mk/line/index.html" target="_blank" class="icon-line"></a></li>
+                <li><a href="https://www.facebook.com/vieshow" target="_blank" class="icon-social-facebook"></a></li>
+                <li><a href="https://www.youtube.com/user/vieshowmodmore" target="_blank" class="icon-social-youtube"></a></li>
+                <li><a href="https://www.instagram.com/vieshow_cinemas" target="_blank" class="icon-instagram"></a></li>
+            </ul>
+            <!--主選單-->
+            <nav class="menu">
+                <ul class="subMenu">
+                    
+                    <li class="mainLink"><a href="#" class="firstMenu">影城介紹</a>
+                        <ul class="sublink">
+                            <li><a href="/theater/index.aspx">威秀影城</a></li>
+                            <li><a href="/theater/index2.aspx">MUVIE</a></li>
+                        </ul>
+                    </li>
+                    <li class="mainLink haveBanner"><a href="#" class="firstMenu">電影介紹</a>
+                        
+                        <div class="bannerGroup">
+                            <ul>
+                                <!--<li><a href="/film/hot.aspx">哈燒影榜</a></li>-->
+                                <li><a href="/film/index.aspx">熱售中</a></li>
+                                
+                                <li><a href="/film/coming.aspx">即將上映</a></li>
+                            </ul>
+                            
+                            <section class="sbannerArea">
+                                
+                                <figure>
+                                    <a href="https://www.vscinemas.com.tw/film/detail.aspx?id=7995" target="_blank"><img src="/upload/homepage/homepage_20250724007.jpg" alt="車銀優首部VR演唱會電影．現正熱售中" title="車銀優首部VR演唱會電影．現正熱售中"></a><h3><a href="https://www.vscinemas.com.tw/film/detail.aspx?id=7995" target="_blank">車銀優首部VR演唱會電影．現正熱售中<br>
+                                           <span>MORE</span></a></h3>
+                                    
+                                </figure>
+                                
+                                <figure>
+                                    <a href="https://www.vscinemas.com.tw/event/detail.aspx?id=3784" target="_blank"><img src="/upload/homepage/homepage_20250724001.jpg" alt="GOLD CLASS【遇見花季 幸福療癒】" title="GOLD CLASS【遇見花季 幸福療癒】"></a><h3><a href="https://www.vscinemas.com.tw/event/detail.aspx?id=3784" target="_blank">GOLD CLASS【遇見花季 幸福療癒】<br>
+                                           <span>MORE</span></a></h3>
+                                    
+                                </figure>
+                                
+                                <figure>
+                                    <a href="https://www.vscinemas.com.tw/event/detail.aspx?id=3795" target="_blank"><img src="/upload/homepage/homepage_20250724002.jpg" alt="《驚奇4超人：第一步》 衝首周！限定組隊任務" title="《驚奇4超人：第一步》 衝首周！限定組隊任務"></a><h3><a href="https://www.vscinemas.com.tw/event/detail.aspx?id=3795" target="_blank">《驚奇4超人：第一步》 衝首周！限定組隊任務<br>
+                                           <span>MORE</span></a></h3>
+                                    
+                                </figure>
+                                
+                                <figure>
+                                    <a href="https://www.vscinemas.com.tw/event/detail.aspx?id=3783" target="_self"><img src="/upload/homepage/homepage_20250725001.jpg" alt="《超人》傳奇降臨 打卡英雄主場" title="《超人》傳奇降臨 打卡英雄主場"></a><h3><a href="https://www.vscinemas.com.tw/event/detail.aspx?id=3783" target="_self">《超人》傳奇降臨 打卡英雄主場<br>
+                                           <span>MORE</span></a></h3>
+                                    
+                                </figure>
+                                
+                            </section>
+                            
+                        </div>
+                    </li>
+                    
+                    <li class="mainLink"><a href="#" class="firstMenu">映演品牌</a>
+                        <ul class="sublink">
+                            
+                            <li><a href="/brand/index.aspx?A=12">TITAN SCREEN</a></li>
+                            
+                            <li><a href="/brand/index.aspx?A=13">MUCROWN</a></li>
+                            
+                            <li><a href="/brand/index.aspx?A=2">IMAX</a></li>
+                            
+                            <li><a href="/brand/index.aspx?A=1">4DX</a></li>
+                            
+                            <li><a href="/brand/index.aspx?A=15">VR 演唱會</a></li>
+                            
+                            <li><a href="/brand/index.aspx?A=3">GOLD CLASS</a></li>
+                            
+                            <li><a href="/brand/index.aspx?A=14">AD口述影像</a></li>
+                            
+                            <li><a href="/concert/concertList.aspx">LIVE直播節目</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="mainLink haveBanner"><a href="#" class="firstMenu">餐飲與商品</a>
+                        <div class="bannerGroup">
+                            <ul>
+                                <li><a href="/food/index.aspx">影城餐飲</a></li>
+                                <!--20161213暫拿<li><a href="/themed/index.aspx">主題商品</a></li>-->
+                                <li><a href="https://www.unicornpopcorn.com.tw/" target="_blank">UNICORN</a></li>
+                                
+                                
+                                
+                            </ul>
+                            
+                            <section class="sbannerArea">
+                                
+                                <figure>
+                                    <a href="https://www.vscinemas.com.tw/food/index.aspx" target="_self"><img src="/upload/homepage/homepage_20250725002.jpg" alt="【哆啦A夢：大雄的繪畫世界物語】電影套餐🍿🥤．熱賣中" title="【哆啦A夢：大雄的繪畫世界物語】電影套餐🍿🥤．熱賣中"></a><h3><a href="https://www.vscinemas.com.tw/food/index.aspx" target="_self">【哆啦A夢：大雄的繪畫世界物語】電影套餐🍿🥤．熱賣中<br>
+                                           <span>MORE</span></a></h3>
+                                    
+                                </figure>
+                                
+                                <figure>
+                                    <a href="https://www.vscinemas.com.tw/food/index.aspx" target="_self"><img src="/upload/homepage/homepage_20250725003.jpg" alt="【哆啦A夢：大雄的繪畫世界物語】電影套餐🍿🥤．熱賣中" title="【哆啦A夢：大雄的繪畫世界物語】電影套餐🍿🥤．熱賣中"></a><h3><a href="https://www.vscinemas.com.tw/food/index.aspx" target="_self">【哆啦A夢：大雄的繪畫世界物語】電影套餐🍿🥤．熱賣中<br>
+                                           <span>MORE</span></a></h3>
+                                    
+                                </figure>
+                                
+                                <figure>
+                                    <a href="https://www.vscinemas.com.tw/food/index.aspx" target="_self"><img src="/upload/homepage/homepage_20250725004.jpg" alt="【哆啦A夢：大雄的繪畫世界物語】電影套餐🍿🥤．熱賣中" title="【哆啦A夢：大雄的繪畫世界物語】電影套餐🍿🥤．熱賣中"></a><h3><a href="https://www.vscinemas.com.tw/food/index.aspx" target="_self">【哆啦A夢：大雄的繪畫世界物語】電影套餐🍿🥤．熱賣中<br>
+                                           <span>MORE</span></a></h3>
+                                    
+                                </figure>
+                                
+                                <figure>
+                                    <a href="https://www.vscinemas.com.tw/food/index.aspx" target="_self"><img src="/upload/homepage/homepage_20250725005.jpg" alt="【哆啦A夢：大雄的繪畫世界物語】電影套餐🍿🥤．熱賣中" title="【哆啦A夢：大雄的繪畫世界物語】電影套餐🍿🥤．熱賣中"></a><h3><a href="https://www.vscinemas.com.tw/food/index.aspx" target="_self">【哆啦A夢：大雄的繪畫世界物語】電影套餐🍿🥤．熱賣中<br>
+                                           <span>MORE</span></a></h3>
+                                    
+                                </figure>
+                                
+                            </section>
+                            
+                        </div>
+                    </li>
+                    
+                    <li class="mainLink"><a href="#" class="firstMenu">活動公告</a>
+                        <ul class="sublink">
+                            <li><a href="/event/news.aspx">影城公告</a></li>
+                            <li><a href="/event/index.aspx">影城活動</a></li>
+                            <li><a href="/event/prize.aspx">中獎名單</a></li>
+                            <li><a href="/event/partner.aspx">合作夥伴</a></li>
+                        </ul>
+                    </li>
+                    <li class="mainLink"><a href="/biz/index.aspx">業務專區</a></li>
+                    
+                    <li class="mainLink"><a href="#" class="firstMenu">娛樂購物</a>
+                        <ul class="sublink">
+                            <li><a href="/mall/index.aspx">威秀商場</a></li>
+                            
+                        </ul>
+                    </li>
+                    
+                    
+                    <li class="mainLink">
+                        <a href="#" class="firstMenu">會員專區</a>
+                        
+                        <ul class="sublink">
+                            <li class="onlyIshow"><a href="/ishow/index.aspx">會員介紹</a></li>
+                            <li><a href="/ishow/index.aspx">會員優惠</a></li>
+                            
+                            <!--<li><a href="https://www.vscinemas.com.tw/vsweb/ishow/card.aspx">申辦會員</a></li>-->
+                            <li><a href="/ishow/card.aspx">申辦會員</a></li>
+                            <li><a href="https://sales.vscinemas.com.tw/vieshowticket/redeem" target="_blank">點數兌換</a></li>
+                            <li><a href="/event/index.aspx?E=1">會員活動</a></li>
+                            
+                            
+                            <li><a href="https://www.vscinemas.com.tw/qa/qalist.aspx?A=1">會員Q&A</a></li>
+                            
+                        </ul>
+                        
+                    </li>
+                </ul>
+            </nav>
+        </section>
+    </div>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TK62J3JZHN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-TK62J3JZHN');
+    </script>
+</header>
+<!-- 服務專線-->
+<div class="serviceTel">
+    <h1 class="center">服務專線<a href="#" class="icon-delete"></a></h1>
+    <ul class="telList">
+        
+        <li><span class="telTitle">MUVIE CINEMAS 台北松仁</span><span class="icon-phone"><a href="tel:0287800800">(02)8780-0800</a></span></li>
+        
+        <li><span class="telTitle">台北信義威秀影城</span><span class="icon-phone"><a href="tel:0287805566">(02) 8780-5566</a></span></li>
+        
+        <li><span class="telTitle">台北南港LaLaport威秀影城</span><span class="icon-phone"><a href="tel:0227851688">(02) 2785-1688</a></span></li>
+        
+        <li><span class="telTitle">台北京站威秀影城</span><span class="icon-phone"><a href="tel:0225525511">(02) 2552-5511</a></span></li>
+        
+        <li><span class="telTitle">台北西門威秀影城</span><span class="icon-phone"><a href="tel:0223123232">(02) 2312-3232</a></span></li>
+        
+        <li><span class="telTitle">新店裕隆城威秀影城</span><span class="icon-phone"><a href="tel:0289115221">(02)8911-5221</a></span></li>
+        
+        <li><span class="telTitle">中和環球威秀影城</span><span class="icon-phone"><a href="tel:0282266063">(02)8226-6063</a></span></li>
+        
+        <li><span class="telTitle">板橋大遠百威秀影城</span><span class="icon-phone"><a href="tel:0277386608">(02) 7738-6608</a></span></li>
+        
+        <li><span class="telTitle">林口MITSUI OUTLET PARK威秀影城</span><span class="icon-phone"><a href="tel:0226068099">(02) 2606-8099</a></span></li>
+        
+        <li><span class="telTitle">桃園統領威秀影城</span><span class="icon-phone"><a href="tel:033333232">(03) 333-3232</a></span></li>
+        
+        <li><span class="telTitle">桃園桃知道威秀影城</span><span class="icon-phone"><a href="tel:033175353">(03) 317-5353</a></span></li>
+        
+        <li><span class="telTitle">新竹大遠百威秀影城</span><span class="icon-phone"><a href="tel:035241166">(03) 524-1166</a></span></li>
+        
+        <li><span class="telTitle">新竹巨城威秀影城</span><span class="icon-phone"><a href="tel:035346999">(03) 534-6999</a></span></li>
+        
+        <li><span class="telTitle">頭份尚順威秀影城</span><span class="icon-phone"><a href="tel:037686866">(037) 686-866</a></span></li>
+        
+        <li><span class="telTitle">台中大遠百威秀影城</span><span class="icon-phone"><a href="tel:0422588511">(04) 2258-8511</a></span></li>
+        
+        <li><span class="telTitle">MUVIE CINEMAS 台中TIGER CITY</span><span class="icon-phone"><a href="tel:0436065566">(04) 3606-5566</a></span></li>
+        
+        <li><span class="telTitle">台中大魯閣新時代威秀影城</span><span class="icon-phone"><a href="tel:0422280388">(04)2228-0388</a></span></li>
+        
+        <li><span class="telTitle">台南大遠百威秀影城</span><span class="icon-phone"><a href="tel:066005566">(06) 600-5566</a></span></li>
+        
+        <li><span class="telTitle">台南FOCUS 威秀影城</span><span class="icon-phone"><a href="tel:062223566">(06)-222-3566</a></span></li>
+        
+        <li><span class="telTitle">台南南紡威秀影城</span><span class="icon-phone"><a href="tel:062372255">(06) 237-2255</a></span></li>
+        
+        <li><span class="telTitle">高雄大遠百威秀影城</span><span class="icon-phone"><a href="tel:073345566">(07) 334-5566</a></span></li>
+        
+        <li><span class="telTitle">花蓮新天堂樂園威秀影城</span><span class="icon-phone"><a href="tel:038421133">(03) 842-1133</a></span></li>
+        
+    </ul>
+</div>
+
+
+    
+<script type="text/javascript">
+    var strApiPath = "/api";
+</script>
+<script type="text/javascript" src="../js/helper.js"></script>
+<style>
+    .publicGallery, .publicInfo, .publicNote {
+        display: none;
+    }
+    .publicGallery.show, .publicInfo.show, .publicNote.show {
+        display: block;
+    }
+    .cur {
+        cursor: pointer;
+    }
+</style>
+<div class="searchBox">
+    <ul class="searchItem">
+        <li class="first"><a href="#" class="linkWord">快速訂票</a>
+            <section id="searchForm1" class="searchSet">
+                <form class="bookBox">
+                    <ul>
+                        <li><span class="icon-marker"></span>
+                            <select name="cinema" data-prompt-position="topLeft" class="validate[required]">
+                                <option value="">請選擇影城</option>
+                            </select>
+                        </li>
+                        <li><span class="icon-video-1"></span>
+                            <select name="movie" data-prompt-position="topLeft" class="validate[required]">
+                                <option value="">請選擇影片</option>
+                            </select>
+                        </li>
+                        <li><span class="icon-calendar"></span>
+                            <select name="date" data-prompt-position="topLeft" class="validate[required]">
+                                <option value="">請選擇日期</option>
+                            </select>
+                        </li>
+                        <li><span class="icon-schedule"></span>
+                            <select name="session" data-prompt-position="topLeft" class="validate[required]">
+                                <option value="">請選擇場次</option>
+                            </select>
+                        </li>
+                    </ul>
+                    <section class="btnArea">
+                        <input type="button" value="前往訂票" onclick="javascript: booking();" />
+                        <a href="#" class="SessionSeats" id="SessionSeats" target="_blank">查看座位</a>
+                    </section>
+                </form>
+            </section>
+        </li>
+        <li class="first"><a href="#" class="linkWord">快搜空位</a>
+            <section id="searchForm2" class="searchSet">
+                <form action="https://www.vscinemas.com.tw/vsTicketing/ticketing/search_seat.aspx" method="get" class="findBox">
+                    <ul>
+                        <li><span class="icon-marker"></span>
+                            <select name="area" data-prompt-position="topLeft" class="validate[required]">
+                                <option value="">請選擇地區</option>
+                            </select>
+                        </li>
+                        <li><span class="icon-video-1"></span>
+                            <select name="film" data-prompt-position="topLeft" class="validate[required]">
+                                <option value="">請選擇影片</option>
+                            </select>
+                        </li>
+                        <li class="left"><span class="icon-calendar"></span>
+                            <select name="time" class="validate[required]">
+                                <option value="">請選擇日期</option>
+                            </select>
+                        </li>
+                        <li class="left"><span class="icon-aurora-men"></span>
+                            <select name="number" data-prompt-position="topLeft" class="validate[required]">
+                                <option value="">幾人</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                            </select>
+                        </li>
+                        <li class="left"><span class="icon-schedule"></span>
+                            <select name="from" data-prompt-position="topLeft" class="validate[required]">
+                                <option value="">時段(起)</option>
+                                
+                                <option value="06:00">06:00 AM</option>
+                                
+                                <option value="07:00">07:00 AM</option>
+                                
+                                <option value="08:00">08:00 AM</option>
+                                
+                                <option value="09:00">09:00 AM</option>
+                                
+                                <option value="10:00">10:00 AM</option>
+                                
+                                <option value="11:00">11:00 AM</option>
+                                
+                                <option value="12:00">12:00 PM</option>
+                                
+                                <option value="13:00">01:00 PM</option>
+                                
+                                <option value="14:00">02:00 PM</option>
+                                
+                                <option value="15:00">03:00 PM</option>
+                                
+                                <option value="16:00">04:00 PM</option>
+                                
+                                <option value="17:00">05:00 PM</option>
+                                
+                                <option value="18:00">06:00 PM</option>
+                                
+                                <option value="19:00">07:00 PM</option>
+                                
+                                <option value="20:00">08:00 PM</option>
+                                
+                                <option value="21:00">09:00 PM</option>
+                                
+                                <option value="22:00">10:00 PM</option>
+                                
+                                <option value="23:00">11:00 PM</option>
+                                
+                                <option value="00:00">00:00 AM</option>
+                                
+                                <option value="01:00">01:00 AM</option>
+                                
+                                <option value="02:00">02:00 AM</option>
+                                
+                                <option value="03:00">03:00 AM</option>
+                                
+                                <option value="04:00">04:00 AM</option>
+                                
+                                <option value="05:00">05:00 AM</option>
+                                
+                            </select>
+                        </li>
+                        <li class="left"><span class="icon-schedule"></span>
+                            <select name="to" data-prompt-position="topLeft" class="validate[required]">
+                                <option value="">時段(迄)</option>
+                                
+                                <option value="06:00">06:00 AM</option>
+                                
+                                <option value="07:00">07:00 AM</option>
+                                
+                                <option value="08:00">08:00 AM</option>
+                                
+                                <option value="09:00">09:00 AM</option>
+                                
+                                <option value="10:00">10:00 AM</option>
+                                
+                                <option value="11:00">11:00 AM</option>
+                                
+                                <option value="12:00">12:00 PM</option>
+                                
+                                <option value="13:00">01:00 PM</option>
+                                
+                                <option value="14:00">02:00 PM</option>
+                                
+                                <option value="15:00">03:00 PM</option>
+                                
+                                <option value="16:00">04:00 PM</option>
+                                
+                                <option value="17:00">05:00 PM</option>
+                                
+                                <option value="18:00">06:00 PM</option>
+                                
+                                <option value="19:00">07:00 PM</option>
+                                
+                                <option value="20:00">08:00 PM</option>
+                                
+                                <option value="21:00">09:00 PM</option>
+                                
+                                <option value="22:00">10:00 PM</option>
+                                
+                                <option value="23:00">11:00 PM</option>
+                                
+                                <option value="00:00">00:00 AM</option>
+                                
+                                <option value="01:00">01:00 AM</option>
+                                
+                                <option value="02:00">02:00 AM</option>
+                                
+                                <option value="03:00">03:00 AM</option>
+                                
+                                <option value="04:00">04:00 AM</option>
+                                
+                                <option value="05:00">05:00 AM</option>
+                                
+                            </select>
+                        </li>
+                    </ul>
+                    <section class="btnArea">
+                        <input type="submit" value="前往訂票">
+                    </section>
+                </form>
+            </section>
+        </li>
+    </ul>
+</div>
+<div class="qaBox">
+    <!--QA List-->
+    
+    <ul class="insideQalist">
+        <li><span class="icon-commercia"></span><a href="https://www.vscinemas.com.tw/vsTicketing/ticketing/ticket.aspx" target="_blank" class="blank">線上訂票</a></li>
+        <li><span class="icon-speaker"></span><a data-modal-target="#popup1" class="openNote cur">售票公告</a></li>
+        <li><span class="icon-exclamation"></span><a data-modal-target="#popup2" class="openInfo cur">入場須知</a></li>
+        
+        <li><span class="icon-schedule"></span><a href="https://www.vscinemas.com.tw/ShowTimes/" target="_blank" class="blank">場次查詢</a></li>
+        
+    </ul>
+</div>
+
+
+    <!--麵包屑 crumb-->
+    <section class="crumbArea">
+      <div class="crumb"><span><a href="../index.aspx">首頁</a></span><span><a href="../film/index.aspx">熱售中</a></span><span>鬼妻棺</span></div>
+    </section>
+    <!--內容 Content-->
+    <article class="article">
+      <!--內容-->
+      <section class="movieDetail">
+
+          <div class="fastSelect">
+            <select onchange="javascript: if ($(this).val()) { window.location.href='detail.aspx?id=' + $(this).val(); }">
+                <option value="" selected="">瀏覽其他電影</option>
+
+                <option value="7923"  >全知讀者視角</option>
+
+                <option value="7918"  >驚奇4超人：第一步 </option>
+
+                <option value="7912"  >F1電影</option>
+
+                <option value="7916"  >侏羅紀世界：重生</option>
+
+                <option value="7917"  >超人 </option>
+
+                <option value="8069"  >電影哆啦A夢：大雄的繪畫世界物語</option>
+
+                <option value="7956"  >名偵探柯南 獨眼的殘像</option>
+
+                <option value="7995"  >CHA EUN-WOO VR CONCERT：MEMORIES</option>
+
+                <option value="8017"  >壞蛋聯盟 2</option>
+
+                <option value="8112"  >#RUNSEOKJIN_EP.TOUR in AMSTERDAM現場直播</option>
+
+                <option value="8107"  >HYDE〔INSIDE〕LIVE 2025 WORLD TOUR 現場直播</option>
+
+                <option value="8130"  >SMTOWN LIVE 2025 IN TOKYO 現場直播</option>
+
+                <option value="8082"  >舞台『刀劍亂舞』-士傳- 現場直播</option>
+
+                <option value="8095"  >寶塚歌劇 星組東京寶塚劇場公演千秋樂「礼真琴(Makoto Rei)LAST DAY」現場直播</option>
+
+                <option value="8097"  >B 音樂劇《刀劍亂舞》目出度歌譽花舞 十週年祝賀祭 現場直播</option>
+
+                <option value="8096"  >A 音樂劇《刀劍亂舞》目出度歌譽花舞 十週年祝賀祭 現場直播</option>
+
+                <option value="7967"  >咆哮山莊-Wise Children (經典劇集)</option>
+
+                <option value="7965"  >馬克白-雷夫范恩斯版 (經典劇集)</option>
+
+                <option value="7964"  >馬克白-大衛田納特版(經典劇集)</option>
+
+                <option value="8080"  >BTS ARMY：FOREVER WE ARE YOUNG</option>
+
+                <option value="7910"  >馴龍高手</option>
+
+                <option value="8077"  >VAUNDY LIVE IN LONDON</option>
+
+                <option value="8059"  >YORUSHIKA LIVE 2024「前世」</option>
+
+                <option value="8048"  >記憶花園</option>
+
+                <option value="8101"  >越南名偵探：無頭詛咒</option>
+
+                <option value="8100"  >如果德川家康成為總理大臣</option>
+
+                <option value="8111"  >厄廈</option>
+
+                <option value="8098"  >29號公路</option>
+
+                <option value="8076"  >來自廚房的花束</option>
+
+                <option value="8092"  >關於夢 (性與愛)</option>
+
+                <option value="8079"  >豬排特務 </option>
+
+                <option value="8094" selected="selected" >鬼妻棺</option>
+
+                <option value="8068"  >是誰搞的鬼</option>
+
+                <option value="8071"  >長椅小情歌</option>
+
+                <option value="8070"  >聖母殺手</option>
+
+                <option value="8067"  >藍色小精靈大電影</option>
+
+                <option value="8064"  >跨越時空的初吻</option>
+
+                <option value="8008"  >地球特派員</option>
+
+                <option value="4766"  >鬼滅之刃劇場版 無限列車篇 </option>
+
+                <option value="7898"  >窒友梅根 2.0</option>
+
+                <option value="8016"  >看不見的國家</option>
+
+                <option value="7992"  >造山者-世紀的賭注</option>
+
+                <option value="7906"  >不可能的任務：最終清算</option>
+
+            </select>
+          </div>
+
+        <div class="movieMain">
+          <figure><img src="../upload/film/film_20250704025.jpg" alt="鬼妻棺" title="鬼妻棺"><a onclick="goTo()" class="view">前往電影介紹</a></figure>
+          <section class="movieInfo">
+            <div class="markArea"><span class="teenager">
+                <mark></mark></span><span class="hot">
+                <mark></mark></span></div>
+            <div class="titleArea">
+              <h1>鬼妻棺</h1>
+              <h2>TOMB WATCHER</h2>
+              <time>上映日期：2025/07/18</time>
+            </div>
+            <div class="infoArea">
+
+              <h3>MOVIE INFO</h3>
+              <table>
+                <tr>
+                  <td>導演：</td>
+                  <td><p>瓦坦尤英卡維瓦特 Vathanyu Ingkawiwat<br /></p></td>
+                </tr>
+                <tr>
+                  <td>演員：</td>
+                  <td><p>沃拉娜特披榮帕迪 Woranuch BhiromBhakdi、雅拉查芃普金帕可 Arachaporn Pokinpakorn、他那瓦西里瓦塔納庫 Thanavate Siriwattanagul<br /></p></td>
+                </tr>
+                <tr>
+                  <td>類型：</td>
+                  <td>恐怖</td>
+                </tr>
+                <tr>
+                  <td>片長：</td>
+                  <td>1 時 32 分</td>
+                </tr>
+              </table>
+
+            </div>
+          </section>
+        </div>
+        <div class="movieVersion">
+          <h4><span class="icon-eyeglasses"></span>放映版本</h4>
+          <ul class="versionList">
+            <div class="theaterBG"></div>
+
+            <li><a href="#" class="versionFirst">數位 / 泰<span class="icon-chevron-right"></span></a>
+              <ul>
+
+  <li><p><a href="#movieTime1_11_1">台北信義威秀影城</a></p></li>
+
+  <li><p><a href="#movieTime1_11_34">台北南港LaLaport威秀影城</a></p></li>
+
+  <li><p><a href="#movieTime1_11_31">台北西門威秀影城</a></p></li>
+
+  <li><p><a href="#movieTime1_11_20">桃園統領威秀影城</a></p></li>
+
+  <li><p><a href="#movieTime1_11_7">新竹大遠百威秀影城</a></p></li>
+
+  <li><p><a href="#movieTime1_11_10">頭份尚順威秀影城</a></p></li>
+
+  <li><p><a href="#movieTime1_11_12">MUVIE CINEMAS 台中TIGER CITY</a></p></li>
+
+  <li><p><a href="#movieTime1_11_26">台中大魯閣新時代威秀影城</a></p></li>
+
+  <li><p><a href="#movieTime1_11_22">台南FOCUS 威秀影城</a></p></li>
+
+  <li><p><a href="#movieTime1_11_16">台南南紡威秀影城</a></p></li>
+
+  <li><p><a href="#movieTime1_11_18">高雄大遠百威秀影城</a></p></li>
+
+              </ul>
+            </li>
+
+          </ul>
+          <p class="versionNote">*請選擇放映版本及影廳，場次將列於下方</p>
+        </div>
+      </section>
+    </article>
+    <div class="movieTime">
+
+      <article id="movieTime1_11_1" class="hidden article">
+        <h2>電影場次<span>MOVIE TIME</span></h2>
+        <p><span class="mark">*所有售票通路同步開放購票(另有公告之場次除外)，黃色底時間代表即將售完/紅色底時間為完售，實際剩餘座位數請洽影城售票窗口</span></p>
+
+        <div class="movieDay">
+          <h4>2025 年 07 月 29 日 星期二</h4>
+          <ul class="bookList">
+
+						<!--<li class=""><a href="http://www.vscinemas.com.tw/vsTicketing/ticketing/booking.aspx?cinemacode=1&txtSessionId=1810694">21:50</a></li>-->
+                        <li class=""><a href="https://www.vscinemas.com.tw/vsTicketing//ticketing/booking.aspx?cinemacode=1&txtSessionId=1810694">21:50</a></li>
+						<a href="https://sales.vscinemas.com.tw/VoucherTicketing/SessionSeats.aspx?CinemaCode=1&txtSessionId=1810694" target="_blank"><img src="../images/seat.png" class="seat" width="27" height="25" border="0"></a>
+				
+          </ul>
+        </div>
+
+        <div class="movieDay">
+          <h4>2025 年 07 月 31 日 星期四</h4>
+          <ul class="bookList">
+
+						<!--<li class=""><a href="http://www.vscinemas.com.tw/vsTicketing/ticketing/booking.aspx?cinemacode=1&txtSessionId=1811009">21:40</a></li>-->
+                        <li class=""><a href="https://www.vscinemas.com.tw/vsTicketing//ticketing/booking.aspx?cinemacode=1&txtSessionId=1811009">21:40</a></li>
+						<a href="https://sales.vscinemas.com.tw/VoucherTicketing/SessionSeats.aspx?CinemaCode=1&txtSessionId=1811009" target="_blank"><img src="../images/seat.png" class="seat" width="27" height="25" border="0"></a>
+				
+          </ul>
+        </div>
+
+      </article>
+
+      <article id="movieTime1_11_34" class="hidden article">
+        <h2>電影場次<span>MOVIE TIME</span></h2>
+        <p><span class="mark">*所有售票通路同步開放購票(另有公告之場次除外)，黃色底時間代表即將售完/紅色底時間為完售，實際剩餘座位數請洽影城售票窗口</span></p>
+
+        <div class="movieDay">
+          <h4>2025 年 07 月 29 日 星期二</h4>
+          <ul class="bookList">
+
+						<!--<li class=""><a href="http://www.vscinemas.com.tw/vsTicketing/ticketing/booking.aspx?cinemacode=35&txtSessionId=18263">23:30</a></li>-->
+                        <li class=""><a href="https://www.vscinemas.com.tw/vsTicketing//ticketing/booking.aspx?cinemacode=35&txtSessionId=18263">23:30</a></li>
+						<a href="https://sales.vscinemas.com.tw/VoucherTicketing/SessionSeats.aspx?CinemaCode=35&txtSessionId=18263" target="_blank"><img src="../images/seat.png" class="seat" width="27" height="25" border="0"></a>
+				
+          </ul>
+        </div>
+
+        <div class="movieDay">
+          <h4>2025 年 07 月 31 日 星期四</h4>
+          <ul class="bookList">
+
+						<!--<li class=""><a href="http://www.vscinemas.com.tw/vsTicketing/ticketing/booking.aspx?cinemacode=35&txtSessionId=18264">23:30</a></li>-->
+                        <li class=""><a href="https://www.vscinemas.com.tw/vsTicketing//ticketing/booking.aspx?cinemacode=35&txtSessionId=18264">23:30</a></li>
+						<a href="https://sales.vscinemas.com.tw/VoucherTicketing/SessionSeats.aspx?CinemaCode=35&txtSessionId=18264" target="_blank"><img src="../images/seat.png" class="seat" width="27" height="25" border="0"></a>
+				
+          </ul>
+        </div>
+
+      </article>
+
+      <article id="movieTime1_11_31" class="hidden article">
+        <h2>電影場次<span>MOVIE TIME</span></h2>
+        <p><span class="mark">*所有售票通路同步開放購票(另有公告之場次除外)，黃色底時間代表即將售完/紅色底時間為完售，實際剩餘座位數請洽影城售票窗口</span></p>
+
+        <div class="movieDay">
+          <h4>2025 年 07 月 29 日 星期二</h4>
+          <ul class="bookList">
+
+						<!--<li class=""><a href="http://www.vscinemas.com.tw/vsTicketing/ticketing/booking.aspx?cinemacode=34&txtSessionId=35908">00:20<mark>(隔日)</mark></a></li>-->
+                        <li class=""><a href="https://www.vscinemas.com.tw/vsTicketing//ticketing/booking.aspx?cinemacode=34&txtSessionId=35908">00:20<mark>(隔日)</mark></a></li>
+						<a href="https://sales.vscinemas.com.tw/VoucherTicketing/SessionSeats.aspx?CinemaCode=34&txtSessionId=35908" target="_blank"><img src="../images/seat.png" class="seat" width="27" height="25" border="0"></a>
+				
+          </ul>
+        </div>
+
+        <div class="movieDay">
+          <h4>2025 年 07 月 30 日 星期三</h4>
+          <ul class="bookList">
+
+						<!--<li class=""><a href="http://www.vscinemas.com.tw/vsTicketing/ticketing/booking.aspx?cinemacode=34&txtSessionId=35123">00:20<mark>(隔日)</mark></a></li>-->
+                        <li class=""><a href="https://www.vscinemas.com.tw/vsTicketing//ticketing/booking.aspx?cinemacode=34&txtSessionId=35123">00:20<mark>(隔日)</mark></a></li>
+						<a href="https://sales.vscinemas.com.tw/VoucherTicketing/SessionSeats.aspx?CinemaCode=34&txtSessionId=35123" target="_blank"><img src="../images/seat.png" class="seat" width="27" height="25" border="0"></a>
+				
+          </ul>
+        </div>
+
+        <div class="movieDay">
+          <h4>2025 年 07 月 31 日 星期四</h4>
+          <ul class="bookList">
+
+						<!--<li class=""><a href="http://www.vscinemas.com.tw/vsTicketing/ticketing/booking.aspx?cinemacode=34&txtSessionId=35844">00:20<mark>(隔日)</mark></a></li>-->
+                        <li class=""><a href="https://www.vscinemas.com.tw/vsTicketing//ticketing/booking.aspx?cinemacode=34&txtSessionId=35844">00:20<mark>(隔日)</mark></a></li>
+						<a href="https://sales.vscinemas.com.tw/VoucherTicketing/SessionSeats.aspx?CinemaCode=34&txtSessionId=35844" target="_blank"><img src="../images/seat.png" class="seat" width="27" height="25" border="0"></a>
+				
+          </ul>
+        </div>
+
+      </article>
+
+      <article id="movieTime1_11_28" class="hidden article">
+        <h2>電影場次<span>MOVIE TIME</span></h2>
+        <p><span class="mark">*所有售票通路同步開放購票(另有公告之場次除外)，黃色底時間代表即將售完/紅色底時間為完售，實際剩餘座位數請洽影城售票窗口</span></p>
+
+      </article>
+
+      <article id="movieTime1_11_5" class="hidden article">
+        <h2>電影場次<span>MOVIE TIME</span></h2>
+        <p><span class="mark">*所有售票通路同步開放購票(另有公告之場次除外)，黃色底時間代表即將售完/紅色底時間為完售，實際剩餘座位數請洽影城售票窗口</span></p>
+
+      </article>
+
+      <article id="movieTime1_11_20" class="hidden article">
+        <h2>電影場次<span>MOVIE TIME</span></h2>
+        <p><span class="mark">*所有售票通路同步開放購票(另有公告之場次除外)，黃色底時間代表即將售完/紅色底時間為完售，實際剩餘座位數請洽影城售票窗口</span></p>
+
+        <div class="movieDay">
+          <h4>2025 年 07 月 30 日 星期三</h4>
+          <ul class="bookList">
+
+						<!--<li class=""><a href="http://www.vscinemas.com.tw/vsTicketing/ticketing/booking.aspx?cinemacode=20&txtSessionId=667682">11:30</a></li>-->
+                        <li class=""><a href="https://www.vscinemas.com.tw/vsTicketing//ticketing/booking.aspx?cinemacode=20&txtSessionId=667682">11:30</a></li>
+						<a href="https://sales.vscinemas.com.tw/VoucherTicketing/SessionSeats.aspx?CinemaCode=20&txtSessionId=667682" target="_blank"><img src="../images/seat.png" class="seat" width="27" height="25" border="0"></a>
+				
+          </ul>
+        </div>
+
+      </article>
+
+      <article id="movieTime1_11_7" class="hidden article">
+        <h2>電影場次<span>MOVIE TIME</span></h2>
+        <p><span class="mark">*所有售票通路同步開放購票(另有公告之場次除外)，黃色底時間代表即將售完/紅色底時間為完售，實際剩餘座位數請洽影城售票窗口</span></p>
+
+        <div class="movieDay">
+          <h4>2025 年 07 月 29 日 星期二</h4>
+          <ul class="bookList">
+
+						<!--<li class=""><a href="http://www.vscinemas.com.tw/vsTicketing/ticketing/booking.aspx?cinemacode=2&txtSessionId=1122339">23:20</a></li>-->
+                        <li class=""><a href="https://www.vscinemas.com.tw/vsTicketing//ticketing/booking.aspx?cinemacode=2&txtSessionId=1122339">23:20</a></li>
+						<a href="https://sales.vscinemas.com.tw/VoucherTicketing/SessionSeats.aspx?CinemaCode=2&txtSessionId=1122339" target="_blank"><img src="../images/seat.png" class="seat" width="27" height="25" border="0"></a>
+				
+          </ul>
+        </div>
+
+        <div class="movieDay">
+          <h4>2025 年 07 月 30 日 星期三</h4>
+          <ul class="bookList">
+
+						<!--<li class=""><a href="http://www.vscinemas.com.tw/vsTicketing/ticketing/booking.aspx?cinemacode=2&txtSessionId=1122511">23:20</a></li>-->
+                        <li class=""><a href="https://www.vscinemas.com.tw/vsTicketing//ticketing/booking.aspx?cinemacode=2&txtSessionId=1122511">23:20</a></li>
+						<a href="https://sales.vscinemas.com.tw/VoucherTicketing/SessionSeats.aspx?CinemaCode=2&txtSessionId=1122511" target="_blank"><img src="../images/seat.png" class="seat" width="27" height="25" border="0"></a>
+				
+          </ul>
+        </div>
+
+        <div class="movieDay">
+          <h4>2025 年 07 月 31 日 星期四</h4>
+          <ul class="bookList">
+
+						<!--<li class=""><a href="http://www.vscinemas.com.tw/vsTicketing/ticketing/booking.aspx?cinemacode=2&txtSessionId=1122574">23:20</a></li>-->
+                        <li class=""><a href="https://www.vscinemas.com.tw/vsTicketing//ticketing/booking.aspx?cinemacode=2&txtSessionId=1122574">23:20</a></li>
+						<a href="https://sales.vscinemas.com.tw/VoucherTicketing/SessionSeats.aspx?CinemaCode=2&txtSessionId=1122574" target="_blank"><img src="../images/seat.png" class="seat" width="27" height="25" border="0"></a>
+				
+          </ul>
+        </div>
+
+      </article>
+
+      <article id="movieTime1_11_10" class="hidden article">
+        <h2>電影場次<span>MOVIE TIME</span></h2>
+        <p><span class="mark">*所有售票通路同步開放購票(另有公告之場次除外)，黃色底時間代表即將售完/紅色底時間為完售，實際剩餘座位數請洽影城售票窗口</span></p>
+
+        <div class="movieDay">
+          <h4>2025 年 07 月 29 日 星期二</h4>
+          <ul class="bookList">
+
+						<!--<li class=""><a href="http://www.vscinemas.com.tw/vsTicketing/ticketing/booking.aspx?cinemacode=18&txtSessionId=352185">22:50</a></li>-->
+                        <li class=""><a href="https://www.vscinemas.com.tw/vsTicketing//ticketing/booking.aspx?cinemacode=18&txtSessionId=352185">22:50</a></li>
+						<a href="https://sales.vscinemas.com.tw/VoucherTicketing/SessionSeats.aspx?CinemaCode=18&txtSessionId=352185" target="_blank"><img src="../images/seat.png" class="seat" width="27" height="25" border="0"></a>
+				
+          </ul>
+        </div>
+
+        <div class="movieDay">
+          <h4>2025 年 07 月 31 日 星期四</h4>
+          <ul class="bookList">
+
+						<!--<li class=""><a href="http://www.vscinemas.com.tw/vsTicketing/ticketing/booking.aspx?cinemacode=18&txtSessionId=352475">22:50</a></li>-->
+                        <li class=""><a href="https://www.vscinemas.com.tw/vsTicketing//ticketing/booking.aspx?cinemacode=18&txtSessionId=352475">22:50</a></li>
+						<a href="https://sales.vscinemas.com.tw/VoucherTicketing/SessionSeats.aspx?CinemaCode=18&txtSessionId=352475" target="_blank"><img src="../images/seat.png" class="seat" width="27" height="25" border="0"></a>
+				
+          </ul>
+        </div>
+
+      </article>
+
+      <article id="movieTime1_11_11" class="hidden article">
+        <h2>電影場次<span>MOVIE TIME</span></h2>
+        <p><span class="mark">*所有售票通路同步開放購票(另有公告之場次除外)，黃色底時間代表即將售完/紅色底時間為完售，實際剩餘座位數請洽影城售票窗口</span></p>
+
+      </article>
+
+      <article id="movieTime1_11_12" class="hidden article">
+        <h2>電影場次<span>MOVIE TIME</span></h2>
+        <p><span class="mark">*所有售票通路同步開放購票(另有公告之場次除外)，黃色底時間代表即將售完/紅色底時間為完售，實際剩餘座位數請洽影城售票窗口</span></p>
+
+        <div class="movieDay">
+          <h4>2025 年 07 月 29 日 星期二</h4>
+          <ul class="bookList">
+
+						<!--<li class=""><a href="http://www.vscinemas.com.tw/vsTicketing/ticketing/booking.aspx?cinemacode=3&txtSessionId=976630">22:25</a></li>-->
+                        <li class=""><a href="https://www.vscinemas.com.tw/vsTicketing//ticketing/booking.aspx?cinemacode=3&txtSessionId=976630">22:25</a></li>
+						<a href="https://sales.vscinemas.com.tw/VoucherTicketing/SessionSeats.aspx?CinemaCode=3&txtSessionId=976630" target="_blank"><img src="../images/seat.png" class="seat" width="27" height="25" border="0"></a>
+				
+          </ul>
+        </div>
+
+        <div class="movieDay">
+          <h4>2025 年 07 月 31 日 星期四</h4>
+          <ul class="bookList">
+
+						<!--<li class=""><a href="http://www.vscinemas.com.tw/vsTicketing/ticketing/booking.aspx?cinemacode=3&txtSessionId=976631">12:35</a></li>-->
+                        <li class=""><a href="https://www.vscinemas.com.tw/vsTicketing//ticketing/booking.aspx?cinemacode=3&txtSessionId=976631">12:35</a></li>
+						<a href="https://sales.vscinemas.com.tw/VoucherTicketing/SessionSeats.aspx?CinemaCode=3&txtSessionId=976631" target="_blank"><img src="../images/seat.png" class="seat" width="27" height="25" border="0"></a>
+				
+          </ul>
+        </div>
+
+      </article>
+
+      <article id="movieTime1_11_26" class="hidden article">
+        <h2>電影場次<span>MOVIE TIME</span></h2>
+        <p><span class="mark">*所有售票通路同步開放購票(另有公告之場次除外)，黃色底時間代表即將售完/紅色底時間為完售，實際剩餘座位數請洽影城售票窗口</span></p>
+
+        <div class="movieDay">
+          <h4>2025 年 07 月 30 日 星期三</h4>
+          <ul class="bookList">
+
+						<!--<li class=""><a href="http://www.vscinemas.com.tw/vsTicketing/ticketing/booking.aspx?cinemacode=31&txtSessionId=140541">11:25</a></li>-->
+                        <li class=""><a href="https://www.vscinemas.com.tw/vsTicketing//ticketing/booking.aspx?cinemacode=31&txtSessionId=140541">11:25</a></li>
+						<a href="https://sales.vscinemas.com.tw/VoucherTicketing/SessionSeats.aspx?CinemaCode=31&txtSessionId=140541" target="_blank"><img src="../images/seat.png" class="seat" width="27" height="25" border="0"></a>
+				
+          </ul>
+        </div>
+
+        <div class="movieDay">
+          <h4>2025 年 07 月 31 日 星期四</h4>
+          <ul class="bookList">
+
+						<!--<li class=""><a href="http://www.vscinemas.com.tw/vsTicketing/ticketing/booking.aspx?cinemacode=31&txtSessionId=140521">12:50</a></li>-->
+                        <li class=""><a href="https://www.vscinemas.com.tw/vsTicketing//ticketing/booking.aspx?cinemacode=31&txtSessionId=140521">12:50</a></li>
+						<a href="https://sales.vscinemas.com.tw/VoucherTicketing/SessionSeats.aspx?CinemaCode=31&txtSessionId=140521" target="_blank"><img src="../images/seat.png" class="seat" width="27" height="25" border="0"></a>
+				
+          </ul>
+        </div>
+
+      </article>
+
+      <article id="movieTime1_11_22" class="hidden article">
+        <h2>電影場次<span>MOVIE TIME</span></h2>
+        <p><span class="mark">*所有售票通路同步開放購票(另有公告之場次除外)，黃色底時間代表即將售完/紅色底時間為完售，實際剩餘座位數請洽影城售票窗口</span></p>
+
+        <div class="movieDay">
+          <h4>2025 年 07 月 30 日 星期三</h4>
+          <ul class="bookList">
+
+						<!--<li class=""><a href="http://www.vscinemas.com.tw/vsTicketing/ticketing/booking.aspx?cinemacode=25&txtSessionId=278569">13:10</a></li>-->
+                        <li class=""><a href="https://www.vscinemas.com.tw/vsTicketing//ticketing/booking.aspx?cinemacode=25&txtSessionId=278569">13:10</a></li>
+						<a href="https://sales.vscinemas.com.tw/VoucherTicketing/SessionSeats.aspx?CinemaCode=25&txtSessionId=278569" target="_blank"><img src="../images/seat.png" class="seat" width="27" height="25" border="0"></a>
+				
+          </ul>
+        </div>
+
+        <div class="movieDay">
+          <h4>2025 年 07 月 31 日 星期四</h4>
+          <ul class="bookList">
+
+						<!--<li class=""><a href="http://www.vscinemas.com.tw/vsTicketing/ticketing/booking.aspx?cinemacode=25&txtSessionId=278625">13:10</a></li>-->
+                        <li class=""><a href="https://www.vscinemas.com.tw/vsTicketing//ticketing/booking.aspx?cinemacode=25&txtSessionId=278625">13:10</a></li>
+						<a href="https://sales.vscinemas.com.tw/VoucherTicketing/SessionSeats.aspx?CinemaCode=25&txtSessionId=278625" target="_blank"><img src="../images/seat.png" class="seat" width="27" height="25" border="0"></a>
+				
+          </ul>
+        </div>
+
+      </article>
+
+      <article id="movieTime1_11_16" class="hidden article">
+        <h2>電影場次<span>MOVIE TIME</span></h2>
+        <p><span class="mark">*所有售票通路同步開放購票(另有公告之場次除外)，黃色底時間代表即將售完/紅色底時間為完售，實際剩餘座位數請洽影城售票窗口</span></p>
+
+        <div class="movieDay">
+          <h4>2025 年 07 月 29 日 星期二</h4>
+          <ul class="bookList">
+
+						<!--<li class=""><a href="http://www.vscinemas.com.tw/vsTicketing/ticketing/booking.aspx?cinemacode=17&txtSessionId=642865">20:40</a></li>-->
+                        <li class=""><a href="https://www.vscinemas.com.tw/vsTicketing//ticketing/booking.aspx?cinemacode=17&txtSessionId=642865">20:40</a></li>
+						<a href="https://sales.vscinemas.com.tw/VoucherTicketing/SessionSeats.aspx?CinemaCode=17&txtSessionId=642865" target="_blank"><img src="../images/seat.png" class="seat" width="27" height="25" border="0"></a>
+				
+          </ul>
+        </div>
+
+        <div class="movieDay">
+          <h4>2025 年 07 月 30 日 星期三</h4>
+          <ul class="bookList">
+
+						<!--<li class=""><a href="http://www.vscinemas.com.tw/vsTicketing/ticketing/booking.aspx?cinemacode=17&txtSessionId=642961">20:40</a></li>-->
+                        <li class=""><a href="https://www.vscinemas.com.tw/vsTicketing//ticketing/booking.aspx?cinemacode=17&txtSessionId=642961">20:40</a></li>
+						<a href="https://sales.vscinemas.com.tw/VoucherTicketing/SessionSeats.aspx?CinemaCode=17&txtSessionId=642961" target="_blank"><img src="../images/seat.png" class="seat" width="27" height="25" border="0"></a>
+				
+          </ul>
+        </div>
+
+        <div class="movieDay">
+          <h4>2025 年 07 月 31 日 星期四</h4>
+          <ul class="bookList">
+
+						<!--<li class=""><a href="http://www.vscinemas.com.tw/vsTicketing/ticketing/booking.aspx?cinemacode=17&txtSessionId=643057">20:40</a></li>-->
+                        <li class=""><a href="https://www.vscinemas.com.tw/vsTicketing//ticketing/booking.aspx?cinemacode=17&txtSessionId=643057">20:40</a></li>
+						<a href="https://sales.vscinemas.com.tw/VoucherTicketing/SessionSeats.aspx?CinemaCode=17&txtSessionId=643057" target="_blank"><img src="../images/seat.png" class="seat" width="27" height="25" border="0"></a>
+				
+          </ul>
+        </div>
+
+      </article>
+
+      <article id="movieTime1_11_18" class="hidden article">
+        <h2>電影場次<span>MOVIE TIME</span></h2>
+        <p><span class="mark">*所有售票通路同步開放購票(另有公告之場次除外)，黃色底時間代表即將售完/紅色底時間為完售，實際剩餘座位數請洽影城售票窗口</span></p>
+
+        <div class="movieDay">
+          <h4>2025 年 07 月 29 日 星期二</h4>
+          <ul class="bookList">
+
+						<!--<li class=""><a href="http://www.vscinemas.com.tw/vsTicketing/ticketing/booking.aspx?cinemacode=6&txtSessionId=1764709">22:20</a></li>-->
+                        <li class=""><a href="https://www.vscinemas.com.tw/vsTicketing//ticketing/booking.aspx?cinemacode=6&txtSessionId=1764709">22:20</a></li>
+						<a href="https://sales.vscinemas.com.tw/VoucherTicketing/SessionSeats.aspx?CinemaCode=6&txtSessionId=1764709" target="_blank"><img src="../images/seat.png" class="seat" width="27" height="25" border="0"></a>
+				
+          </ul>
+        </div>
+
+        <div class="movieDay">
+          <h4>2025 年 07 月 30 日 星期三</h4>
+          <ul class="bookList">
+
+						<!--<li class=""><a href="http://www.vscinemas.com.tw/vsTicketing/ticketing/booking.aspx?cinemacode=6&txtSessionId=1764895">22:20</a></li>-->
+                        <li class=""><a href="https://www.vscinemas.com.tw/vsTicketing//ticketing/booking.aspx?cinemacode=6&txtSessionId=1764895">22:20</a></li>
+						<a href="https://sales.vscinemas.com.tw/VoucherTicketing/SessionSeats.aspx?CinemaCode=6&txtSessionId=1764895" target="_blank"><img src="../images/seat.png" class="seat" width="27" height="25" border="0"></a>
+				
+          </ul>
+        </div>
+
+        <div class="movieDay">
+          <h4>2025 年 07 月 31 日 星期四</h4>
+          <ul class="bookList">
+
+						<!--<li class=""><a href="http://www.vscinemas.com.tw/vsTicketing/ticketing/booking.aspx?cinemacode=6&txtSessionId=1764996">22:20</a></li>-->
+                        <li class=""><a href="https://www.vscinemas.com.tw/vsTicketing//ticketing/booking.aspx?cinemacode=6&txtSessionId=1764996">22:20</a></li>
+						<a href="https://sales.vscinemas.com.tw/VoucherTicketing/SessionSeats.aspx?CinemaCode=6&txtSessionId=1764996" target="_blank"><img src="../images/seat.png" class="seat" width="27" height="25" border="0"></a>
+				
+          </ul>
+        </div>
+
+      </article>
+
+    </div>
+
+    <div class="movieVideo">
+      <!-- Video-->
+      <!-- Jssor Slider [Begin]-->
+      <div id="sliderVideo" style="height: 550px;" class="mainVideo">
+        <!--Loading-->
+        <div class="loading">
+          <div>
+            <section>
+              <p>LOADING</p><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </section>
+          </div>
+        </div>
+        <!-- Slides Container-->
+        <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; height: 550px; overflow: hidden;" class="slidesArea">
+
+          <div>
+            <iframe u="image" frameborder="0" vspace="0" hspace="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" src="https://www.youtube.com/embed/ICp3IpjUKZU?si"></iframe>
+          </div>
+
+        </div>
+        <!--Arrow Navigator-->
+        <div class="arrowArea"><span u="arrowleft" class="jssora03l icon-chevron-left"></span><span u="arrowright" class="jssora03r icon-chevron-right"></span></div>
+      </div>
+      <!--Jssor Slider [End]-->
+    </div>
+
+    <div id="info" class="movieStory">
+      <article class="article">
+
+        <h2>劇情簡介<span>ABOUT THE STORY</span></h2><!--此為電影時要出現的資訊 [For Movie]-->
+
+        <!-- 編輯器[Start]-->
+        <div class="bbsArticle">
+          <p>倫瑟姆去世之後，她的丈夫契夫決定帶著情婦蘿絲康，搬進他們過去住的別墅展開新生活。沒想到，蘿絲康在別墅裡見到一副裝著倫瑟姆遺體的透明棺材。原來，倫瑟姆生前跟契夫約定好，只要他陪伴死去的她度過一百天，她的一切都將歸他們兩人所有。蘿絲康懷疑倫瑟姆懷有別的目的……。</p><p>-車庫娛樂<br /></p>
+        </div>
+        <!-- 編輯器[End]-->
+      </article>
+    </div>
+    <div id="photoBox" class="moviePicture">
+      <!--Loading-->
+      <div class="loading">
+        <div>
+          <section>
+            <p>LOADING</p><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          </section>
+        </div>
+      </div>
+      <!--Bottom Banner-->
+      <!--Jssor Slider [Begin]-->
+      <section id="sliderPicture" class="picture">
+        <div u="slides" itemscope="" data-pswp-uid="1" class="picSlides movieGallery">
+
+        </div>
+        <!--Arrow Navigator-->
+        <div class="arrowArea"><span u="arrowleft" class="jssora03l icon-chevron-left"></span><span u="arrowright" class="jssora03r icon-chevron-right"></span></div>
+      </section>
+      <!--Jssor Slider [End]-->
+    </div>
+
+    
+<footer class="footer">
+  <div class="footerArea">
+    <ul class="footerLink"><a href="#" class="popupClose"></a>
+      <li><a href="../theater/index.aspx">影城介紹</a></li>
+      <li><a href="#" class="footerFirst">電影介紹</a>
+        
+        <ul>
+          
+          <li><a href="../film/index.aspx">熱售中</a></li>
+          <li><a href="../film/coming.aspx">即將上映</a></li>
+        </ul>
+      </li>
+      <li><a href="../brand/index.aspx" class="footerFirst">映演品牌</a>
+        <ul>
+
+
+          <li><a href="../brand/index.aspx?A=12">TITAN SCREEN</a></li>
+
+          <li><a href="../brand/index.aspx?A=13">MUCROWN</a></li>
+
+          <li><a href="../brand/index.aspx?A=2">IMAX</a></li>
+
+          <li><a href="../brand/index.aspx?A=1">4DX</a></li>
+
+          <li><a href="../brand/index.aspx?A=15">VR 演唱會</a></li>
+
+          <li><a href="../brand/index.aspx?A=3">GOLD CLASS</a></li>
+
+          <li><a href="../brand/index.aspx?A=14">AD口述影像</a></li>
+
+          <li><a href="../concert/index.aspx">LIVE演唱會</a></li>
+        </ul>
+      </li>
+      <li><a href="../food/index.aspx" class="footerFirst">餐飲與商品</a>
+        <ul>
+          <li><a href="../food/index.aspx">影城餐飲</a></li>
+          <!--<li><a href="themed/index.aspx">主題商品</a></li>-->
+          <li><a href="https://www.unicornpopcorn.com.tw/" target="_blank">UNICORN</a></li>
+
+        </ul>
+      </li>
+      <li><a href="../event/index.aspx" class="footerFirst">活動公告</a>
+        <ul>
+          <li><a href="../event/news.aspx">影城公告</a></li>
+          <li><a href="../event/index.aspx">影城活動</a></li>
+          <li><a href="../event/prize.aspx">中獎名單</a></li>
+          <li><a href="../event/partner.aspx">合作夥伴</a></li>
+        </ul>
+      </li>
+      <li><a href="../biz/index.aspx">業務專區</a></li>
+      <li><a href="../mall/index.aspx" class="footerFirst">威秀商場</a>
+        <ul>
+          <li><a href="../mall/index.aspx">商家介紹</a></li>
+          <li><a href="../mall/event_list.aspx">商場活動</a></li>
+        </ul>
+      </li>
+      <li><a href="../ishow/index.aspx" class="footerFirst">iShow專區</a>
+        <ul>
+          <!--<li><a href="ishow/card.aspx">加入iShow</a></li>-->
+					<li><a href="https://www.vscinemas.com.tw/ishow/card.aspx">加入iShow</a></li>
+          <!--<li><a href="ishow/exchangeList.aspx">兌點商品</a></li>-->
+          <li><a href="../event/index.aspx?E=1">會員活動</a></li>
+          <li><a href="../qa/qalist.aspx">會員Q&A</a></li>
+        </ul>
+      </li>
+    </ul>
+    <!--版權列-->
+    <address class="copyright">
+      <script type="text/javascript" charset="utf-8" >
+        <!--
+          var twca_cn="www.vscinemas.com.tw";
+        -->
+      </script>
+      <section class="twcaArea">
+          
+				<!--<div id="twcaseal" class="small1 twcaseal"><a href="#"><img src="https://www.vscinemas.com.tw/images/twcaseal.jpg" alt="" border="0" class="twcasealpic"></a></div>-->
+        <div class="small1 twcaseal">
+            <a href="https://ssl2.twca.com.tw/NCWebSSL/certinfo.htm?DNS=www.vscinemas.com.tw&SerialNumber=95579800571918176475715289236529691705" target="_blank">
+          <img src="https://www.vscinemas.com.tw/images/twcaseal.jpg" alt="" border="0" class="twcasealpic"></a></div>
+        <script type="text/javascript" charset="utf-8" src="//ssllogo.twca.com.tw/twcaseal_v3.js"></script>
+        <!--
+					<script type="text/javascript" charset="utf-8" src="//ssllogo.twca.com.tw/twcaseal2_v3.js"></script>
+					<div class="twca"><a href="https://ssl2.twca.com.tw/NCWebSSL/certinfo.htm?DNS=www.vscinemas.com.tw&amp;SerialNumber=95538262197041383913239949513363445874" target="_blank">
+          <img src="https://www.vscinemas.com.tw/images/MINI.GIF" border="0" alt=""></a></div>
+				-->
+      </section>
+      <p>Copyright &copy 2016 威秀影城 VIESHOW Cinemas. All Rights Reserved.</p>
+      <ul class="addressLink">
+
+        <li><a href="../about/index.aspx?A=1">關於威秀</a></li>
+
+        <li><a href="../about/recruit.aspx">人才招募</a></li>
+        <li><a href="https://www.vscinemas.com.tw/qa/InvoiceInfo.aspx">電子發票</a></li>
+        <li><a href="../about/privacy.aspx">隱私權政策</a></li>
+        <li class="open">網站地圖<span class="footerOpen"></span></li>
+      </ul>
+    </address>
+  </div>
+  <div style="text-align:end;padding-right:15px">
+    <p style="font-size:10px;color:#ffffff">V 105347635R10</p>
+  </div>
+</footer>
+
+
+    
+    <div id="browserBar" class="browserBar">
+      <p>您的瀏覽器版本已過時許久，請更新您的瀏覽器以便獲得更好的體驗!</p><a href="http://windows.microsoft.com/zh-tw/internet-explorer/download-ie" target="_blank"><img src="../images/IE.png" alt="下載最新版IE瀏覽器" title="下載最新版IE瀏覽器" class="explore"></a><a href="https://www.google.com/intl/zh-TW/chrome/" target="_blank"><img src="../images/Chrome.png" alt="下載最新版Chrome瀏覽器" title="下載最新版Chrome瀏覽器" class="explore"></a><a href="http://moztw.org/firefox/" target="_b lank"><img src="../images/Firefox.png" alt="下載最新版Firefox瀏覽器" title="下載最新版Firefox瀏覽器" class="explore"></a><a href="http://www.apple.com/tw/safari/" target="_blank"><img src="../images/Safari.png" alt="下載最新版Safari瀏覽器" title="下載最新版Safari瀏覽器" class="explore"></a><a href="http://www.opera.com/zh-tw" target="_blank"><img src="../images/Opera.png" alt="下載最新版Opera瀏覽器" title="下載最新版Opera瀏覽器" class="explore"></a>
+    </div>
+    <div id="browser" class="browserWindow">
+      <section class="browserArea">
+        <h1>很抱歉!</h1><a href="#" onclick="closePopup()" id="close" class="icon-delete"></a>
+        <section class="group">
+          <p>您的瀏覽器版本已過時許久，威秀影城無法支援您的版本，請更新您的瀏覽器以便獲得更好的動畫瀏覽體驗!</p>
+          <p>若您開啟相容性，請關閉相容性即可瀏覽!</p>
+          <section class="helf">
+            <p class="note">如果您是Windows XP使用者，建議您安裝:</p><a href="https://www.google.com/intl/zh-TW/chrome/" target="_blank"><img src="../images/Chrome.png" alt="下載最新版Chrome瀏覽器" title="下載最新版Chrome瀏覽器" class="explore"></a><a href="http://moztw.org/firefox/" target="_b lank"><img src="../images/Firefox.png" alt="下載最新版Firefox瀏覽器" title="下載最新版Firefox瀏覽器" class="explore"></a><a href="http://www.apple.com/tw/safari/" target="_blank"><img src="../images/Safari.png" alt="下載最新版Safari瀏覽器" title="下載最新版Safari瀏覽器" class="explore"></a><a href="http://www.opera.com/zh-tw" target="_blank"><img src="../images/Opera.png" alt="下載最新版Opera瀏覽器" title="下載最新版Opera瀏覽器" class="explore"></a>
+          </section>
+          <section class="helf">
+            <p class="note">如果您是Windows Vista / 7使用者，建議您安裝:</p><a href="http://windows.microsoft.com/zh-tw/internet-explorer/download-ie" target="_blank"><img src="../images/IE.png" alt="下載最新版IE瀏覽器" title="下載最新版IE瀏覽器" class="explore"></a><a href="https://www.google.com/intl/zh-TW/chrome/" target="_blank"><img src="../images/Chrome.png" alt="下載最新版Chrome瀏覽器" title="下載最新版Chrome瀏覽器" class="explore"></a><a href="http://moztw.org/firefox/" target="_b lank"><img src="../images/Firefox.png" alt="下載最新版Firefox瀏覽器" title="下載最新版Firefox瀏覽器" class="explore"></a><a href="http://www.apple.com/tw/safari/" target="_blank"><img src="../images/Safari.png" alt="下載最新版Safari瀏覽器" title="下載最新版Safari瀏覽器" class="explore"></a><a href="http://www.opera.com/zh-tw" target="_blank"><img src="../images/Opera.png" alt="下載最新版Opera瀏覽器" title="下載最新版Opera瀏覽器" class="explore"></a>
+          </section>
+        </section>
+      </section>
+    </div>
+
+    <!--[if lte IE 8]>
+    <script type="text/javascript">
+        document.getElementById('browserBar').style.visibility='visible';
+        document.getElementById('browser').style.visibility='visible';
+        document.getElementById('close').onclick=closePopup;
+        function closePopup(){
+        document.getElementById('browser').style.visibility='hidden';
+        }
+    </script><![endif]-->
+
+  </body>
+  <script>
+  function goTo() {
+  document.querySelector('#info').scrollIntoView();
+  }
+  </script>
+</html>
