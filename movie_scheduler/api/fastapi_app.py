@@ -6,8 +6,8 @@ from typing import List
 from oauth2client.service_account import ServiceAccountCredentials
 
 load_dotenv()
-CREDENTIALS_PATH = os.getenv("CREDENTIALS_PATH", "credentials.json")
-SPREADSHEET_NAME = os.getenv("SPREADSHEET_NAME", "movie-data")
+CREDENTIALS_PATH = os.getenv("CREDENTIALS_PATH", "/etc/secrets/credentials.json")
+SPREADSHEET_NAME = os.getenv("SPREADSHEET_NAME")
 
 app = FastAPI()
 

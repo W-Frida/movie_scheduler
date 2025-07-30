@@ -9,7 +9,7 @@ __pycache__/
 **/__pycache__/
 
 # Scrapy 暫存
-.crapy/
+.scrapy/
 
 # 敏感資訊
 credentials.json

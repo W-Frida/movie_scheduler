@@ -3,8 +3,10 @@ from moviescraper.run_spiders import run_all_spiders
 from dotenv import load_dotenv
 
 load_dotenv()
-
-UPLOAD_URL = os.getenv('UPLOAD_URL')
+BASE_URL = os.getenv("BASE_URL", "http://localhost:8000")
+UPLOAD_URL = f"{BASE_URL}/upload"
+CREDENTIALS_PATH = os.getenv("CREDENTIALS_PATH", "/etc/secrets/credentials.json")
+SPREADSHEET_NAME = os.getenv("SPREADSHEET_NAME")
 
 def main():
     # 🔥 刪除 data資料夾，清除上一次的所有資料

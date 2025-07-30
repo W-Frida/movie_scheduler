@@ -9,7 +9,6 @@ import json
 class MoviescraperPipeline:
     def __init__(self):
         self.address_map = cinema_address_map
-        self.weekday_map = ['一', '二', '三', '四', '五', '六', '日']
         self.spider_cinema_map = {
             'venice': '威尼斯影城',
             'vs': '威秀影城',
@@ -64,8 +63,7 @@ class MoviescraperPipeline:
                 if dt < today:
                     y += 1
                     dt = datetime(y, m, d).date()
-                weekday = self.weekday_map[dt.weekday()]
-                return f'{dt.strftime("%Y-%m-%d")}({weekday})'
+                return f'{dt.strftime("%Y-%m-%d")}'
 
             except Exception as e:
                 continue
