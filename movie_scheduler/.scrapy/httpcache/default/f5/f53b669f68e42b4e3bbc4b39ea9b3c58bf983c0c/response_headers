@@ -1,8 +1,0 @@
-Server: nginx/1.19.10
-Date: Wed, 11 Jun 2025 08:28:32 GMT
-Content-Type: text/html; charset=utf-8
-X-Powered-By: Next.js
-Etag: "1526-CNLFH1q0XfLDjs0DkTMd2QiwKig"
-Cache-Control: private, no-cache, no-store, max-age=0, must-revalidate
-Vary: Accept-Encoding
-Content-Encoding: gzip
