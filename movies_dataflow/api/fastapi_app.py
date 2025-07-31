@@ -55,6 +55,11 @@ def trigger_update(x_api_key: str = Header(default=None)):
 def home():
     return {"message": "FastAPI is running!"}
 
+# 確認服務是否在線
+@app.get("/healthz")
+def health_check():
+    return {"status": "ok", "timestamp": datetime.datetime.now().isoformat()}
+
 def prepare_rows(items: list) -> list[list[str]]:
     rows = []
     for item in items:
