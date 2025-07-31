@@ -1,6 +1,6 @@
 from dotenv import load_dotenv
 import datetime, re, os, subprocess, gspread
-from fastapi import FastAPI, Header, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from auto_updater import main as run_updater
 from pydantic import BaseModel
 from typing import List
@@ -40,8 +40,9 @@ def upload_data(items: List[MovieItem]):
     return result
 
 @app.post("/trigger-update")
-def trigger_update(x_api_key: str = Header(..., alias="x-api-key")):
-    if not x_api_key or x_api_key != os.getenv("UPDATER_API_KEY"):
+def trigger_update(request: Request):
+    api_key = request.headers.get("x-api-key") or request.headers.get("X-Api-Key")
+    if not api_key or api_key != os.getenv("UPDATER_API_KEY"):
         raise HTTPException(status_code=403, detail="Invalid API key")
 
     try:
