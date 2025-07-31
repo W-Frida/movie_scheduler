@@ -1,7 +1,7 @@
 from dotenv import load_dotenv
 import datetime, re, os, subprocess, gspread
 from fastapi import FastAPI, HTTPException, Request
-from auto_updater import main as run_updater
+# from auto_updater import main as run_updater
 from pydantic import BaseModel
 from typing import List
 from oauth2client.service_account import ServiceAccountCredentials
@@ -46,7 +46,16 @@ def trigger_update(request: Request):
         raise HTTPException(status_code=403, detail="Invalid API key")
 
     try:
-        run_updater() # 🚀 直接觸發 auto_updater 的 main()
+        result = subprocess.run(
+            ["python", "auto_updater.py"],
+            capture_output=True,
+            text=True
+        )
+        print("爬蟲 stdout:\n", result.stdout)
+        print("爬蟲 stderr:\n", result.stderr)
+        if result.returncode != 0:
+            raise RuntimeError(f"爬蟲執行失敗：{result.stderr.strip()}")
+
         return {"status": "success"}
     except Exception as e:
         return {"status": "error", "message": str(e)}
