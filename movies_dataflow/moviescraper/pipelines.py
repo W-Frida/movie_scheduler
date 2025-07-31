@@ -79,6 +79,7 @@ class JsonExportPipeline:
         os.makedirs("data", exist_ok=True)
         with open(f"data/{spider.name}_formated.json", "w", encoding="utf-8") as f:
             json.dump(self.items, f, indent=4, ensure_ascii=False)
+            print(f"{spider.name} cleaned.json saved")
 
     def process_item(self, item, spider):
         self.items.append(dict(item))

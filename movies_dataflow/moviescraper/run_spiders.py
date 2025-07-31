@@ -79,10 +79,6 @@ def _crawl_deferred():
     reactor.stop()
 
 async def run_safe_spiders():
-    # loop = asyncio.get_event_loop()
-    # future = loop.run_in_executor(None, lambda: reactor.run())
-    # _crawl_deferred()  # 直接觸發，不用包進 executor
-    # await future  # 等 `reactor.run()` 完
     print("🌐 已切換為 subprocess 模式，觸發 CLI runner（避免 Twisted reactor.signal 錯誤）")
     try:
         spider_path = Path(__file__).parent / "moviescraper" / "run_spiders.py"
