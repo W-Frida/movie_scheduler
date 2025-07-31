@@ -1,7 +1,6 @@
 from dotenv import load_dotenv
 import datetime, re, os, subprocess, gspread
-from fastapi import FastAPI, HTTPException, Request
-# from auto_updater import main as run_updater
+from fastapi import FastAPI, HTTPException, Request, BackgroundTasks
 from pydantic import BaseModel
 from typing import List
 from oauth2client.service_account import ServiceAccountCredentials
@@ -40,11 +39,15 @@ def upload_data(items: List[MovieItem]):
     return result
 
 @app.post("/trigger-update")
-def trigger_update(request: Request):
+def trigger_update(request: Request, background_tasks: BackgroundTasks):
     api_key = request.headers.get("x-api-key") or request.headers.get("X-Api-Key")
     if not api_key or api_key != os.getenv("UPDATER_API_KEY"):
         raise HTTPException(status_code=403, detail="Invalid API key")
 
+    background_tasks.add_task(run_updater)
+    return {"status": "started"}  # ⏱ 即時回應
+
+def run_updater():
     try:
         result = subprocess.run(
             ["python", "auto_updater.py"],
@@ -55,7 +58,6 @@ def trigger_update(request: Request):
         print("爬蟲 stderr:\n", result.stderr)
         if result.returncode != 0:
             raise RuntimeError(f"爬蟲執行失敗：{result.stderr.strip()}")
-
         return {"status": "success"}
     except Exception as e:
         return {"status": "error", "message": str(e)}

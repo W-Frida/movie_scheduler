@@ -1,5 +1,5 @@
-import json, requests, os, shutil
-from moviescraper.run_spiders import run_all_spiders
+import json, requests, os, shutil, asyncio
+from moviescraper.run_spiders import auto_run_spiders
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -15,7 +15,9 @@ def main():
     os.makedirs('data')
 
     print('🔄 執行爬蟲...')
-    run_all_spiders()
+    result = auto_run_spiders()
+    if asyncio.iscoroutine(result):
+        result = asyncio.run(result)
 
     print('🌐 傳送資料給 FastAPI /upload...')
     try:
