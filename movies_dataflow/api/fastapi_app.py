@@ -40,7 +40,7 @@ def upload_data(items: List[MovieItem]):
     return result
 
 @app.post("/trigger-update")
-def trigger_update(x_api_key: str = Header(default=None)):
+def trigger_update(x_api_key: str = Header(..., alias="x-api-key")):
     if not x_api_key or x_api_key != os.getenv("UPDATER_API_KEY"):
         raise HTTPException(status_code=403, detail="Invalid API key")
 
