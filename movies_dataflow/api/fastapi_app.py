@@ -49,13 +49,13 @@ def trigger_update(request: Request, background_tasks: BackgroundTasks):
 
 def run_updater():
     try:
-        result = subprocess.run(
+        result = subprocess.Popen(
             ["python", "auto_updater.py"],
             capture_output=True,
             text=True
         )
-        print("爬蟲 stdout:\n", result.stdout)
-        print("爬蟲 stderr:\n", result.stderr)
+        # print("爬蟲 stdout:\n", result.stdout)
+        # print("爬蟲 stderr:\n", result.stderr)
         if result.returncode != 0:
             raise RuntimeError(f"爬蟲執行失敗：{result.stderr.strip()}")
         return {"status": "success"}
