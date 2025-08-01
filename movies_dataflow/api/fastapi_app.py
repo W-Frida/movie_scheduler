@@ -5,6 +5,11 @@ from pydantic import BaseModel
 from typing import List
 from oauth2client.service_account import ServiceAccountCredentials
 
+import logging
+from subprocess import PIPE, Popen
+
+logging.basicConfig(level=logging.INFO)
+
 load_dotenv()
 CREDENTIALS_PATH = os.getenv("CREDENTIALS_PATH", "/etc/secrets/credentials.json")
 SPREADSHEET_NAME = os.getenv("SPREADSHEET_NAME")
@@ -44,18 +49,38 @@ def trigger_update(request: Request, background_tasks: BackgroundTasks):
     if not api_key or api_key != os.getenv("UPDATER_API_KEY"):
         raise HTTPException(status_code=403, detail="Invalid API key")
 
-    background_tasks.add_task(run_updater)
+    # background_tasks.add_task(run_updater)
+    background_tasks.add_task(run_script_and_trace, "auto_updater.py")
     return {"status": "started"}  # ⏱ 即時回應
 
-def run_updater():
+
+def run_script_and_trace(script: str, args: list[str] = [], timeout: int = 60) -> dict:
+    cmd = ["python", script] + args
     try:
-        result = subprocess.Popen(
+        proc = Popen(cmd, stdout=PIPE, stderr=PIPE, text=True)
+        stdout, stderr = proc.communicate(timeout=timeout)
+
+        logging.info(f"📤 STDOUT:\n{stdout}")
+        logging.warning(f"⚠️ STDERR:\n{stderr}")
+        logging.info(f"🔚 Return code: {proc.returncode}")
+
+        if proc.returncode != 0:
+            return {"status": "error", "message": stderr.strip()}
+        return {"status": "success", "output": stdout.strip()}
+
+    except Exception as e:
+        logging.error(f"❌ 執行失敗：{str(e)}")
+        return {"status": "error", "message": str(e)}
+
+def run_updater(): # subprocess.run
+    try:
+        result = subprocess.run(
             ["python", "auto_updater.py"],
             capture_output=True,
             text=True
         )
-        # print("爬蟲 stdout:\n", result.stdout)
-        # print("爬蟲 stderr:\n", result.stderr)
+        print("爬蟲 stdout:\n", result.stdout)
+        print("爬蟲 stderr:\n", result.stderr)
         if result.returncode != 0:
             raise RuntimeError(f"資料抓取執行失敗：{result.stderr.strip()}")
         return {"status": "success"}
