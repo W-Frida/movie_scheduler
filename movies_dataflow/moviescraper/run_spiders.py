@@ -12,20 +12,15 @@ from twisted.internet import reactor, defer
 from twisted.internet.error import ReactorNotRestartable
 import logging, time, asyncio, inspect
 
-from moviescraper.spiders.amba import AmbassadorSpider
-from moviescraper.spiders.showTimes import ShowTimeSpider
-from moviescraper.spiders.sk import skSpider
-from moviescraper.spiders.vs import vsSpider
-from moviescraper.spiders.venice import VeniceSpider
-
-from moviescraper.utils.data_merger import merge_cleaned_outputs
+from spiders import amba, showTimes, sk, vs, venice
+from utils.data_merger import merge_cleaned_outputs
 
 SPIDER_MAP = {
-    'amba': AmbassadorSpider,
-    'showtimes': ShowTimeSpider,
-    'sk': skSpider,
-    'vs': vsSpider,
-    'venice': VeniceSpider,
+    'amba': amba.AmbassadorSpider,
+    'showtimes': showTimes.ShowTimeSpider,
+    'sk': sk.skSpider,
+    'vs': vs.vsSpider,
+    'venice': venice.VeniceSpider,
 }
 
 def finish_report(report):
