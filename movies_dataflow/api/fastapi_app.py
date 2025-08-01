@@ -178,7 +178,7 @@ def infer_previous_date(worksheet) -> str:
     except Exception as e:
         print(f"❌ 分頁日期推斷失敗：{e}")
 
-    return "昨日"
+    return "unknown"
 
 # 分頁輪替、命名、清理、防爆炸
 def rotate_movies_worksheet(spreadsheet, keep_latest=2):

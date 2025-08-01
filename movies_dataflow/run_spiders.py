@@ -1,10 +1,15 @@
-import asyncio, sys, subprocess, logging, time
+import asyncio, sys
+
+# ✅ Windows 特殊處理選擇 AsyncioSelectorReactor → 與 Scrapy 相容
 if sys.platform == "win32":
     asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
-    # Windows 一律選擇 AsyncioSelectorReactor → 與 Scrapy 相容
-    from twisted.internet import asyncioreactor
-    asyncioreactor.install(asyncio.get_event_loop())
 
+# ✅ 在任何 Twisted import 之前安裝 reactor
+import scrapy.utils.reactor
+scrapy.utils.reactor.install_reactor("twisted.internet.asyncioreactor.AsyncioSelectorReactor")
+
+
+import subprocess, logging, time
 from pathlib import Path
 from scrapy.crawler import CrawlerProcess, CrawlerRunner
 from scrapy.utils.project import get_project_settings
