@@ -121,11 +121,9 @@ def infer_previous_date(worksheet) -> str:
         date_candidates = []
         for row in rows[1:]:
             if len(row) > date_index:
-                raw = row[date_index].strip().replace("/", "-")
-                cleaned = re.sub(r"[\(（][一二三四五六日天][\)）]", "", raw)
-
+                date_str = row[date_index].strip().replace("/", "-")
                 try:
-                    dt = datetime.datetime.strptime(cleaned, "%Y-%m-%d")
+                    dt = datetime.datetime.strptime(date_str, "%Y-%m-%d")
                     date_candidates.append(dt)
                 except:
                     continue
@@ -136,7 +134,7 @@ def infer_previous_date(worksheet) -> str:
     except Exception as e:
         print(f"❌ 分頁日期推斷失敗：{e}")
 
-    return "unknown"
+    return "昨日"
 
 # 分頁輪替、命名、清理、防爆炸
 def rotate_movies_worksheet(spreadsheet, keep_latest=2):
@@ -147,6 +145,8 @@ def rotate_movies_worksheet(spreadsheet, keep_latest=2):
         if ws.title == "movies":
             last_date = infer_previous_date(ws)
             ws.update_title(last_date)
+        elif ws.title == "unknown":
+            spreadsheet.del_worksheet(ws)
         elif is_date_title(ws.title):
             try:
                 date = datetime.datetime.strptime(ws.title.strip(), "%Y-%m-%d")
@@ -156,6 +156,7 @@ def rotate_movies_worksheet(spreadsheet, keep_latest=2):
 
     # 按日期排序，保留最新 keep_latest 個分頁
     for ws, _ in sorted(dated, key=lambda x: x[1])[:-keep_latest]:
+        print(f"🧹 移除分頁：{ws.title}")
         spreadsheet.del_worksheet(ws)
 
     # 🆕 新建最新分頁名稱為 "movies"
