@@ -80,7 +80,7 @@ def run_script_with_ping(script: str, ping_url: str):
             except Exception as e:
                 ping_stats["fail"] += 1
                 logging.warning(f"⚠️ Ping failed: {e}")
-            time.sleep(300)
+            time.sleep(120)
 
     ping_thread = threading.Thread(target=ping_loop, args=(ping_url,))
     ping_thread.start()
