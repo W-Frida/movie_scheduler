@@ -115,21 +115,6 @@ def trace_to_sheet(script_name: str, start_ts: str, end_ts: str, stdout: str, st
     except Exception as e:
         logging.error(f"❌ trace_to_sheet 寫入失敗：{e}")
 
-def run_updater(): # subprocess.run
-    try:
-        result = subprocess.run(
-            ["python", "auto_updater.py"],
-            capture_output=True,
-            text=True
-        )
-        print("爬蟲 stdout:\n", result.stdout)
-        print("爬蟲 stderr:\n", result.stderr)
-        if result.returncode != 0:
-            raise RuntimeError(f"資料抓取執行失敗：{result.stderr.strip()}")
-        return {"status": "success"}
-    except Exception as e:
-        return {"status": "error", "message": str(e)}
-
 # -------------------------------------------------------------
 def prepare_rows(items: list) -> list[list[str]]:
     rows = []
