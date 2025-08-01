@@ -5,7 +5,7 @@ from pydantic import BaseModel
 from typing import List
 from oauth2client.service_account import ServiceAccountCredentials
 
-import logging
+import logging, threading, time, requests
 from subprocess import PIPE, Popen
 
 logging.basicConfig(level=logging.INFO)
@@ -34,7 +34,16 @@ class MovieItem(BaseModel):
     cinema: str
     網址: str
 
+@app.get("/")
+def home():
+    return {"message": "FastAPI is running!"}
 
+# 確認服務是否在線
+@app.get("/healthz")
+def health_check():
+    return {"status": "ok", "timestamp": datetime.datetime.now().isoformat()}
+
+# 傳送資料到 google sheet 儲存
 @app.post("/upload")
 def upload_data(items: List[MovieItem]):
     spreadsheet = get_spreadsheet()
@@ -43,6 +52,7 @@ def upload_data(items: List[MovieItem]):
     result = write_rows(rows, worksheet)
     return result
 
+# 抓取資料並上傳資料到 fastapi
 @app.post("/trigger-update")
 def trigger_update(request: Request, background_tasks: BackgroundTasks):
     api_key = request.headers.get("x-api-key") or request.headers.get("X-Api-Key")
@@ -50,27 +60,60 @@ def trigger_update(request: Request, background_tasks: BackgroundTasks):
         raise HTTPException(status_code=403, detail="Invalid API key")
 
     # background_tasks.add_task(run_updater)
-    background_tasks.add_task(run_script_and_trace, "auto_updater.py")
+    background_tasks.add_task(run_script_with_ping, "auto_updater.py", "https://movies-fastapi-9840.onrender.com/healthz")
     return {"status": "started"}  # ⏱ 即時回應
 
+# --------------------------------------------------------------------------------------------
+# 在背景任務期間 ping Web Service 防止 Render 休眠
+# --------------------------------------------------------------------------------------------
+def run_script_with_ping(script: str, ping_url: str):
+    stop_event = threading.Event()
+    ping_stats = {"success": 0, "fail": 0}
+    start_ts = datetime.datetime.now().isoformat()
 
-def run_script_and_trace(script: str, args: list[str] = [], timeout: int = 60) -> dict:
-    cmd = ["python", script] + args
+    def ping_loop(url: str):
+        while not stop_event.is_set():
+            try:
+                r = requests.get(url, timeout=5)
+                ping_stats["success"] += 1
+                logging.info(f"🌐 Ping {url} - {r.status_code}")
+            except Exception as e:
+                ping_stats["fail"] += 1
+                logging.warning(f"⚠️ Ping failed: {e}")
+            time.sleep(300)
+
+    ping_thread = threading.Thread(target=ping_loop, args=(ping_url,))
+    ping_thread.start()
+
     try:
-        proc = Popen(cmd, stdout=PIPE, stderr=PIPE, text=True)
-        stdout, stderr = proc.communicate(timeout=timeout)
-
+        proc = Popen(["python", script], stdout=PIPE, stderr=PIPE, text=True)
+        stdout, stderr = proc.communicate(timeout=1200)
+        returncode = proc.returncode
         logging.info(f"📤 STDOUT:\n{stdout}")
         logging.warning(f"⚠️ STDERR:\n{stderr}")
-        logging.info(f"🔚 Return code: {proc.returncode}")
+        logging.info(f"🔚 Return code: {returncode}")
+    finally:
+        stop_event.set()
+        ping_thread.join()
+        end_ts = datetime.datetime.now().isoformat()
+        trace_to_sheet(script, start_ts, end_ts, stdout, stderr, returncode, ping_stats)
 
-        if proc.returncode != 0:
-            return {"status": "error", "message": stderr.strip()}
-        return {"status": "success", "output": stdout.strip()}
-
+def trace_to_sheet(script_name: str, start_ts: str, end_ts: str, stdout: str, stderr: str, returncode: int, ping_stats: dict = None):
+    try:
+        sheet = get_spreadsheet()
+        ws = sheet.worksheet("log")  # 確保已建立分頁
+        row = [
+            start_ts,
+            end_ts,
+            script_name,
+            returncode,
+            f"✅ {ping_stats['success']} / ❌ {ping_stats['fail']}" if ping_stats else "",
+            stdout[:300],
+            stderr[:300]
+        ]
+        ws.append_row(row)
     except Exception as e:
-        logging.error(f"❌ 執行失敗：{str(e)}")
-        return {"status": "error", "message": str(e)}
+        logging.error(f"❌ trace_to_sheet 寫入失敗：{e}")
 
 def run_updater(): # subprocess.run
     try:
@@ -86,16 +129,6 @@ def run_updater(): # subprocess.run
         return {"status": "success"}
     except Exception as e:
         return {"status": "error", "message": str(e)}
-
-
-@app.get("/")
-def home():
-    return {"message": "FastAPI is running!"}
-
-# 確認服務是否在線
-@app.get("/healthz")
-def health_check():
-    return {"status": "ok", "timestamp": datetime.datetime.now().isoformat()}
 
 # -------------------------------------------------------------
 def prepare_rows(items: list) -> list[list[str]]:
