@@ -32,7 +32,7 @@ class ShowTimeSpider(scrapy.Spider):
         driver = response.meta['driver']
         try:
             # 等待「影城熱映」分頁本身出現並點擊
-            hot_tab = WebDriverWait(driver, 15).until(
+            hot_tab = WebDriverWait(driver, 10).until(
                 EC.element_to_be_clickable((By.XPATH, '//div[contains(text(), "影城熱映")]'))
             )
             hot_tab.click()
@@ -41,7 +41,7 @@ class ShowTimeSpider(scrapy.Spider):
             return
 
         # 等待「影城選單」出現並點擊
-        WebDriverWait(driver, 15).until(
+        WebDriverWait(driver, 10).until(
             EC.element_to_be_clickable((By.CSS_SELECTOR, 'button.sc-iMTnTL'))
         )
         theater_names = [
@@ -58,7 +58,7 @@ class ShowTimeSpider(scrapy.Spider):
                     )
                 )
                 driver.execute_script("arguments[0].click();", theater_btn)
-                WebDriverWait(driver, 15).until(
+                WebDriverWait(driver, 10).until(
                     EC.visibility_of_element_located((By.XPATH, '//span[contains(text(), "月")]'))
                 )
                 date_blocks = driver.find_elements(By.CSS_SELECTOR, 'div.sc-krNlru')[:6]
@@ -70,7 +70,7 @@ class ShowTimeSpider(scrapy.Spider):
                     driver.execute_script('arguments[0].click()', date_block)
 
                     # 擷取電影名稱與場次
-                    WebDriverWait(driver, 15).until(
+                    WebDriverWait(driver, 10).until(
                         EC.presence_of_element_located((By.CLASS_NAME, "sc-EgOXT"))
                     )
 

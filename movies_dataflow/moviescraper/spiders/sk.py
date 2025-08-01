@@ -29,7 +29,7 @@ class skSpider(scrapy.Spider):
 
     def parse(self, response):
         driver = response.meta['driver']
-        WebDriverWait(driver, 30).until(EC.visibility_of_element_located((By.CSS_SELECTOR, 'div.route-items')))
+        WebDriverWait(driver, 15).until(EC.visibility_of_element_located((By.CSS_SELECTOR, 'div.route-items')))
 
         # 點擊影城
         for i in range(5):
@@ -41,7 +41,7 @@ class skSpider(scrapy.Spider):
 
             cinema_buttons[i].click()
             try:
-                WebDriverWait(driver, 15).until(
+                WebDriverWait(driver, 10).until(
                     EC.presence_of_element_located((By.CSS_SELECTOR, 'div.movie-sessions-view'))
                 )
             except TimeoutException:

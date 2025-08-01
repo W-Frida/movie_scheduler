@@ -57,7 +57,7 @@ def run_updater():
         # print("爬蟲 stdout:\n", result.stdout)
         # print("爬蟲 stderr:\n", result.stderr)
         if result.returncode != 0:
-            raise RuntimeError(f"爬蟲執行失敗：{result.stderr.strip()}")
+            raise RuntimeError(f"資料抓取執行失敗：{result.stderr.strip()}")
         return {"status": "success"}
     except Exception as e:
         return {"status": "error", "message": str(e)}
@@ -72,6 +72,7 @@ def home():
 def health_check():
     return {"status": "ok", "timestamp": datetime.datetime.now().isoformat()}
 
+# -------------------------------------------------------------
 def prepare_rows(items: list) -> list[list[str]]:
     rows = []
     for item in items:
