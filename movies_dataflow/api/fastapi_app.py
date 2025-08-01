@@ -164,13 +164,13 @@ def infer_previous_date(worksheet) -> str:
 
         date_candidates = []
         for row in rows[1:]:
-            if len(row) > date_index:
-                date_str = row[date_index].strip().replace("/", "-")
-                try:
-                    dt = datetime.datetime.strptime(date_str, "%Y-%m-%d")
-                    date_candidates.append(dt)
-                except:
-                    continue
+            # if len(row) > date_index:
+            date_str = row[date_index].strip().replace("/", "-")
+            try:
+                dt = datetime.datetime.strptime(date_str, "%Y-%m-%d")
+                date_candidates.append(dt)
+            except:
+                continue
 
         if date_candidates:
             return min(date_candidates).strftime("%Y-%m-%d")

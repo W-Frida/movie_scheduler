@@ -1,5 +1,5 @@
 import json, requests, os, shutil, asyncio
-from moviescraper.run_spiders import auto_run_spiders
+from run_spiders import auto_run_spiders
 from dotenv import load_dotenv
 
 load_dotenv()

@@ -1,19 +1,18 @@
-import asyncio, sys, subprocess
+import asyncio, sys, subprocess, logging, time
 if sys.platform == "win32":
     asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
     # Windows 一律選擇 AsyncioSelectorReactor → 與 Scrapy 相容
     from twisted.internet import asyncioreactor
-    asyncioreactor.install()
+    asyncioreactor.install(asyncio.get_event_loop())
 
 from pathlib import Path
 from scrapy.crawler import CrawlerProcess, CrawlerRunner
 from scrapy.utils.project import get_project_settings
 from twisted.internet import reactor, defer
 from twisted.internet.error import ReactorNotRestartable
-import logging, time, asyncio, inspect
 
-from spiders import amba, showTimes, sk, vs, venice
-from utils.data_merger import merge_cleaned_outputs
+from moviescraper.spiders import amba, showTimes, sk, vs, venice
+from moviescraper.utils.data_merger import merge_cleaned_outputs
 
 SPIDER_MAP = {
     'amba': amba.AmbassadorSpider,
@@ -76,7 +75,7 @@ def _crawl_deferred():
 async def run_safe_spiders():
     print("🌐 已切換為 subprocess 模式，觸發 CLI runner（避免 Twisted reactor.signal 錯誤）")
     try:
-        spider_path = Path(__file__).resolve().parents[1] / "run_spiders.py"
+        spider_path = Path(__file__)
         result = await asyncio.to_thread(
             subprocess.run,
             ["python", str(spider_path), "--cli", "--source=webhook"]
