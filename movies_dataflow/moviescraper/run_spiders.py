@@ -81,7 +81,7 @@ def _crawl_deferred():
 async def run_safe_spiders():
     print("🌐 已切換為 subprocess 模式，觸發 CLI runner（避免 Twisted reactor.signal 錯誤）")
     try:
-        spider_path = Path(__file__).parent / "moviescraper" / "run_spiders.py"
+        spider_path = Path(__file__).resolve().parents[1] / "moviescraper" / "run_spiders.py"
         result = await asyncio.to_thread(
             subprocess.run,
             ["python", str(spider_path), "--cli", "--source=webhook"]
