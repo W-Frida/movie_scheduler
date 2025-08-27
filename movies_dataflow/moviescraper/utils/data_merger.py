@@ -6,7 +6,7 @@ def merge_cleaned_outputs(folder="data", pattern="*_formated.json", output="all_
 
     for file in Path(folder).glob(pattern):
         if file.name == output:
-            continue  # 🧹 避免合併自己
+            continue
 
         try:
             with open(file, "r", encoding="utf-8") as f:

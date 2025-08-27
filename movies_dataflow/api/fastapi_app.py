@@ -52,14 +52,13 @@ def upload_data(items: List[MovieItem]):
     result = write_rows(rows, worksheet)
     return result
 
-# 抓取資料並上傳資料到 fastapi
+# webhook 入口
 @app.post("/trigger-update")
 def trigger_update(request: Request, background_tasks: BackgroundTasks):
     api_key = request.headers.get("x-api-key") or request.headers.get("X-Api-Key")
     if not api_key or api_key != os.getenv("UPDATER_API_KEY"):
         raise HTTPException(status_code=403, detail="Invalid API key")
 
-    # background_tasks.add_task(run_updater)
     background_tasks.add_task(run_script_with_ping, "auto_updater.py", "https://movies-fastapi-9840.onrender.com/healthz")
     return {"status": "started"}  # ⏱ 即時回應
 
@@ -86,8 +85,14 @@ def run_script_with_ping(script: str, ping_url: str):
     ping_thread.start()
 
     try:
-        proc = Popen(["python", script], stdout=PIPE, stderr=PIPE, text=True)
-        stdout, stderr = proc.communicate(timeout=1200)
+        proc = Popen(["python", script, "--subprocess"], stdout=PIPE, stderr=PIPE, text=True)
+        try:
+            stdout, stderr = proc.communicate(timeout=1200)
+        except subprocess.TimeoutExpired:
+            proc.kill()
+            stdout, stderr = proc.communicate()
+            returncode = -1
+            logging.error("⏱️ Subprocess timeout，已強制終止")
         returncode = proc.returncode
         logging.info(f"📤 STDOUT:\n{stdout}")
         logging.warning(f"⚠️ STDERR:\n{stderr}")
@@ -200,8 +205,11 @@ def rotate_movies_worksheet(spreadsheet, keep_latest=2):
 
     # 按日期排序，保留最新 keep_latest 個分頁
     for ws, _ in sorted(dated, key=lambda x: x[1])[:-keep_latest]:
-        print(f"🧹 移除分頁：{ws.title}")
-        spreadsheet.del_worksheet(ws)
+        try:
+            logging.info(f"🧹 移除分頁：{ws.title}")
+            spreadsheet.del_worksheet(ws)
+        except Exception as e:
+            logging.warning(f"❌ 分頁刪除失敗：{ws.title} → {e}")
 
     # 🆕 新建最新分頁名稱為 "movies"
     new_ws = spreadsheet.add_worksheet(title="movies", rows="30000", cols="26")
