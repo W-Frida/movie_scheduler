@@ -1,11 +1,10 @@
 from dotenv import load_dotenv
-import datetime, re, os, subprocess, gspread
+from api.script_runner import run_batch_script_with_ping
+import datetime, re, os, subprocess, gspread, logging, threading, time, requests
 from fastapi import FastAPI, HTTPException, Request, BackgroundTasks
 from pydantic import BaseModel
 from typing import List
 from oauth2client.service_account import ServiceAccountCredentials
-
-import logging, threading, time, requests
 from subprocess import PIPE, Popen
 
 logging.basicConfig(level=logging.INFO)
@@ -60,7 +59,7 @@ def trigger_update(request: Request, background_tasks: BackgroundTasks):
     if not api_key or api_key != os.getenv("UPDATER_API_KEY"):
         raise HTTPException(status_code=403, detail="Invalid API key")
 
-    background_tasks.add_task(run_script_with_ping, "auto_updater.py", "https://movies-fastapi-9840.onrender.com/healthz")
+    background_tasks.add_task(run_batch_script_with_ping, "spider_executor.py", "https://movies-fastapi-9840.onrender.com/healthz")
     return {"status": "started"}  # ⏱ 即時回應
 
 # --------------------------------------------------------------------------------------------

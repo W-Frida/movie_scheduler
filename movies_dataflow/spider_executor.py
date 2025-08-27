@@ -16,21 +16,26 @@ class SpiderExecutor:
     def __init__(self):
         self.report = {}
 
-    def run(self, mode="cli"):
+    def run(self, mode="cli", spiders=None):
         if mode == "cli":
-            self.run_cli()
+            self.run_cli(spiders)
         elif mode == "async":
-            self.run_async()
+            self.run_async(spiders)
         elif mode == "subprocess":
-            self.run_subprocess()
+            self.run_subprocess(spiders)
         else:
             raise ValueError(f"❌ 不支援的執行模式：{mode}")
 
-    def run_cli(self):
+    def run_cli(self, spiders=None):
         print("🖥️ CLI 模式 → 使用 CrawlerProcess")
         process = CrawlerProcess(get_project_settings())
 
-        for name, spider_cls in SPIDER_MAP.items():
+        selected = spiders or list(SPIDER_MAP.keys())
+        for name in selected:
+            spider_cls = SPIDER_MAP.get(name)
+            if not spider_cls:
+                print(f"⚠️ 未知爬蟲名稱：{name}")
+                continue
             self.report[name] = {'start': time.time()}
             process.crawl(spider_cls)
             print(f"🕷️ 已註冊爬蟲：{name}")
@@ -44,20 +49,27 @@ class SpiderExecutor:
 
         self._finish_report()
 
-    def run_async(self):
+    def run_async(self, spiders=None):
         print("🌐 非同步模式 → 使用 CrawlerRunner")
         from scrapy.utils.reactor import install_reactor
         install_reactor("twisted.internet.asyncioreactor.AsyncioSelectorReactor")
         from twisted.internet import reactor, defer
 
+        selected = spiders or list(SPIDER_MAP.keys())
+
         @defer.inlineCallbacks
         def _run():
             runner = CrawlerRunner(get_project_settings())
 
-            for name, spider_cls in SPIDER_MAP.items():
+            for name in selected:
+                spider_cls = SPIDER_MAP.get(name)
+                if not spider_cls:
+                    print(f"⚠️ 未知爬蟲名稱：{name}")
+                    continue
                 self.report[name] = {'start': time.time()}
                 try:
                     yield runner.crawl(spider_cls)
+                    print(f"✅ {name} 執行完成")
                 except Exception as e:
                     print(f"⚠️ async模式 {name} 執行失敗: {e}")
 
@@ -68,10 +80,13 @@ class SpiderExecutor:
         reactor.run() # 啟動事件循環 → 開始執行 _run() 裡的 yield 任務
 
 
-    def run_subprocess(self):
+    def run_subprocess(self, spiders=None):
         print("🌐 使用 subprocess 包裝 CLI")
         spider_path = Path(__file__)
-        result = subprocess.run([sys.executable, str(spider_path), "--cli"])
+        args = ["--cli"]
+        if spiders:
+            args.append("--targets=" + ",".join(spiders))
+        result = subprocess.run([sys.executable, str(spider_path)] + args)
         if result.returncode != 0:
             print(f"⚠️ subprocess returncode 非 0：{result.returncode}")
         else:
@@ -87,5 +102,12 @@ class SpiderExecutor:
 
 # ✅ subprocess 呼叫入口
 if __name__ == "__main__":
-    mode = "cli"
-    SpiderExecutor().run(mode=mode)
+    import argparse
+    parser = argparse.ArgumentParser(description="執行 Scrapy 爬蟲")
+    parser.add_argument("--mode", default="cli", choices=["cli", "async", "subprocess"])
+    parser.add_argument("--targets", type=str, help="指定爬蟲名稱（用逗號分隔）")
+    args = parser.parse_args()
+
+    spiders = args.targets.split(",") if args.targets else None
+    SpiderExecutor().run(mode=args.mode, spiders=spiders)
+
