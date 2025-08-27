@@ -60,7 +60,7 @@ class MoviescraperPipeline:
             {"pattern": r"(\d{4})年(\d{1,2})月(\d{1,2})日(星期.)", "year":1, "month":2, "day":3},
             {"pattern": r"(\d{1,2})-(\d{1,2})\(.\)", "year": None, "month":1, "day":2},
             {"pattern": r"(\d{1,2})月(\d{1,2})日\(周.\)", "year": None, "month":1, "day":2},
-            {"pattern": r"[^,]+,\s*(\d{4})/(\d{1,2})/(\d{1,2})", "year":1, "month":2, "day":3}
+            {"pattern": r".*?(\d{4})/(\d{1,2})/(\d{1,2})", "year":1, "month":2, "day":3}
         ]
 
         for p in patterns:
@@ -94,7 +94,7 @@ class JsonExportPipeline:
         os.makedirs("data", exist_ok=True)
         with open(f"data/{spider.name}_formated.json", "w", encoding="utf-8") as f:
             json.dump(self.items, f, indent=4, ensure_ascii=False)
-            print(f"{spider.name} cleaned.json saved")
+            print(f"{spider.name}_formated.json saved")
 
     def process_item(self, item, spider):
         self.items.append(dict(item))

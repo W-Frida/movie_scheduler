@@ -33,6 +33,7 @@ class MovieItem(BaseModel):
     city: str
     cinema: str
     網址: str
+    地址: str
 
 @app.get("/")
 def home():
@@ -133,7 +134,8 @@ def prepare_rows(items: list) -> list[list[str]]:
                 item.電影名稱.strip(),
                 item.放映版本.strip(),
                 ", ".join([t.strip() for t in item.時刻表]),
-                item.網址.strip()
+                item.網址.strip(),
+                item.地址.strip()
             ]
             rows.append(row)
         except Exception as e:
@@ -143,11 +145,11 @@ def prepare_rows(items: list) -> list[list[str]]:
 def write_rows(rows: list[list[str]], worksheet) -> dict:
     try:
         # 🧩 定義欄位標頭
-        header = ["地區", "影城", "影院", "日期", "電影名稱", "放映版本", "時刻表", "網址"]
-        worksheet.update("A1:H1", [header])
+        header = ["地區", "影城", "影院", "日期", "電影名稱", "放映版本", "時刻表", "網址", "地址"]
+        worksheet.update("A1:I1", [header])
 
         # 📦 寫入資料從第 2 列開始（根據 rows 長度計算）
-        worksheet.update(f"A2:H{len(rows)+1}", rows)
+        worksheet.update(f"A2:I{len(rows)+1}", rows)
 
         return {"status": "success", "count": len(rows)}
 
