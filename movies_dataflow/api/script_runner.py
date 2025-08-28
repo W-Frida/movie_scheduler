@@ -4,7 +4,8 @@ from subprocess import Popen, PIPE
 from moviescraper.utils.data_merger import merge_cleaned_outputs
 from oauth2client.service_account import ServiceAccountCredentials
 
-SPIDER_BATCHES = [["amba", "vs"], ["venice", "sk", "showtimes"]]
+# SPIDER_BATCHES = [["amba", "vs"], ["venice", "sk", "showtimes"]]
+SPIDER_LIST = ["vs","venice","sk","showtimes","amba"]
 
 # ✅ 環境變數載入
 load_dotenv()
@@ -49,20 +50,13 @@ def run_batch_script_with_ping(script: str, ping_url: str):
     returncode = 0
 
     try:
-        logging.info("🧹 清除並建立 data 資料夾")
+        logging.info("目前進度: 清除並建立 data 資料夾")
         clean_data_folder()
 
-        for batch in SPIDER_BATCHES:
-            target_arg = "--targets=" + ",".join(batch)
-            proc = Popen([sys.executable, script, "--mode=subprocess", target_arg], stdout=PIPE, stderr=PIPE, text=True)
-
-            try:
-                stdout, stderr = proc.communicate(timeout=600)
-            except Exception:
-                proc.kill()
-                stdout, stderr = proc.communicate()
-                returncode = -1
-                logging.error("⏱️ Subprocess timeout，已強制終止")
+        for batch in SPIDER_LIST:
+            # target_arg = "--targets=" + ",".join(batch)
+            proc = Popen([sys.executable, script, "--mode=subprocess", "--targets=" + batch], stdout=PIPE, stderr=PIPE, text=True)
+            stdout, stderr = monitor_subprocess(proc, timeout=1800, ping_url=ping_url)
 
             all_stdout += stdout
             all_stderr += stderr
@@ -72,7 +66,7 @@ def run_batch_script_with_ping(script: str, ping_url: str):
 
         # 最後合併並上傳
         if any(f.endswith("_formated.json") for f in os.listdir("data")):
-            logging.info("📦 合併所有影城資料 → 匯出 all_cleaned.json")
+            logging.info("目前進度: 合併資料 → 匯出 all_cleaned.json")
             merge_cleaned_outputs("data", "*_formated.json", "all_cleaned.json")
 
             try:
@@ -94,6 +88,33 @@ def run_batch_script_with_ping(script: str, ping_url: str):
         ping_thread.join()
         end_ts = datetime.datetime.now().isoformat()
         trace_to_sheet(script, start_ts, end_ts, all_stdout, all_stderr, returncode, ping_stats)
+
+def monitor_subprocess(proc, timeout=1800, ping_url=None):
+    start_time = time.time()
+    stdout, stderr = "", ""
+
+    while True:
+        if proc.poll() is not None:
+            break
+        elapsed = time.time() - start_time
+        if elapsed > timeout:
+            proc.kill()
+            logging.error("⏱️ Subprocess timeout，已強制終止")
+            break
+        if int(elapsed) % 120 == 0 and ping_url:
+            try:
+                r = requests.get(ping_url, timeout=5)
+                logging.info(f"🌐 Ping {ping_url} - {r.status_code}")
+            except Exception as e:
+                logging.warning(f"⚠️ Ping failed: {e}")
+        time.sleep(10)
+
+    try:
+        stdout, stderr = proc.communicate()
+    except Exception as e:
+        logging.error(f"❌ communicate() 失敗：{e}")
+    return stdout, stderr
+
 
 def trace_to_sheet(script_name: str, start_ts: str, end_ts: str, stdout: str, stderr: str, returncode: int, ping_stats: dict = None):
     try:
