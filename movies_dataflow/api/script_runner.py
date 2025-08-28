@@ -64,23 +64,40 @@ def run_batch_script_with_ping(script: str, ping_url: str):
             logging.info(f"📤 STDOUT:\n{stdout}")
             logging.warning(f"⚠️ STDERR:\n{stderr}")
 
-        # 最後合併並上傳
-        if any(f.endswith("_formated.json") for f in os.listdir("data")):
-            logging.info("目前進度: 合併資料 → 匯出 all_cleaned.json")
-            merge_cleaned_outputs("data", "*_formated.json", "all_cleaned.json")
+        # 檢查:在合併前列出所有檔案與筆數
+        logging.info("📋 合併前檢查 JSON 檔案與筆數：")
+        json_summary = []
+        for f in os.listdir("data"):
+            if f.endswith("_formated.json"):
+                path = os.path.join("data", f)
+                try:
+                    with open(path, encoding="utf-8") as file:
+                        items = json.load(file)
+                    count = len(items)
+                    logging.info(f"📦 {f} → {count} 筆")
+                    json_summary.append(f"{f}:{count}")
+                except Exception as e:
+                    logging.warning(f"⚠️ 無法讀取 {f}：{e}")
+                    json_summary.append(f"{f}:讀取失敗")
 
-            try:
-                with open("data/all_cleaned.json", encoding="utf-8") as f:
-                    items = json.load(f)
-                r = requests.post(UPLOAD_URL, json=items)
-                if r.status_code != 200:
-                    logging.warning(f"❌ 上傳失敗：{r.status_code} → {r.text}")
-                else:
-                    logging.info(f"✅ 上傳成功：{r.status_code} → {r.text}")
-            except Exception as e:
-                logging.warning(f"❌ 上傳失敗：{e}")
-        else:
-            logging.warning("⚠️ 無可合併資料，跳過上傳")
+        # 最後合併並上傳
+        for f in os.listdir("data"):
+            if f.endswith("_formated.json"):
+                logging.info("目前進度: 合併資料 → 匯出 all_cleaned.json")
+                merge_cleaned_outputs("data", "*_formated.json", "all_cleaned.json")
+
+                try:
+                    with open("data/all_cleaned.json", encoding="utf-8") as f:
+                        items = json.load(f)
+                    r = requests.post(UPLOAD_URL, json=items)
+                    if r.status_code != 200:
+                        logging.warning(f"❌ 上傳失敗：{r.status_code} → {r.text}")
+                    else:
+                        logging.info(f"✅ 上傳成功：{r.status_code} → {r.text}")
+                except Exception as e:
+                    logging.warning(f"❌ 上傳失敗：{e}")
+            else:
+                logging.warning("⚠️ 無可合併資料，跳過上傳")
 
 
     finally:
