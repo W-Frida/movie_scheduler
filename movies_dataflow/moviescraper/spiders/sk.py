@@ -29,6 +29,7 @@ class skSpider(scrapy.Spider):
 
     def parse(self, response):
         driver = response.meta['driver']
+        self._last_driver = driver  # ✅ 儲存 driver 供 close() 使用
         WebDriverWait(driver, 15).until(EC.visibility_of_element_located((By.CSS_SELECTOR, 'div.route-items')))
 
         # 點擊影城
@@ -76,3 +77,12 @@ class skSpider(scrapy.Spider):
                 item['時刻表'] = showtimes
 
                 yield item
+
+    def close(self, reason):
+        try:
+            driver = getattr(self, "_last_driver", None)
+            if driver:
+                self.logger.info("🧹 關閉 spider 時釋放 Selenium driver")
+                driver.quit()
+        except Exception as e:
+            self.logger.warning(f"⚠️ driver.quit() 失敗：{e}")

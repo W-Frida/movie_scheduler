@@ -30,6 +30,8 @@ class ShowTimeSpider(scrapy.Spider):
 
     def parse(self, response):
         driver = response.meta['driver']
+        self._last_driver = driver  # ✅ 儲存 driver 供 close() 使用
+
         try:
             # 等待「影城熱映」分頁本身出現並點擊
             hot_tab = WebDriverWait(driver, 10).until(
@@ -101,6 +103,15 @@ class ShowTimeSpider(scrapy.Spider):
             except Exception as e:
                 print(f"⚠️ 無法點擊影城 {theater_name} 失敗：{e}")
 
+    def close(self, reason):
+        try:
+            driver = getattr(self, "_last_driver", None)
+            if driver:
+                self.logger.info("🧹 關閉 spider 時釋放 Selenium driver")
+                driver.quit()
+        except Exception as e:
+            self.logger.warning(f"⚠️ driver.quit() 失敗：{e}")
+
 def group_showtimes_by_version_data(version_showtime_pairs):
     grouped =  defaultdict(list)
 
@@ -128,3 +139,4 @@ def extract_showtime_info(movie):
         version_showtime_pairs.append((version_text, showtime_text))
 
     return group_showtimes_by_version_data(version_showtime_pairs)
+
