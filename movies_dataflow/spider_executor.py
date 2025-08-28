@@ -83,7 +83,7 @@ class SpiderExecutor:
     def run_subprocess(self, spiders=None):
         print("🌐 使用 subprocess 包裝 CLI")
         spider_path = Path(__file__)
-        args = ["--cli"]
+        args = ["--mode=cli"]
         if spiders:
             args.append("--targets=" + ",".join(spiders))
         result = subprocess.run([sys.executable, str(spider_path)] + args)
