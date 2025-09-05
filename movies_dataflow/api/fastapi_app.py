@@ -6,6 +6,7 @@ from pydantic import BaseModel
 from typing import List
 from oauth2client.service_account import ServiceAccountCredentials
 from subprocess import PIPE
+from movies_dataflow.auto_updater import main as run_auto_updater
 
 logging.basicConfig(level=logging.INFO)
 
@@ -72,8 +73,8 @@ def trigger_direct_update(request: Request, background_tasks: BackgroundTasks):
         raise HTTPException(status_code=403, detail="Invalid API key")
 
     # ✅ 直接執行 auto_updater.py，不啟用 ping loop
-    background_tasks.add_task(run_direct_updater)
-    return {"status": "started_direct"}  # ⏱ 即時回應
+    background_tasks.add_task(lambda: run_auto_updater(mode="cli", env="prod"))
+    return {"status": "started_auto_updater"}  # ⏱ 即時回應
 
 def run_direct_updater():
     import sys
