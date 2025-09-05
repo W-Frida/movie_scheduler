@@ -80,7 +80,7 @@ def run_direct_updater():
     from subprocess import Popen, PIPE
 
     logging.info("🚀 直接執行 auto_updater.py（無 ping）")
-    proc = Popen([sys.executable, "auto_updater.py"], stdout=PIPE, stderr=PIPE, text=True)
+    proc = Popen([sys.executable, "auto_updater.py", "--mode=cli"], stdout=PIPE, stderr=PIPE, text=True)
     stdout, stderr = proc.communicate()
 
     logging.info(f"📤 STDOUT:\n{stdout}")
