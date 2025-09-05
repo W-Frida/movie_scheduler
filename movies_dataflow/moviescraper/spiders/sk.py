@@ -59,17 +59,20 @@ class skSpider(scrapy.Spider):
 
         for movie in movies:
             date_blocks = movie.css('.day-sessions')
-            for date_block in date_blocks[:3]:
-                version = date_block.css('.film-type::text').get() or '版本未知'
-                date_text = date_block.css('.business-date::text').get()
-                showtimes = date_block.css('.session::text').getall()
+            if not date_blocks:
+                return
+            # for date_block in date_blocks[:3]:
+            date_block = date_blocks[0]
+            version = date_block.css('.film-type::text').get() or '版本未知'
+            date_text = date_block.css('.business-date::text').get()
+            showtimes = date_block.css('.session::text').getall()
 
-                item = MovieItem() # 使用 Item 儲存資料
-                item['影院'] = cinema_name
-                item['網址'] = self.start_urls[0]
-                item['電影名稱'] = movie.css('.film-name::text').get()
-                item['放映版本'] = version
-                item['日期'] = date_text.strip().replace(' ', '') or '日期未知'
-                item['時刻表'] = showtimes
+            item = MovieItem() # 使用 Item 儲存資料
+            item['影院'] = cinema_name
+            item['網址'] = self.start_urls[0]
+            item['電影名稱'] = movie.css('.film-name::text').get()
+            item['放映版本'] = version
+            item['日期'] = date_text.strip().replace(' ', '') or '日期未知'
+            item['時刻表'] = showtimes
 
-                yield item
+            yield item

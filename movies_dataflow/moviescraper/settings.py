@@ -86,7 +86,7 @@ AUTOTHROTTLE_TARGET_CONCURRENCY = 0.5
 # Enable and configure HTTP caching (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html#httpcache-middleware-settings
 HTTPCACHE_ENABLED = True
-HTTPCACHE_EXPIRATION_SECS = 86400 #緩存一天 86400
+HTTPCACHE_EXPIRATION_SECS = 10800 # 目前緩存3hr:10800;一天 86400
 #HTTPCACHE_DIR = "httpcache"
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 HTTPCACHE_STORAGE = "scrapy.extensions.httpcache.FilesystemCacheStorage"

@@ -78,26 +78,29 @@ class sbcSpider(scrapy.Spider):
         title_split = self.parse_title_by_suffix(raw_title)
 
         date_blocks = movie_info.css("div.film-showtimes .session")
+        if not date_blocks:
+            return
+        
+        # for date_block in date_blocks[0]:
+        date_block = date_blocks[0]
+        raw_datetimes = date_block.css("div.session-times time::attr(datetime)").getall()
+        date_str = ""
+        time_list = []
 
-        for date_block in date_blocks[:3]:
-            raw_datetimes = date_block.css("div.session-times time::attr(datetime)").getall()
-            date_str = ""
-            time_list = []
+        for raw_dt in raw_datetimes:
+            dt_obj = datetime.strptime(raw_dt, "%Y-%m-%dT%H:%M:%S")
+            date_str = dt_obj.strftime("%Y-%m-%d")
+            time_list.append(dt_obj.strftime("%H:%M"))
 
-            for raw_dt in raw_datetimes:
-                dt_obj = datetime.strptime(raw_dt, "%Y-%m-%dT%H:%M:%S")
-                date_str = dt_obj.strftime("%Y-%m-%d")
-                time_list.append(dt_obj.strftime("%H:%M"))
+        item = MovieItem()
+        item['影院'] = '星橋國際影城'
+        item['網址'] = self.url
+        item['電影名稱'] = title_split["電影名稱"]
+        item['放映版本'] = title_split["放映版本"]
+        item['日期'] = date_str if date_str else "未知日期"
+        item['時刻表'] = time_list
 
-            item = MovieItem()
-            item['影院'] = '星橋國際影城'
-            item['網址'] = self.url
-            item['電影名稱'] = title_split["電影名稱"]
-            item['放映版本'] = title_split["放映版本"]
-            item['日期'] = date_str if date_str else "未知日期"
-            item['時刻表'] = time_list
-
-            yield item
+        yield item
 
     @staticmethod
     def parse_title_by_suffix(raw_title):

@@ -39,17 +39,20 @@ class VeniceSpider(scrapy.Spider):
         version = match.group(2).strip() if match else '未知版本'
 
         date_blocks = response.css('.show-time')
-        for date_block in date_blocks[:3]:
-            date_text = date_block.css('.showtime-date::text').get()
-            showtimes = date_block.css('.showtime-item label::text').getall()
+        if not date_blocks:
+            return
+        # for date_block in date_blocks[:3]:
+        date_block = date_blocks[0]
+        date_text = date_block.css('.showtime-date::text').get()
+        showtimes = date_block.css('.showtime-item label::text').getall()
 
-            # 使用 Item 儲存資料
-            item = MovieItem()
-            item['影院'] = response.css('title::text').get(default='未知影城').strip()
-            item['網址'] = self.start_urls[0]
-            item['電影名稱'] = movie_name
-            item['放映版本'] = version
-            item['日期'] = date_text.strip().replace(' ', '') if date_text else '未知日期'
-            item['時刻表'] = showtimes if showtimes else ['未知時間']
+        # 使用 Item 儲存資料
+        item = MovieItem()
+        item['影院'] = response.css('title::text').get(default='未知影城').strip()
+        item['網址'] = self.start_urls[0]
+        item['電影名稱'] = movie_name
+        item['放映版本'] = version
+        item['日期'] = date_text.strip().replace(' ', '') if date_text else '未知日期'
+        item['時刻表'] = showtimes if showtimes else ['未知時間']
 
-            yield item
+        yield item

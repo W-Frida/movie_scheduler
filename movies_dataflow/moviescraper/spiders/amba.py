@@ -16,24 +16,24 @@ class AmbassadorSpider(scrapy.Spider):
             relative_url = movie.css('a.poster::attr(href)').get()
 
             if relative_url:
-                yield response.follow(relative_url, self.movieInfo_parse)
+                yield response.follow(relative_url, self.movieTimes_parse)
             else:
                 self.logger.warning('未找到國賓影城的 relative_url，請檢查選擇器')
 
     #從日期搜尋
-    def movieInfo_parse(self, response):
-        date_urls = response.css('#search-bar-page ul.scrollbar li')
+    # def movieInfo_parse(self, response):
+    #     date_urls = response.css('#search-bar-page ul.scrollbar li')
 
-        for date_url in date_urls[:3]:
-            relative_url = date_url.css('a::attr(href)').get()
-            date_text = date_url.css('a::text').get() or '未知日期'
+    #     for date_url in date_urls[:3]:
+    #         relative_url = date_url.css('a::attr(href)').get()
+    #         date_text = date_url.css('a::text').get() or '未知日期'
 
-            yield response.follow(
-                relative_url,
-                self.movieTimes_parse,
-                meta={'date' : date_text},
-                dont_filter=True # ✅ 強制執行，即使 URL 重複
-            )
+    #         yield response.follow(
+    #             relative_url,
+    #             self.movieTimes_parse,
+    #             meta={'date' : date_text},
+    #             dont_filter=True # ✅ 強制執行，即使 URL 重複
+    #         )
 
     #各影院時刻表
     def movieTimes_parse(self, response):
@@ -47,7 +47,8 @@ class AmbassadorSpider(scrapy.Spider):
             item['網址'] = self.start_urls[0]
             item['電影名稱'] = movie_name
             item['放映版本'] = theater.css('p.tag-seat::text').get()
-            item['日期'] = response.meta['date']
+            # item['日期'] = response.meta['date']
+            item['日期'] = response.css('#search-bar-page ul.scrollbar li a::text').get()
             item['時刻表'] = theater.css('ul.no-bullet li h6::text').getall()
 
             yield item

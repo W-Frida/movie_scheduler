@@ -65,9 +65,9 @@ class ShowTimeSpider(scrapy.Spider):
                 WebDriverWait(driver, 10).until(
                     EC.visibility_of_element_located((By.XPATH, '//span[contains(text(), "月")]'))
                 )
-                date_blocks = driver.find_elements(By.CSS_SELECTOR, 'div.sc-krNlru')[:3]
+                date_blocks = driver.find_elements(By.CSS_SELECTOR, 'div.sc-krNlru')[:1]
 
-                for d in range(min(3, len(date_blocks))):
+                for d in range(min(1, len(date_blocks))):
                     date_blocks = driver.find_elements(By.CSS_SELECTOR, 'div.sc-krNlru')
                     date_block = date_blocks[d]
 

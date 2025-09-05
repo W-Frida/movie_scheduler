@@ -22,7 +22,6 @@ def upload_to_fastapi(json_path="data/all_cleaned.json", upload_url=None):
     try:
         with open(json_path, encoding="utf-8") as f:
             payload = json.load(f)
-
         res = requests.post(upload_url, json=payload, headers={"Content-Type": "application/json"})
         res.raise_for_status()
         try:
@@ -31,6 +30,7 @@ def upload_to_fastapi(json_path="data/all_cleaned.json", upload_url=None):
             print("⚠️ FastAPI 回傳非 JSON，原始內容：", res.text)
             result = {"status": "error", "message": res.text.strip()}
         print(f'✅ 傳送成功：{res.status_code} / 共 {len(payload)} 筆 → {result}')
+
     except requests.exceptions.HTTPError as http_err:
         print(f'❌ HTTP 錯誤：{http_err}')
         print(f'📄 FastAPI 回傳內容：{res.text[:1000]}')
@@ -64,6 +64,10 @@ def main():
         return
 
     spiders = args.targets.split(",") if args.targets else None
+
+    # 清除緩存
+    shutil.rmtree("httpcache", ignore_errors=True)
+
 
     print(f"目前進度: 清除 data 資料夾")
     clean_data_folder()

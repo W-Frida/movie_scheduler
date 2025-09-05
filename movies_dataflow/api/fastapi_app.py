@@ -49,9 +49,6 @@ def health_check():
 # 傳送資料到 google sheet 儲存
 @app.post("/upload")
 def upload_data(items: List[MovieItem]):
-    for i, item in enumerate(items):
-        print(f"✅ 第 {i} 筆資料 keys：{list(item.dict().keys())}")
-
     spreadsheet = get_spreadsheet()
     worksheet = rotate_movies_worksheet(spreadsheet)  # 每次重命名、刪除、建立分頁
     rows = prepare_rows(items)

@@ -49,17 +49,20 @@ class vsSpider(scrapy.Spider):
                 else:
                     date_blocks = []
 
-                for date_block in date_blocks[:3]:
-                    date_text = date_block.css('h4::text').get()
-                    showtimes = date_block.css('.bookList li a::text').getall()
+                # for date_block in date_blocks[:3]:
+                if not date_blocks:
+                    return
+                date_block = date_blocks[0]
+                date_text = date_block.css('h4::text').get()
+                showtimes = date_block.css('.bookList li a::text').getall()
 
-                    # 使用 Item 儲存資料
-                    item = MovieItem()
-                    item['影院'] = theater_name
-                    item['網址'] = self.start_urls[0]
-                    item['電影名稱'] = response.css('.titleArea h1::text').get()
-                    item['放映版本'] = version.css('.versionFirst::text').get()
-                    item['日期'] = date_text.strip().replace(' ', '')
-                    item['時刻表'] = showtimes
+                # 使用 Item 儲存資料
+                item = MovieItem()
+                item['影院'] = theater_name
+                item['網址'] = self.start_urls[0]
+                item['電影名稱'] = response.css('.titleArea h1::text').get()
+                item['放映版本'] = version.css('.versionFirst::text').get()
+                item['日期'] = date_text.strip().replace(' ', '')
+                item['時刻表'] = showtimes
 
-                    yield item
+                yield item

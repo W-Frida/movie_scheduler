@@ -37,7 +37,7 @@ class VeniceSpider(scrapy.Spider):
         version = match.group(2).strip() if match else '未知版本'
 
         date_blocks = response.css('.show-time')
-        for date_block in date_blocks[:3]:
+        for date_block in date_blocks[0]:
             date_text = date_block.css('.showtime-date::text').get()
             showtimes = date_block.css('.showtime-item label::text').getall()
 
