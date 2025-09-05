@@ -66,7 +66,7 @@ def main(
     print("目前進度: 清除 data 資料夾")
     clean_data_folder()
 
-    print(f"目前進度: 啟動 Scrapy → 模式: {args.mode} / {spiders or '全部'}")
+    print(f"目前進度: 啟動 Scrapy → 模式: {mode} / {spiders or '全部'}")
     SpiderExecutor().run(mode=mode, spiders=spiders)
 
     if dry_run:
