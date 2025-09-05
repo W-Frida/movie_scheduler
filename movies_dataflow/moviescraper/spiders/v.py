@@ -5,34 +5,32 @@ from urllib.parse import urljoin
 from moviescraper.items import MovieItem
 
 class VeniceSpider(scrapy.Spider):
-    name = 'venice'
+    name = 'vn'
     allowed_domains = ['venice-cinemas.com.tw']
-    start_urls = ['https://venice-cinemas.com.tw/movie.php']
+    start_urls = ['https://www.venice-cinemas.com.tw/showtime.php']
 
     def parse(self, response):
-        for movie in response.css('div.movie-list'):
-            relative_url = movie.css('.read-more a::attr(href)').get()
+        try:
+            options = response.css("#search_movie option")
+            for opt in options:
+                msn = opt.css("::attr(value)").get()
+                sn = opt.css("::attr(data-sn)").get()
 
-            if relative_url:
-                yield response.follow(relative_url, self.movie_info_parse)
-            else:
-                self.logger.warning('未找到威尼斯影城的 relative_url，請檢查選擇器')
+                if not msn or not sn:
+                    continue
 
-        # 頁數
-        next_page = response.css('.pagination li.active + li a::attr(href)').get()
-        if next_page is not None:
-            next_page_url = urljoin(response.url, next_page)
-            yield response.follow(next_page_url, callback=self.parse)
+                url = f"https://www.venice-cinemas.com.tw/showtime-view.php?sn={sn}&msn={msn}"
+                yield scrapy.Request(url, callback=self.showtimes_parse)
 
-    # 各放映版本的電影資訊
-    def movie_info_parse(self, response):
-        versionList = response.css('.showtimeBox li a::attr(href)').getall()
-
-        for url in versionList:
-            yield response.follow(url, self.showtimes_parse)
+        except Exception as e:
+            print("找不到 movies 的網址參數")
 
     # 時刻表
     def showtimes_parse(self, response):
+        if response.status == 522:
+            self.logger.warning(f"⚠️ 威尼斯影城: 522 錯誤 → {response.url}")
+            return
+
         raw_movie_name = response.css('.show-time-view h2::text').get()
         match = re.search(r'(.*?)\((.*?)\)', raw_movie_name)
         movie_name = match.group(1).strip() if match else raw_movie_name.strip()
@@ -45,7 +43,7 @@ class VeniceSpider(scrapy.Spider):
 
             # 使用 Item 儲存資料
             item = MovieItem()
-            item['影院'] = response.css('title::text').get(default='未知影城').strip()
+            item['影院'] = '威尼斯影城'
             item['網址'] = self.start_urls[0]
             item['電影名稱'] = movie_name
             item['放映版本'] = version

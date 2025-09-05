@@ -10,6 +10,9 @@ class AmbassadorSpider(scrapy.Spider):
         movies = response.css('#tab1 .cell')
 
         for movie in movies:
+            if movie.css('.title span.close::text').get() is None:
+                continue
+
             relative_url = movie.css('a.poster::attr(href)').get()
 
             if relative_url:
@@ -21,31 +24,30 @@ class AmbassadorSpider(scrapy.Spider):
     def movieInfo_parse(self, response):
         date_urls = response.css('#search-bar-page ul.scrollbar li')
 
-        for date_url in date_urls:
+        for date_url in date_urls[:3]:
             relative_url = date_url.css('a::attr(href)').get()
             date_text = date_url.css('a::text').get() or '未知日期'
 
-            yield response.follow(relative_url, self.movieTimes_parse, meta={
-                'date' : date_text
-            })
+            yield response.follow(
+                relative_url,
+                self.movieTimes_parse,
+                meta={'date' : date_text},
+                dont_filter=True # ✅ 強制執行，即使 URL 重複
+            )
 
     #各影院時刻表
     def movieTimes_parse(self, response):
-        info = response.css('div.movie-info-box')
+        movie_name = response.css('div.movie-info-box h2::text').get()
         theaters = response.css('.theater-box')
 
         for theater in theaters:
-            theater_name = theater.css('h3 a::text').get()
-            version = theater.css('p.tag-seat::text').get()
-            showTimes = theater.css('ul.no-bullet li h6::text').getall()
-
             # 使用 Item 儲存資料
             item = MovieItem()
-            item['影城'] = theater_name
+            item['影院'] = theater.css('h3 a::text').get()
             item['網址'] = self.start_urls[0]
-            item['電影名稱'] = info.css('h2::text').get()
-            item['放映版本'] = version
+            item['電影名稱'] = movie_name
+            item['放映版本'] = theater.css('p.tag-seat::text').get()
             item['日期'] = response.meta['date']
-            item['時刻表'] = showTimes
+            item['時刻表'] = theater.css('ul.no-bullet li h6::text').getall()
 
             yield item

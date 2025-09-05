@@ -1,4 +1,5 @@
 import scrapy
+from datetime import datetime
 from urllib.parse import urljoin
 from moviescraper.items import MovieItem
 
@@ -11,6 +12,12 @@ class vsSpider(scrapy.Spider):
         movies = response.css('section.infoArea')
 
         for movie in movies:
+            # 過濾尚未上映的電影
+            start_date = movie.css('time::text').get()
+            start_dt = datetime.strptime(start_date, "%Y-%m-%d")
+            if start_dt.date() > datetime.now().date():
+                continue
+
             relative_url = movie.css('h2 a::attr(href)').get()
 
             if relative_url:
@@ -42,14 +49,14 @@ class vsSpider(scrapy.Spider):
                 else:
                     date_blocks = []
 
-                for date_block in date_blocks:
+                for date_block in date_blocks[:3]:
                     date_text = date_block.css('h4::text').get()
                     showtimes = date_block.css('.bookList li a::text').getall()
 
                     # 使用 Item 儲存資料
                     item = MovieItem()
-                    item['影城'] = theater_name
-                    item['網址'] = f'{response.url}'
+                    item['影院'] = theater_name
+                    item['網址'] = self.start_urls[0]
                     item['電影名稱'] = response.css('.titleArea h1::text').get()
                     item['放映版本'] = version.css('.versionFirst::text').get()
                     item['日期'] = date_text.strip().replace(' ', '')

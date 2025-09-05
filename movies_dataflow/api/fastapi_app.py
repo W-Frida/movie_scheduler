@@ -1,11 +1,11 @@
 from dotenv import load_dotenv
 from api.script_runner import run_batch_script_with_ping
-import datetime, re, os, subprocess, gspread, logging, threading, time, requests
+import datetime, os, gspread, logging
 from fastapi import FastAPI, HTTPException, Request, BackgroundTasks
 from pydantic import BaseModel
 from typing import List
 from oauth2client.service_account import ServiceAccountCredentials
-from subprocess import PIPE, Popen
+from subprocess import PIPE
 
 logging.basicConfig(level=logging.INFO)
 
@@ -25,7 +25,7 @@ def get_spreadsheet():
 
 class MovieItem(BaseModel):
     電影名稱: str
-    影城: str
+    影院: str
     放映版本: str
     日期: str
     時刻表: List[str]
@@ -33,6 +33,9 @@ class MovieItem(BaseModel):
     cinema: str
     網址: str
     地址: str
+
+    class Config:
+        extra = "forbid"  # 🚫 禁止出現未定義欄位
 
 @app.get("/")
 def home():
@@ -46,6 +49,9 @@ def health_check():
 # 傳送資料到 google sheet 儲存
 @app.post("/upload")
 def upload_data(items: List[MovieItem]):
+    for i, item in enumerate(items):
+        print(f"✅ 第 {i} 筆資料 keys：{list(item.dict().keys())}")
+
     spreadsheet = get_spreadsheet()
     worksheet = rotate_movies_worksheet(spreadsheet)  # 每次重命名、刪除、建立分頁
     rows = prepare_rows(items)
@@ -62,64 +68,9 @@ def trigger_update(request: Request, background_tasks: BackgroundTasks):
     background_tasks.add_task(run_batch_script_with_ping, "spider_executor.py", "https://movies-fastapi-9840.onrender.com/healthz")
     return {"status": "started"}  # ⏱ 即時回應
 
-# --------------------------------------------------------------------------------------------
-# 在背景任務期間 ping Web Service 防止 Render 休眠
-# --------------------------------------------------------------------------------------------
-def run_script_with_ping(script: str, ping_url: str):
-    stop_event = threading.Event()
-    ping_stats = {"success": 0, "fail": 0}
-    start_ts = datetime.datetime.now().isoformat()
 
-    def ping_loop(url: str):
-        while not stop_event.is_set():
-            try:
-                r = requests.get(url, timeout=5)
-                ping_stats["success"] += 1
-                logging.info(f"🌐 Ping {url} - {r.status_code}")
-            except Exception as e:
-                ping_stats["fail"] += 1
-                logging.warning(f"⚠️ Ping failed: {e}")
-            time.sleep(120)
-
-    ping_thread = threading.Thread(target=ping_loop, args=(ping_url,))
-    ping_thread.start()
-
-    try:
-        proc = Popen(["python", script, "--subprocess"], stdout=PIPE, stderr=PIPE, text=True)
-        try:
-            stdout, stderr = proc.communicate(timeout=1200)
-        except subprocess.TimeoutExpired:
-            proc.kill()
-            stdout, stderr = proc.communicate()
-            returncode = -1
-            logging.error("⏱️ Subprocess timeout，已強制終止")
-        returncode = proc.returncode
-        logging.info(f"📤 STDOUT:\n{stdout}")
-        logging.warning(f"⚠️ STDERR:\n{stderr}")
-        logging.info(f"🔚 Return code: {returncode}")
-    finally:
-        stop_event.set()
-        ping_thread.join()
-        end_ts = datetime.datetime.now().isoformat()
-        trace_to_sheet(script, start_ts, end_ts, stdout, stderr, returncode, ping_stats)
-
-def trace_to_sheet(script_name: str, start_ts: str, end_ts: str, stdout: str, stderr: str, returncode: int, ping_stats: dict = None):
-    try:
-        sheet = get_spreadsheet()
-        ws = sheet.worksheet("log")  # 確保已建立分頁
-        row = [
-            start_ts,
-            end_ts,
-            script_name,
-            returncode,
-            f"✅ {ping_stats['success']} / ❌ {ping_stats['fail']}" if ping_stats else "",
-            stdout[:300],
-            stderr[:300]
-        ]
-        ws.append_row(row)
-    except Exception as e:
-        logging.error(f"❌ trace_to_sheet 寫入失敗：{e}")
-
+# -------------------------------------------------------------
+# google sheet
 # -------------------------------------------------------------
 def prepare_rows(items: list) -> list[list[str]]:
     rows = []
@@ -128,7 +79,7 @@ def prepare_rows(items: list) -> list[list[str]]:
             row = [
                 item.city.strip(),
                 item.cinema.strip(),
-                item.影城.strip(),
+                item.影院.strip(),
                 item.日期.strip(),
                 item.電影名稱.strip(),
                 item.放映版本.strip(),
@@ -144,7 +95,7 @@ def prepare_rows(items: list) -> list[list[str]]:
 def write_rows(rows: list[list[str]], worksheet) -> dict:
     try:
         # 🧩 定義欄位標頭
-        header = ["地區", "影城", "影院", "日期", "電影名稱", "放映版本", "時刻表", "網址", "地址"]
+        header = ["地區", "cinema", "影院", "日期", "電影名稱", "放映版本", "時刻表", "網址", "地址"]
         worksheet.update("A1:I1", [header])
 
         # 📦 寫入資料從第 2 列開始（根據 rows 長度計算）
@@ -156,65 +107,29 @@ def write_rows(rows: list[list[str]], worksheet) -> dict:
         print(f"❌ 寫入失敗：{e}")
         return {"status": "error", "message": str(e)}
 
-# 動態變更原 movies 表單為日期命名
-def infer_previous_date(worksheet) -> str:
+
+# 分頁複製、重命名、清空movies
+def rotate_movies_worksheet(spreadsheet):
     try:
-        rows = worksheet.get_all_values()
-        if not rows:
-            return "unknown"
-
         try:
-            date_index = rows[0].index("日期")
-        except ValueError:
-            return "unknown"
+            old_backup = spreadsheet.worksheet("pre_movies")
+            logging.info("🧹 移除 pre_movies 分頁")
+            spreadsheet.del_worksheet(old_backup)
+        except Exception as e:
+            pass
 
-        date_candidates = []
-        for row in rows[1:]:
-            # if len(row) > date_index:
-            date_str = row[date_index].strip().replace("/", "-")
-            try:
-                dt = datetime.datetime.strptime(date_str, "%Y-%m-%d")
-                date_candidates.append(dt)
-            except:
-                continue
+        movies_ws = spreadsheet.worksheet("movies")
 
-        if date_candidates:
-            return min(date_candidates).strftime("%Y-%m-%d")
+        logging.info("📦 將 movies 分頁複製並命名為 pre_movies")
+        backup_ws = spreadsheet.duplicate_sheet(movies_ws.id)
+        backup_ws.update_title("pre_movies")
+
+        logging.info("✅ movies 清空")
+        movies_ws.clear()
+
+        return movies_ws
 
     except Exception as e:
-        print(f"❌ 分頁日期推斷失敗：{e}")
+        print(f"❌ 分頁備份與清空失敗：{e}")
+        raise
 
-    return "unknown"
-
-# 分頁輪替、命名、清理、防爆炸
-def rotate_movies_worksheet(spreadsheet, keep_latest=2):
-    # 取得所有分頁並解析日期
-    sheets = spreadsheet.worksheets()
-    dated = []
-    for ws in sheets:
-        if ws.title == "movies":
-            last_date = infer_previous_date(ws)
-            ws.update_title(last_date)
-        elif ws.title == "unknown":
-            spreadsheet.del_worksheet(ws)
-        elif is_date_title(ws.title):
-            try:
-                date = datetime.datetime.strptime(ws.title.strip(), "%Y-%m-%d")
-                dated.append((ws, date))
-            except:
-                continue
-
-    # 按日期排序，保留最新 keep_latest 個分頁
-    for ws, _ in sorted(dated, key=lambda x: x[1])[:-keep_latest]:
-        try:
-            logging.info(f"🧹 移除分頁：{ws.title}")
-            spreadsheet.del_worksheet(ws)
-        except Exception as e:
-            logging.warning(f"❌ 分頁刪除失敗：{ws.title} → {e}")
-
-    # 🆕 新建最新分頁名稱為 "movies"
-    new_ws = spreadsheet.add_worksheet(title="movies", rows="30000", cols="26")
-    return new_ws
-
-def is_date_title(title: str) -> bool:
-    return bool(re.match(r"^\d{4}-\d{2}-\d{2}$", title.strip()))

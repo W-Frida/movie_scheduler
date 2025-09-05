@@ -29,7 +29,6 @@ class skSpider(scrapy.Spider):
 
     def parse(self, response):
         driver = response.meta['driver']
-        self._last_driver = driver  # ✅ 儲存 driver 供 close() 使用
         WebDriverWait(driver, 15).until(EC.visibility_of_element_located((By.CSS_SELECTOR, 'div.route-items')))
 
         # 點擊影城
@@ -55,21 +54,18 @@ class skSpider(scrapy.Spider):
 
 
     def movie_data(self, response):
-        # 提取電影資訊
         cinema_name = response.css('div.route-items .active .title::text').get()
         movies = response.css('div.movie-sessions-view')
 
         for movie in movies:
             date_blocks = movie.css('.day-sessions')
-            versions = []
-
-            for date_block in date_blocks:
+            for date_block in date_blocks[:3]:
                 version = date_block.css('.film-type::text').get() or '版本未知'
                 date_text = date_block.css('.business-date::text').get()
                 showtimes = date_block.css('.session::text').getall()
 
                 item = MovieItem() # 使用 Item 儲存資料
-                item['影城'] = cinema_name
+                item['影院'] = cinema_name
                 item['網址'] = self.start_urls[0]
                 item['電影名稱'] = movie.css('.film-name::text').get()
                 item['放映版本'] = version
@@ -77,12 +73,3 @@ class skSpider(scrapy.Spider):
                 item['時刻表'] = showtimes
 
                 yield item
-
-    def close(self, reason):
-        try:
-            driver = getattr(self, "_last_driver", None)
-            if driver:
-                self.logger.info("🧹 關閉 spider 時釋放 Selenium driver")
-                driver.quit()
-        except Exception as e:
-            self.logger.warning(f"⚠️ driver.quit() 失敗：{e}")

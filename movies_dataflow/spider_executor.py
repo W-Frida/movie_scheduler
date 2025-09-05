@@ -2,7 +2,7 @@ import time, sys, subprocess
 from pathlib import Path
 from scrapy.crawler import CrawlerRunner, CrawlerProcess
 from scrapy.utils.project import get_project_settings
-from moviescraper.spiders import amba, showTimes, sk, vs, venice
+from moviescraper.spiders import amba, showTimes, sk, vs, venice, sbc
 
 SPIDER_MAP = {
     'amba': amba.AmbassadorSpider,
@@ -10,6 +10,7 @@ SPIDER_MAP = {
     'sk': sk.skSpider,
     'vs': vs.vsSpider,
     'venice': venice.VeniceSpider,
+    'sbc': sbc.sbcSpider,
 }
 
 class SpiderExecutor:

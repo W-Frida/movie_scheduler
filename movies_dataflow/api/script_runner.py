@@ -5,7 +5,7 @@ from moviescraper.utils.data_merger import merge_cleaned_outputs
 from oauth2client.service_account import ServiceAccountCredentials
 
 # SPIDER_BATCHES = [["amba", "vs"], ["venice", "sk", "showtimes"]]
-SPIDER_LIST = ["vs","venice","sk","showtimes","amba"]
+SPIDER_LIST = ["vs","venice","sk","showtimes","amba", "sbc"]
 
 # ✅ 環境變數載入
 load_dotenv()

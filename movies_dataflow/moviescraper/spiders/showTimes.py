@@ -9,28 +9,30 @@ from collections import defaultdict
 from moviescraper.items import MovieItem
 
 class ShowTimeSpider(scrapy.Spider):
-    name = 'showtimes'
+    name = "showtimes"
     custom_settings = {
-        'DOWNLOADER_MIDDLEWARES': {
-            'scrapy_selenium4.SeleniumMiddleware': 800,
+        "DOWNLOADER_MIDDLEWARES": {
+            "scrapy_selenium4.SeleniumMiddleware": 800,
         },
-        'SELENIUM_DRIVER_NAME': 'chrome',
-        'SELENIUM_DRIVER_EXECUTABLE_PATH': ChromeDriverManager().install(),
-        'SELENIUM_DRIVER_ARGUMENTS': ["--headless", "--disable-gpu", "--no-sandbox"]
+        "SELENIUM_DRIVER_NAME": "chrome",
+        "SELENIUM_DRIVER_EXECUTABLE_PATH": ChromeDriverManager().install(),
+        "SELENIUM_DRIVER_ARGUMENTS": ["--headless", "--disable-gpu", "--no-sandbox"]
     }
-    allowed_domains = ['showtimes.com.tw']
-    start_urls = ['https://www.showtimes.com.tw/ticketing']
+    allowed_domains = ["showtimes.com.tw"]
 
-    async def start(self):
+    def start_requests(self):
+        self.logger.info("🚀 發送 SeleniumRequest 至秀泰票務頁面")
         yield SeleniumRequest(
-            url = self.start_urls[0],
+            url = "https://www.showtimes.com.tw/ticketing",
             wait_time = 10,
             callback = self.parse,
         )
 
     def parse(self, response):
-        driver = response.meta['driver']
-        self._last_driver = driver  # ✅ 儲存 driver 供 close() 使用
+        driver = response.meta.get("driver")
+        if not driver:
+            self.logger.error("❌ Selenium driver not found in response.meta")
+            return
 
         try:
             # 等待「影城熱映」分頁本身出現並點擊
@@ -63,9 +65,9 @@ class ShowTimeSpider(scrapy.Spider):
                 WebDriverWait(driver, 10).until(
                     EC.visibility_of_element_located((By.XPATH, '//span[contains(text(), "月")]'))
                 )
-                date_blocks = driver.find_elements(By.CSS_SELECTOR, 'div.sc-krNlru')[:6]
+                date_blocks = driver.find_elements(By.CSS_SELECTOR, 'div.sc-krNlru')[:3]
 
-                for d in range(min(6, len(date_blocks))):
+                for d in range(min(3, len(date_blocks))):
                     date_blocks = driver.find_elements(By.CSS_SELECTOR, 'div.sc-krNlru')
                     date_block = date_blocks[d]
 
@@ -91,7 +93,7 @@ class ShowTimeSpider(scrapy.Spider):
 
                             for group in showtime_groups:
                                 item = MovieItem()
-                                item['影城'] = theater_name
+                                item['影院'] = theater_name
                                 item['網址'] = f'{response.url}'
                                 item['電影名稱'] = movie_name
                                 item['放映版本'] = group['放映版本']
@@ -102,15 +104,6 @@ class ShowTimeSpider(scrapy.Spider):
 
             except Exception as e:
                 print(f"⚠️ 無法點擊影城 {theater_name} 失敗：{e}")
-
-    def close(self, reason):
-        try:
-            driver = getattr(self, "_last_driver", None)
-            if driver:
-                self.logger.info("🧹 關閉 spider 時釋放 Selenium driver")
-                driver.quit()
-        except Exception as e:
-            self.logger.warning(f"⚠️ driver.quit() 失敗：{e}")
 
 def group_showtimes_by_version_data(version_showtime_pairs):
     grouped =  defaultdict(list)

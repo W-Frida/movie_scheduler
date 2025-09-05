@@ -15,11 +15,12 @@ class MoviescraperPipeline:
             'vs': '威秀影城',
             'sk': '新光影城',
             'amba': '國賓影城',
-            'showtimes': '秀泰影城'
+            'showtimes': '秀泰影城',
+            'sbc': '星橋國際影城'
         }
 
     def process_item(self, item, spider):
-        address = self.match_city_address(item['影城'])
+        address = self.match_city_address(item['影院'])
         item['地址'] = address
         item['city'] = address[:2]
         item['cinema'] = self.spider_cinema_map.get(spider.name, '未知影城')
@@ -55,6 +56,10 @@ class MoviescraperPipeline:
     def format_date(self, raw_date, spider_name='unknown'):
         date_str = raw_date.strip()
         today = datetime.today().date()
+
+        if re.fullmatch(r"\d{4}-\d{2}-\d{2}", date_str):
+            return date_str
+        
         patterns = [
             {"pattern": r"(\d{4})-(\d{1,2})-(\d{1,2})\(星期.\)", "year":1, "month":2, "day":3},
             {"pattern": r"(\d{4})年(\d{1,2})月(\d{1,2})日(星期.)", "year":1, "month":2, "day":3},
