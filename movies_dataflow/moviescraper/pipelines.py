@@ -3,6 +3,7 @@ from datetime import datetime
 import os, re, json, logging, unicodedata
 from itemadapter import ItemAdapter
 from .utils.cinema_info import cinema_address_map
+from rapidfuzz import fuzz
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.WARNING)
@@ -18,6 +19,7 @@ class MoviescraperPipeline:
             'showtimes': '秀泰影城',
             'sbc': '星橋國際影城'
         }
+        self.title_pool = []
 
     def process_item(self, item, spider):
         address = self.match_city_address(item['影院'])
@@ -46,12 +48,16 @@ class MoviescraperPipeline:
     def normalize_title(self, title):
         # 將全形轉半形（含標點）
         title = unicodedata.normalize('NFKC', title)
-
         # 移除冒號前的空格，確保冒號後有一個空格
-        title = re.sub(r'\s*:\s*', ': ', title)
+        title = re.sub(r'\s*:\s*', ': ', title).strip()
+        # 模糊比對
+        for known in self.title_pool:
+            score = fuzz.token_set_ratio(title, known)
+            if score >= 92:
+                return known
 
-        return title.strip()
-
+        self.title_pool.append(title)
+        return title
 
     def format_date(self, raw_date, spider_name='unknown'):
         date_str = raw_date.strip()
@@ -59,7 +65,7 @@ class MoviescraperPipeline:
 
         if re.fullmatch(r"\d{4}-\d{2}-\d{2}", date_str):
             return date_str
-        
+
         patterns = [
             {"pattern": r"(\d{4})-(\d{1,2})-(\d{1,2})\(星期.\)", "year":1, "month":2, "day":3},
             {"pattern": r"(\d{4})年(\d{1,2})月(\d{1,2})日(星期.)", "year":1, "month":2, "day":3},

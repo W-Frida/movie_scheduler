@@ -4,12 +4,12 @@ from subprocess import Popen, PIPE
 from moviescraper.utils.data_merger import merge_cleaned_outputs
 from oauth2client.service_account import ServiceAccountCredentials
 
-# SPIDER_BATCHES = [["amba", "vs"], ["venice", "sk", "showtimes"]]
+SPIDER_BATCHES = [["amba", "vs", "venice"], ["sbc", "sk", "showtimes"]]
 SPIDER_LIST = ["vs","venice","sk","showtimes","amba", "sbc"]
 
 # ✅ 環境變數載入
 load_dotenv()
-BASE_URL = os.getenv("BASE_URL", "http://localhost:8000")
+BASE_URL = os.getenv("BASE_URL")
 UPLOAD_URL = f"{BASE_URL}/upload"
 CREDENTIALS_PATH = os.getenv("CREDENTIALS_PATH", "/etc/secrets/credentials.json")
 SPREADSHEET_NAME = os.getenv("SPREADSHEET_NAME")
@@ -53,9 +53,10 @@ def run_batch_script_with_ping(script: str, ping_url: str):
         logging.info("目前進度: 清除並建立 data 資料夾")
         clean_data_folder()
 
-        for batch in SPIDER_LIST:
-            # target_arg = "--targets=" + ",".join(batch)
-            proc = Popen([sys.executable, script, "--mode=subprocess", "--targets=" + batch], stdout=PIPE, stderr=PIPE, text=True)
+        # for batch in SPIDER_LIST:
+        for batch in SPIDER_BATCHES:
+            target_arg = ",".join(batch)
+            proc = Popen([sys.executable, script, "--mode=subprocess", "--targets=" + target_arg], stdout=PIPE, stderr=PIPE, text=True)
             stdout, stderr = monitor_subprocess(proc, timeout=1800, ping_url=ping_url)
 
             all_stdout += stdout
@@ -67,6 +68,7 @@ def run_batch_script_with_ping(script: str, ping_url: str):
         # 檢查:在合併前列出所有檔案與筆數
         logging.info("📋 合併前檢查 JSON 檔案與筆數：")
         json_summary = []
+
         for f in os.listdir("data"):
             if f.endswith("_formated.json"):
                 path = os.path.join("data", f)

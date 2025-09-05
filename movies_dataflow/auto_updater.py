@@ -65,10 +65,6 @@ def main():
 
     spiders = args.targets.split(",") if args.targets else None
 
-    # 清除緩存
-    shutil.rmtree("httpcache", ignore_errors=True)
-
-
     print(f"目前進度: 清除 data 資料夾")
     clean_data_folder()
 

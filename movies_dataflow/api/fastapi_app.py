@@ -65,7 +65,26 @@ def trigger_update(request: Request, background_tasks: BackgroundTasks):
     background_tasks.add_task(run_batch_script_with_ping, "spider_executor.py", "https://movies-fastapi-9840.onrender.com/healthz")
     return {"status": "started"}  # ⏱ 即時回應
 
+@app.post("/trigger-direct-update")
+def trigger_direct_update(request: Request, background_tasks: BackgroundTasks):
+    api_key = request.headers.get("x-api-key") or request.headers.get("X-Api-Key")
+    if not api_key or api_key != os.getenv("UPDATER_API_KEY"):
+        raise HTTPException(status_code=403, detail="Invalid API key")
 
+    # ✅ 直接執行 auto_updater.py，不啟用 ping loop
+    background_tasks.add_task(run_direct_updater)
+    return {"status": "started_direct"}  # ⏱ 即時回應
+
+def run_direct_updater():
+    import sys
+    from subprocess import Popen, PIPE
+
+    logging.info("🚀 直接執行 auto_updater.py（無 ping）")
+    proc = Popen([sys.executable, "auto_updater.py"], stdout=PIPE, stderr=PIPE, text=True)
+    stdout, stderr = proc.communicate()
+
+    logging.info(f"📤 STDOUT:\n{stdout}")
+    logging.warning(f"⚠️ STDERR:\n{stderr}")
 # -------------------------------------------------------------
 # google sheet
 # -------------------------------------------------------------
