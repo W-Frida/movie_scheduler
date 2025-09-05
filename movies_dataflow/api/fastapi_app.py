@@ -6,7 +6,7 @@ from pydantic import BaseModel
 from typing import List
 from oauth2client.service_account import ServiceAccountCredentials
 from subprocess import PIPE
-from movies_dataflow.auto_updater import main as run_auto_updater
+from auto_updater import main as run_auto_updater
 
 logging.basicConfig(level=logging.INFO)
 
@@ -76,16 +76,6 @@ def trigger_direct_update(request: Request, background_tasks: BackgroundTasks):
     background_tasks.add_task(lambda: run_auto_updater(mode="cli", env="prod"))
     return {"status": "started_auto_updater"}  # ⏱ 即時回應
 
-def run_direct_updater():
-    import sys
-    from subprocess import Popen, PIPE
-
-    logging.info("🚀 直接執行 auto_updater.py（無 ping）")
-    proc = Popen([sys.executable, "auto_updater.py", "--mode=cli"], stdout=PIPE, stderr=PIPE, text=True)
-    stdout, stderr = proc.communicate()
-
-    logging.info(f"📤 STDOUT:\n{stdout}")
-    logging.warning(f"⚠️ STDERR:\n{stderr}")
 # -------------------------------------------------------------
 # google sheet
 # -------------------------------------------------------------
