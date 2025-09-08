@@ -1,7 +1,6 @@
 # 多個 pipeline 分層架構，並在 settings.py 設定處理優先順序。
 from datetime import datetime
 import os, re, json, logging, unicodedata
-from itemadapter import ItemAdapter
 from .utils.cinema_info import cinema_address_map
 from rapidfuzz import fuzz
 
@@ -47,16 +46,27 @@ class MoviescraperPipeline:
 
     def normalize_title(self, title):
         # 將全形轉半形（含標點）
-        title = unicodedata.normalize('NFKC', title)
-        # 移除冒號前的空格，確保冒號後有一個空格
-        title = re.sub(r'\s*:\s*', ': ', title).strip()
+        title = unicodedata.normalize('NFKC', title)   # 全形轉半形
+        title = re.sub(r'[「」『』“”‘’:：_．・.]', ' ', title)     # 移除中英文符號
+        title = re.sub(r'\s+', ' ', title).strip()     # 合併空格並去除首尾空白
+
         # 模糊比對
         for known in self.title_pool:
-            score = fuzz.token_set_ratio(title, known)
-            if score >= 92:
+            scores = {
+                "token_set": fuzz.token_set_ratio(title, known),
+                "token_sort": fuzz.token_sort_ratio(title, known),
+                "partial": fuzz.partial_ratio(title, known),
+                "ratio": fuzz.ratio(title, known),
+                "wratio": fuzz.WRatio(title, known)
+            }
+            best_score = max(scores.values())
+            if best_score >= 90:
                 return known
+            else:
+                logging.debug(f"🧪 tried: '{title}' vs '{known}' → score={best_score}")
 
         self.title_pool.append(title)
+        logging.warning(f"⚠️ 未比對成功，新增標題：'{title}'")
         return title
 
     def format_date(self, raw_date, spider_name='unknown'):
