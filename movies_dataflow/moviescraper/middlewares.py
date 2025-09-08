@@ -100,11 +100,29 @@ class MoviescraperDownloaderMiddleware:
         spider.logger.info("Spider opened: %s" % spider.name)
 
 class HeaderMiddleware:
+    DEFAULT_HEADERS = {
+        "User-Agent": (
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0.3 Safari/605.1.15"
+        ),
+        "Accept": (
+            "text/html,application/xhtml+xml,application/xml;"
+            "q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8"
+        ),
+        "Accept-Language": "zh-TW,zh;q=0.9,en;q=0.8",
+        # "Accept-Encoding": "gzip, deflate, br",
+        # "Connection": "keep-alive",
+        "Referer": "https://www.venice-cinemas.com.tw/",
+        # "Upgrade-Insecure-Requests": "1",
+        # "Sec-Fetch-Dest": "document",
+        # "Sec-Fetch-Mode": "navigate",
+        # "Sec-Fetch-Site": "same-origin",
+        # "Sec-Fetch-User": "?1",
+    }
+
     def process_request(self, request, spider):
         if spider.name == "venice":
             request.headers.update({
-                "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0.3 Safari/605.1.15",
-                # "Referer": "https://www.venice-cinemas.com.tw/"
+                self.DEFAULT_HEADERS
             })
         elif spider.name == "vs":
             request.headers.update({
