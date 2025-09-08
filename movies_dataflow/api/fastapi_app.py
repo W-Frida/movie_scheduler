@@ -1,9 +1,8 @@
 from dotenv import load_dotenv
-from api.script_runner import run_batch_script_with_ping
 import datetime, os, gspread, logging
 from fastapi import FastAPI, HTTPException, Request, BackgroundTasks
 from pydantic import BaseModel
-from typing import List
+from typing import List, Optional
 from oauth2client.service_account import ServiceAccountCredentials
 from subprocess import PIPE
 from auto_updater import main as run_auto_updater
@@ -38,6 +37,11 @@ class MovieItem(BaseModel):
     class Config:
         extra = "forbid"  # 🚫 禁止出現未定義欄位
 
+class TriggerPayload(BaseModel):
+    mode: Optional[str] = "cli"
+    env: Optional[str] = "prod"
+    targets: Optional[List[str]] = None
+
 @app.get("/")
 def home():
     return {"message": "FastAPI is running!"}
@@ -58,23 +62,23 @@ def upload_data(items: List[MovieItem]):
 
 # webhook 入口
 @app.post("/trigger-update")
-def trigger_update(request: Request, background_tasks: BackgroundTasks):
-    api_key = request.headers.get("x-api-key") or request.headers.get("X-Api-Key")
-    if not api_key or api_key != os.getenv("UPDATER_API_KEY"):
-        raise HTTPException(status_code=403, detail="Invalid API key")
-
-    background_tasks.add_task(run_batch_script_with_ping, "spider_executor.py", "https://movies-fastapi-9840.onrender.com/healthz")
-    return {"status": "started"}  # ⏱ 即時回應
-
-@app.post("/trigger-direct-update")
-def trigger_direct_update(request: Request, background_tasks: BackgroundTasks):
+def trigger_direct_update(payload: TriggerPayload, request: Request, background_tasks: BackgroundTasks):
     api_key = request.headers.get("x-api-key") or request.headers.get("X-Api-Key")
     if not api_key or api_key != os.getenv("UPDATER_API_KEY"):
         raise HTTPException(status_code=403, detail="Invalid API key")
 
     # ✅ 直接執行 auto_updater.py，不啟用 ping loop
-    background_tasks.add_task(lambda: run_auto_updater(mode="cli", env="prod"))
-    return {"status": "started_auto_updater"}  # ⏱ 即時回應
+    background_tasks.add_task(lambda: run_auto_updater(
+        mode=payload.mode,
+        env=payload.env,
+        targets=payload.targets
+    ))
+
+    return {
+        "status": "started_auto_updater",
+        "mode": payload.mode,
+        "targets": payload.targets
+    }
 
 # -------------------------------------------------------------
 # google sheet

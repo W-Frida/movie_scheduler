@@ -37,8 +37,6 @@ def upload_to_fastapi(json_path="data/all_cleaned.json", upload_url=None):
     except Exception as e:
         print(f'❌ 其他錯誤：{e}')
 
-
-
 # ✅ 主執行流程
 def main(
     mode="cli",
@@ -49,12 +47,9 @@ def main(
     env="prod"
 ):
 
-    # ✅ 環境變數載入
     load_dotenv()
     BASE_URL = "http://localhost:8000" if env == "local" else os.getenv("BASE_URL")
     UPLOAD_URL = f"{BASE_URL}/upload"
-    CREDENTIALS_PATH = os.getenv("CREDENTIALS_PATH", "/etc/secrets/credentials.json")
-    SPREADSHEET_NAME = os.getenv("SPREADSHEET_NAME")
 
     if upload_only:
         print("🚀 Upload-only 模式 → 直接傳送 all_cleaned.json 至 FastAPI")
