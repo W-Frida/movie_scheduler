@@ -98,3 +98,36 @@ class MoviescraperDownloaderMiddleware:
 
     def spider_opened(self, spider):
         spider.logger.info("Spider opened: %s" % spider.name)
+
+class HeaderMiddleware:
+    def process_request(self, request, spider):
+        if spider.name == "venice":
+            request.headers.update({
+                "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0.3 Safari/605.1.15",
+                # "Referer": "https://www.venice-cinemas.com.tw/"
+            })
+        elif spider.name == "vs":
+            request.headers.update({
+                "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/604.5.6 (KHTML, like Gecko) Version/11.0.3 Safari/604.5.6",
+                # "Referer": "https://www.vscinemas.com.tw/"
+            })
+        elif spider.name == "amba":
+            request.headers.update({
+                "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0.3 Safari/605.1.15",
+                # "Referer": "https://www.ambassador.com.tw/"
+            })
+        elif spider.name == "sbc":
+            request.headers.update({
+                "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0.3 Safari/605.1.15",
+                # "Referer": "https://www.vscinemas.com.tw/"
+            })
+        elif spider.name == "showtimes":
+            request.headers.update({
+                "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/604.5.6 (KHTML, like Gecko) Version/11.0.3 Safari/604.5.6",
+                # "Referer": "https://www.showtimes.com.tw/"
+            })
+        elif spider.name == "sk":
+            request.headers.update({
+                "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/604.5.6 (KHTML, like Gecko) Version/11.0.3 Safari/604.5.6",
+                # "Referer": "https://www.skcinemas.com/"
+            })
